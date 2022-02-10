@@ -1,0 +1,59 @@
+﻿<Window x:Class="Library2ISP11_17_ZeyArt_DanArt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library2ISP11_17_ZeyArt_DanArt"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow"
+        Height="450"
+		Width="800"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width ="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+        Text="Добро пожаловать"
+        Grid.Column="1"
+        Grid.Row="0"
+           Margin="20"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center" 
+		FontSize="16" 
+		FontWeight="Bold"
+        ></TextBlock>
+        <Button
+            x:Name="Book"
+            Content="Список Книг"
+            Grid.Row="1"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            Margin="24,44"
+            FontSize="14"
+            FontWeight="Bold" Click="Book_Click"
+            
+            />
+        <Button
+            x:Name="Reader"
+            Content="Список Читателей"
+            Grid.Row="1"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            Margin="24,44"
+            FontSize="14"
+            FontWeight="Bold"
+            Grid.Column="1" Click="Reader_Click"            
+            />
+    </Grid>
+</Window>
+

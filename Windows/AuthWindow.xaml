@@ -1,0 +1,98 @@
+﻿<Window x:Class="Library2ISP11_17_ZeyArt_DanArt.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Library2ISP11_17_ZeyArt_DanArt"
+        mc:Ignorable="d"
+        Title="AuthWindow"
+		Height="450"
+		Width="800"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width ="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock
+        Text="Авторизация"
+        Grid.Column="1"
+        Grid.Row="0"
+           Margin="20"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center" 
+		FontSize="16" 
+		FontWeight="Bold"
+        ></TextBlock>
+
+        <TextBlock
+        Text="Введите Логин"
+        Grid.Column="1"
+        Grid.Row="1"
+           Margin="5"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center" 
+            FontSize="14"
+        ></TextBlock>
+
+        <TextBox x:Name="UserLogin"
+            Grid.Row="1"
+            Grid.Column="1"
+             Margin="84,43,80,44"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+				 FontStyle="Italic"
+				 Foreground="#FFBAB8B8" Width="100"
+            />
+
+        <TextBlock
+        Text="Введите Пароль"
+        Grid.Column="1"
+        Grid.Row="2"
+           Margin="5"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center" 
+            FontSize="14"
+        ></TextBlock>
+
+        <TextBox
+            x:Name="UserPassword"
+            Grid.Row="2"
+            Grid.Column="1"
+             Margin="84,44,80,43"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center" FontStyle="Italic" Foreground="#FFBAB8B8" Width="100"
+            />
+
+        <Button
+            x:Name="AuthEnter"
+            Content="Войти"
+            Grid.Column="1"
+            Grid.Row="3"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            Margin="40" FontSize="14" FontWeight="Bold" Click="AuthEnter_Click"
+            />
+        <TextBlock 
+			Text="Забыли пароль?"
+		    HorizontalAlignment ="Center"
+		    VerticalAlignment="Center"
+			FontSize="10"
+			Foreground="Blue"
+			ToolTip="Какая жалость,вспоминай"
+			Grid.Column="1"
+			Grid.Row="3" 
+			Margin="99,81,90,9"
+				   />
+
+    </Grid>
+</Window>
