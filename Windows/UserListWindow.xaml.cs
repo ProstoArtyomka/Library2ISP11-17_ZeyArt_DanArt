@@ -127,5 +127,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 }
             }
         }
+
+        private void listReader_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

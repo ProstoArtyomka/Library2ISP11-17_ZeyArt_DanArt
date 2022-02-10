@@ -36,6 +36,7 @@
         <ListView x:Name="listReader"
                   Grid.Row="3"
                   KeyUp="lvReader_KeyUp"
+                  MouseDoubleClick="listReader_MouseDoubleClick"
                   SelectionChanged="listReader_SelectionChanged">
             <ListView.View>
                 <GridView>

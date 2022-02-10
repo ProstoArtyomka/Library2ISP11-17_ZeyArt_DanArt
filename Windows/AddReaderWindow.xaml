@@ -27,6 +27,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock
+            x:Name="tbTitle"
         Text="Добавление читателя"
             TextAlignment="Center"
         Grid.Row="0"
