@@ -48,7 +48,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         private void listReader_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)
@@ -130,7 +130,17 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         private void listReader_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var editReader = new EF.Client();
+            if (listReader.SelectedItem is EF.Client)
+            {
+                editReader = listReader.SelectedItem as EF.Client;
+            }
 
+            AddReaderWindow addReaderWindow = new AddReaderWindow(editReader);
+            this.Opacity = 0.2;
+            addReaderWindow.ShowDialog();
+            listReader.ItemsSource = AppData.Context.Client.ToList();
+            this.Opacity = 1;
         }
     }
 }

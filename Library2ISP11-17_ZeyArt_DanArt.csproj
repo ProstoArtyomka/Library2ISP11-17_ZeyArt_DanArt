@@ -104,9 +104,6 @@
     <Compile Include="EF\Book.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\BOOKGENRE.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
     <Compile Include="EF\BOOK_GENRE.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>

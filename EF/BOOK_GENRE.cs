@@ -14,8 +14,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
     
     public partial class BOOK_GENRE
     {
-        public int IDBook { get; set; }
-        public string NameGenre { get; set; }
         public string NameBook { get; set; }
+        public string NameGenre { get; set; }
     }
 }

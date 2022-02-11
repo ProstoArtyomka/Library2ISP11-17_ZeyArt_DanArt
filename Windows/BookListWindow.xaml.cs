@@ -127,7 +127,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                                 Filter();
                          }
                      }
-                        catch (System.Exception ex)
+                        catch (Exception ex)
                         {
                             MessageBox.Show(ex.Message.ToString());
                      }

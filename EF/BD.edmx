@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище Library_ZeynetdinovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище Library_ZeynetdinovModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Author">
           <Key>
             <PropertyRef Name="ID" />
@@ -337,7 +337,8 @@
             <End Role="GenreBook" EntitySet="GenreBook" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Library_ZeynetdinovModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -475,13 +476,11 @@
         </EntityType>
         <EntityType Name="BOOK_GENRE">
           <Key>
-            <PropertyRef Name="IDBook" />
-            <PropertyRef Name="NameGenre" />
             <PropertyRef Name="NameBook" />
+            <PropertyRef Name="NameGenre" />
           </Key>
-          <Property Name="IDBook" Type="Int32" Nullable="false" />
+          <Property Name="NameBook" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="NameGenre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="NameBook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_Author_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
@@ -603,7 +602,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Library_ZeynetdinovEntities3" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Library_ZeynetdinovEntities4" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Author" EntityType="Self.Author" />
           <EntitySet Name="AuthorBook" EntityType="Self.AuthorBook" />
           <EntitySet Name="Book" EntityType="Self.Book" />
@@ -686,7 +685,6 @@
             <Parameter Name="new_diagramname" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
-          <EntitySet Name="BOOKGENRE" EntityType="Library_ZeynetdinovModel.BOOKGENRE" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -699,20 +697,12 @@
           <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
           <Property Type="Int32" Name="OwnerID" Nullable="false" />
         </ComplexType>
-        <EntityType Name="BOOKGENRE">
-          <Key>
-            <PropertyRef Name="NameBook" />
-            <PropertyRef Name="NameGenre" />
-          </Key>
-          <Property Name="NameBook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NameGenre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище Library_ZeynetdinovModelContainer" CdmEntityContainer="Library_ZeynetdinovEntities3">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Library_ZeynetdinovModelContainer" CdmEntityContainer="Library_ZeynetdinovEntities4">
           <EntitySetMapping Name="Author">
             <EntityTypeMapping TypeName="Library_ZeynetdinovModel.Author">
               <MappingFragment StoreEntitySet="Author">

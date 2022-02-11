@@ -15,10 +15,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Library_ZeynetdinovEntities3 : DbContext
+    public partial class Library_ZeynetdinovEntities4 : DbContext
     {
-        public Library_ZeynetdinovEntities3()
-            : base("name=Library_ZeynetdinovEntities3")
+        public Library_ZeynetdinovEntities4()
+            : base("name=Library_ZeynetdinovEntities4")
         {
         }
     
@@ -39,7 +39,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         public virtual DbSet<Publishing> Publishing { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<BOOK_GENRE> BOOK_GENRE { get; set; }
-        public virtual DbSet<BOOKGENRE> BOOKGENRE { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
