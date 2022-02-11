@@ -38,7 +38,8 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         public virtual DbSet<GenreBook> GenreBook { get; set; }
         public virtual DbSet<Publishing> Publishing { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
-        public virtual DbSet<BOOK_GENRE> BOOK_GENRE { get; set; }
+        public virtual DbSet<BOOKAUTHOR> BOOKAUTHOR { get; set; }
+        public virtual DbSet<BOOKGENRE> BOOKGENRE { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

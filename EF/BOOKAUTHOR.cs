@@ -12,9 +12,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class BOOK_GENRE
+    public partial class BOOKAUTHOR
     {
         public string NameBook { get; set; }
-        public string NameGenre { get; set; }
+        public string Nickname { get; set; }
     }
 }
