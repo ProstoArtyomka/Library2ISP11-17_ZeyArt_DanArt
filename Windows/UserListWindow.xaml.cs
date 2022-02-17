@@ -24,7 +24,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         List<Client> readerList = new List<Client>();
 
-        List<string> listSort = new List<string>() { "По умолчанию", "По фамилии", "По имени", "По адресу", "По рейтингу" };
+        List<string> listSort = new List<string>() { "По умолчанию", "По фамилии", "По имени", "По адресу", "По рейтингу" , "По статусу удаления" };
 
 
         public UserListWindow()
@@ -68,11 +68,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
             switch (cmbSort.SelectedIndex)
             { 
-                case 0: readerList = readerList.OrderBy(i => i.ID).ToList();
-                    break;
+            case 0:
+                readerList = readerList.OrderBy(i => i.ID).ToList();
+                break;
             case 1:
-                    readerList = readerList.OrderBy(i => i.LastName).ToList();
-                    break;
+                readerList = readerList.OrderBy(i => i.LastName).ToList();
+                break;
             case 2:
                 readerList = readerList.OrderBy(i => i.FirstName).ToList();
                 break;
@@ -81,6 +82,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 break;
             case 4:
                 readerList = readerList.OrderByDescending(i => i.Rating).ToList();
+                break;
+            case 5:
+                readerList = readerList.OrderByDescending(i => i.IsDeleted).ToList();
                 break;
             default:
                 readerList = readerList.OrderBy(i => i.ID).ToList();
@@ -114,7 +118,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                         var resultClick = MessageBox.Show("Вы уверены?", "Подтверите Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
                         if (resultClick == MessageBoxResult.Yes)
                         {
-                            AppData.Context.Client.Remove(item);
+                            //изменение IsDeleted на True
                             AppData.Context.SaveChanges();
                             MessageBox.Show("Пользователь успешно удален", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                             Filter();

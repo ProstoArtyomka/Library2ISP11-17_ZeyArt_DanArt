@@ -25,7 +25,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         List<Book> bookList = new List<Book>();
 
-        List<string> listSort = new List<string>() { "По названию книги", "По издателю", "По году публикации", "По жанру", "По автору", "По кол-ву страниц в книге" };
+        List<string> listSort = new List<string>() { "По умолчанию","По названию книги", "По издателю", "По году публикации", "По жанру", "По автору", "По кол-ву страниц в книге" , "По статусу удаления" };
         public BookListWindow()
         {
             InitializeComponent();
@@ -63,22 +63,28 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             switch (cmbSort.SelectedIndex)
             {
                 case 0:
-                    bookList = bookList.OrderBy(i => i.NameBook).ToList();
+                    bookList = bookList.OrderBy(i => i.ID).ToList();
                     break;
                 case 1:
-                    bookList = bookList.OrderBy(i => i.Publishing.NamePublishing).ToList();
+                    bookList = bookList.OrderBy(i => i.NameBook).ToList();
                     break;
                 case 2:
-                    bookList = bookList.OrderByDescending(i => i.YearOfPublishing).ToList();
+                    bookList = bookList.OrderBy(i => i.Publishing.NamePublishing).ToList();
                     break;
                 case 3:
-                    //bookList = bookList.OrderByDescending(i => i.Genre).ToList();
+                    bookList = bookList.OrderByDescending(i => i.YearOfPublishing).ToList();
                     break;
                 case 4:
-                    //bookList = bookList.OrderByDescending(i => i.Author).ToList();
+                    //bookList = bookList.OrderByDescending(i => i.Genre).ToList();
                     break;
                 case 5:
+                    //bookList = bookList.OrderByDescending(i => i.Author).ToList();
+                    break;
+                case 6:
                     bookList = bookList.OrderByDescending(i => i.NumberOfPages).ToList();
+                    break;
+                case 7:
+                    bookList = bookList.OrderBy(i => i.IsDeleted).ToList();
                     break;
                 default:
                     bookList = bookList.OrderBy(i => i.ID).ToList();
@@ -121,7 +127,8 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                          var resultClick = MessageBox.Show("Вы уверены?", "Подтверите Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
                          if (resultClick == MessageBoxResult.Yes)
                          {
-                                AppData.Context.Book.Remove(item);
+                                
+                                //Изменения IsDeleted на True
                                 AppData.Context.SaveChanges();
                                 MessageBox.Show("Книга успешно удалена", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                                 Filter();

@@ -15,10 +15,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Library_ZeynetdinovEntities4 : DbContext
+    public partial class Library_ZeynetdinovEntities : DbContext
     {
-        public Library_ZeynetdinovEntities4()
-            : base("name=Library_ZeynetdinovEntities4")
+        public Library_ZeynetdinovEntities()
+            : base("name=Library_ZeynetdinovEntities")
         {
         }
     

@@ -46,6 +46,7 @@
                     <GridViewColumn Header="Жанр" Width="100" DisplayMemberBinding="{Binding BOOKGENRE.NameGenre}"/>
                     <GridViewColumn Header="Автор" Width="100" DisplayMemberBinding="{Binding BOOKAUTHOR.Nickname}"/>
                     <GridViewColumn Header="Кол-во страниц в книге" Width="200" DisplayMemberBinding="{Binding NumberOfPages}"/>
+                    <GridViewColumn Header="Статус Удаления" Width="150" DisplayMemberBinding="{Binding IsDeleted}"/>
                 </GridView>
             </ListView.View>
         </ListView>

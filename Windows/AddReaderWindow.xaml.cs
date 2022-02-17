@@ -204,5 +204,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
 
         }
+
+        private void cmbIsDeleted_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

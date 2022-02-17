@@ -13,8 +13,6 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width ="*"/>
-
-
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="48*"/>
@@ -49,6 +47,7 @@
                     <GridViewColumn Header="Рейтинг" Width="60" DisplayMemberBinding="{Binding Rating}"/>
                     <GridViewColumn Header="Адрес" Width="200" DisplayMemberBinding="{Binding Address}"/>
                     <GridViewColumn Header="Пол" Width="150" DisplayMemberBinding="{Binding Gender.NameGender}"/>
+                    <GridViewColumn Header="Статус Удаления" Width="150" DisplayMemberBinding="{Binding IsDeleted}"/>
                 </GridView>
             </ListView.View>
         </ListView>

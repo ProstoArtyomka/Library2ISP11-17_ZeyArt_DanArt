@@ -8,6 +8,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.ClassHelper
 {
     class AppData
     {
-        public static EF.Library_ZeynetdinovEntities4 Context { get; } = new EF.Library_ZeynetdinovEntities4();
+        public static EF.Library_ZeynetdinovEntities Context { get; } = new EF.Library_ZeynetdinovEntities();
     }
 }
