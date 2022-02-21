@@ -43,7 +43,7 @@
                     <GridViewColumn Header="Название книги" Width="100" DisplayMemberBinding="{Binding NameBook}"/>
                     <GridViewColumn Header="Издатель" Width="100" DisplayMemberBinding="{Binding Publishing.NamePublishing}"/>
                     <GridViewColumn Header="Год публикации" Width="100" DisplayMemberBinding="{Binding YearOfPublishing}"/>
-                    <GridViewColumn Header="Жанр" Width="100" DisplayMemberBinding="{Binding BOOKGENRE.NameGenre}"/>
+                    <GridViewColumn Header="Жанр" Width="100" DisplayMemberBinding="{Binding Book.IDBook}"/>
                     <GridViewColumn Header="Автор" Width="100" DisplayMemberBinding="{Binding BOOKAUTHOR.Nickname}"/>
                     <GridViewColumn Header="Кол-во страниц в книге" Width="200" DisplayMemberBinding="{Binding NumberOfPages}"/>
                     <GridViewColumn Header="Статус Удаления" Width="150" DisplayMemberBinding="{Binding IsDeleted}"/>
