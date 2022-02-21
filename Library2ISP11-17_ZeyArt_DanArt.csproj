@@ -149,6 +149,9 @@
     <Compile Include="Windows\BookListWindow.xaml.cs">
       <DependentUpon>BookListWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ExtraditionBookList.xaml.cs">
+      <DependentUpon>ExtraditionBookList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\UserListWindow.xaml.cs">
       <DependentUpon>UserListWindow.xaml</DependentUpon>
     </Compile>
@@ -165,6 +168,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\BookListWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ExtraditionBookList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

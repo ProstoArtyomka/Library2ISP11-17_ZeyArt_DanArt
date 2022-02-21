@@ -54,6 +54,17 @@
             FontWeight="Bold"
             Grid.Column="1" Click="Reader_Click"            
             />
+        <Button
+            x:Name="Extradition"
+            Content="Список Выданных книг"
+            Grid.Row="1"
+            VerticalAlignment="Stretch"
+            HorizontalAlignment="Stretch"
+            Margin="22.778,44.111,25.556,43.778"
+            FontSize="14"
+            FontWeight="Bold"
+            Grid.Column="2" Click="Extradition_Click"            
+            />
     </Grid>
 </Window>
 

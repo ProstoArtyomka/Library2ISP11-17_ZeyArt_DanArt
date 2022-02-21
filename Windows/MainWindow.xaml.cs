@@ -41,5 +41,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt
             mainWindow.Show();
             this.Close();
         }
+
+        private void Extradition_Click(object sender, RoutedEventArgs e)
+        {
+            ExtraditionBookList mainWindow = new ExtraditionBookList();
+            mainWindow.Show();
+            this.Close();
+        }
     }
 }
