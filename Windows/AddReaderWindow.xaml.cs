@@ -1,6 +1,7 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Library2ISP11_17_ZeyArt_DanArt.ClassHelper;
 using Library2ISP11_17_ZeyArt_DanArt.EF;
+using Microsoft.Win32;
 
 namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 {
@@ -23,8 +25,8 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
     public partial class AddReaderWindow : Window
     {
         EF.Client editReader = new EF.Client();
-
         bool isEdit = true;
+        string pathPhoto = null;
 
         public AddReaderWindow()
         {
@@ -39,6 +41,22 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         public AddReaderWindow(EF.Client reader)
         {
             InitializeComponent();
+
+
+            if (reader.Photo != null)
+            {
+                using (MemoryStream stream = new MemoryStream(reader.Photo))
+                {
+                    BitmapImage bitmapImage = new BitmapImage();
+                    bitmapImage.BeginInit();
+                    bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+                    bitmapImage.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
+                    bitmapImage.StreamSource = stream;
+                    bitmapImage.EndInit();
+                    imgUser.Source = bitmapImage;
+                }
+            }
+
 
             cmbGender.ItemsSource = AppData.Context.Gender.ToList();
             cmbGender.DisplayMemberPath = "NameGender";
@@ -145,6 +163,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
+            if (Convert.ToInt32(txtRating.Text) > 9.9)
+            {
+                MessageBox.Show("Рейтинг не может быть больше 9.9", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             if (txtAddress.Text.Length > 150)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Адрес", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -162,15 +186,21 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     editReader.Rating = Convert.ToDecimal(txtRating.Text);
                     editReader.IDGender = cmbGender.SelectedIndex + 1;
                     editReader.Address = txtAddress.Text;
+
+                    if (pathPhoto != null)
+                    {
+                        editReader.Photo = File.ReadAllBytes(pathPhoto);
+                    }
+
                     AppData.Context.SaveChanges();
                     MessageBox.Show("Успех", "Данные пользователя изменены", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
             }
+                catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
             else
             {
                 try
@@ -189,24 +219,41 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                         newReader.IDGender = cmbGender.SelectedIndex + 1;
                         newReader.Address = txtAddress.Text;
 
+                        if (pathPhoto != null)
+                        {
+                            newReader.Photo = File.ReadAllBytes(pathPhoto);
+                        }
+
                         AppData.Context.Client.Add(newReader);
                         AppData.Context.SaveChanges();
 
                         MessageBox.Show("Успех", "Пользователь успешно добавлен", MessageBoxButton.OK, MessageBoxImage.Information);
                         this.Close();
                     }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
             }
+                catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
 
 
         }
 
         private void cmbIsDeleted_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        private void btnChoosePhoto_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == true)
+            {
+                imgUser.Source = new BitmapImage(new Uri(openFileDialog.FileName));
+
+               pathPhoto = openFileDialog.FileName;
+            }
 
         }
     }

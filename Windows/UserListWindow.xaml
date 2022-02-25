@@ -7,7 +7,9 @@
         mc:Ignorable="d"
         Title="UserListWindow"
         Height="450"
-        Width="800"
+        Width="1000"
+        MinHeight="450"
+        MinWidth="1000"
         WindowStartupLocation="CenterScreen"
         >
     <Grid>
@@ -31,12 +33,13 @@
             HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Height="22" Width="207"
             />
 
-        <ListView x:Name="listReader"
+            <ListView x:Name="listReader"
                   Grid.Row="3"
                   KeyUp="lvReader_KeyUp"
                   MouseDoubleClick="listReader_MouseDoubleClick"
-                  SelectionChanged="listReader_SelectionChanged">
-            <ListView.View>
+                  SelectionChanged="listReader_SelectionChanged"
+                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <!--<ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="35" DisplayMemberBinding="{Binding ID}"/>
                     <GridViewColumn Header="Фамилия" Width="100" DisplayMemberBinding="{Binding LastName}"/>
@@ -49,8 +52,101 @@
                     <GridViewColumn Header="Пол" Width="150" DisplayMemberBinding="{Binding Gender.NameGender}"/>
                     <GridViewColumn Header="Статус Удаления" Width="150" DisplayMemberBinding="{Binding IsDeleted}"/>
                 </GridView>
-            </ListView.View>
+            </ListView.View>-->
+
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+                    <Border Background="Brown"
+                         Height="100"
+                         Width="450"
+                         Margin="10"
+                         BorderThickness="1"
+                         CornerRadius="10">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+
+                            <Image x:Name="photoUser"
+                                   Margin="5"
+                            Grid.RowSpan="3">
+                                <Image.Source>
+                                    <Binding Path="Photo">
+                                        <Binding.TargetNullValue>
+                                            C:\Users\IMac9\source\repos\Library2ISP11-17_ZeyArt_DanArt-update1-master\Images\userDef.png
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+
+                            <TextBlock Text="Фамилия"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 10 0"/>
+
+                            <TextBlock Text="Имя"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 35 0" />
+
+                            <TextBlock Text="Телефон"
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 10 0" />
+
+
+                            <TextBlock Text="{Binding Path=LastName}"
+                                       Grid.Column="2"
+                                       Grid.Row="0"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+                            <TextBlock Text="{Binding Path=FirstName}"
+                                       Grid.Column="2"
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+
+                            <TextBlock Text="{Binding Path=Phone}"
+                                       Grid.Column="2"
+                                       Grid.Row="2"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
+
+
         <Button
             x:Name="Back"
             Content="Назад"

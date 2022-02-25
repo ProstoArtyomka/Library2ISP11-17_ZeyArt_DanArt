@@ -41,7 +41,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         {
             ExtraditionList = AppData.Context.Extradition.ToList();
             ExtraditionList = ExtraditionList.
-               Where(i => i.Client.LastName.ToLower().Contains(txtSearch.Text.ToLower()) || i.Client.LastName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+               Where(i => i.Client.LastName.ToLower().Contains(txtSearch.Text.ToLower()) || i.Client.LastName.ToLower() .Contains(txtSearch.Text.ToLower())).ToList();
 
             switch (cmbSort.SelectedIndex)
             {

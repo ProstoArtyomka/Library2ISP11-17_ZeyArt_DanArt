@@ -230,7 +230,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Images\" />
     <Folder Include="Pages\" />
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +258,7 @@
       <DependentUpon>BD.edmx</DependentUpon>
       <LastGenOutput>BD.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\userDef.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

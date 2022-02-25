@@ -25,6 +25,15 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
         </Grid.RowDefinitions>
         <TextBlock
             x:Name="tbTitle"
@@ -112,7 +121,7 @@
         Height="25" 
         />
 
-       
+
         <TextBox 
             x:Name="txtLastName"
             VerticalAlignment="Center"
@@ -208,19 +217,48 @@
             Height="25"
             MaxLength="100">
         </TextBox>
+
+        <!-- Блок с изображением -->
+
+        <Border Grid.Row="9"
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                Grid.RowSpan="7"
+                Margin="36,12,269.556,2.815"
+                Width="150"
+                Height="150"
+                BorderThickness="2"
+                BorderBrush="LightGray"
+                CornerRadius="10">
+            <Image x:Name="imgUser" 
+                   Source="C:\Users\IMac9\source\repos\Library2ISP11-17_ZeyArt_DanArt-update1-master\Images\userDef.png"/>
+        </Border>
+
+        <Button  x:Name="btnChoosePhoto" 
+                 Content="Выбрать изображение"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Right"
+                 FontSize="16"
+                 Grid.Row="12"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 Margin="0 0 10 0"
+                 Width="200"
+                 Height="40"
+                 Click="btnChoosePhoto_Click"/>
+
+        <!-- Кнопка добавить -->
+
         <Button
             x:Name="btAdd"
             Content="Добавить"
-            Grid.Row="10"
+            Grid.Row="16"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             FontWeight="Bold" 
-            Grid.ColumnSpan="2" 
-            Margin="310,11.667,355.556,10"
-            Width="130" Click="btAdd_Click" Height="17" 
+     
+            Width="130" Click="btAdd_Click" Height="23" Margin="45,6.185,280.556,17.037" Grid.RowSpan="2" Grid.Column="1" 
             />
-
-
 
     </Grid>
 </Window>
