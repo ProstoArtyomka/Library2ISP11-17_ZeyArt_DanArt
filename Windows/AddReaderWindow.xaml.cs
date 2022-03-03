@@ -176,7 +176,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             }
             if (isEdit)
             {
-                try
+               try
                 {
                     editReader.LastName = txtLastName.Text;
                     editReader.FirstName = txtFirstName.Text;

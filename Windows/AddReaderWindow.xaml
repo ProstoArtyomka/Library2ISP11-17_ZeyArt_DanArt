@@ -46,7 +46,7 @@
 		FontWeight="Bold"
         Height="30" 
         Grid.ColumnSpan="2" 
-        Margin="209,2,296,10" Width="287"
+        Width="287"
         />
         <TextBlock
         Text="Фамилия"

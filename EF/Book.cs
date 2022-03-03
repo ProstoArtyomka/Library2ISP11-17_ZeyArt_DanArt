@@ -28,6 +28,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         public int YearOfPublishing { get; set; }
         public int NumberOfPages { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
+        public byte[] Preview { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AuthorBook> AuthorBook { get; set; }

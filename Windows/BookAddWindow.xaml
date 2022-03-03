@@ -23,8 +23,21 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+
         </Grid.RowDefinitions>
         <TextBlock
+            x:Name="tbTitle"
         Text="Добавление Книги"
             TextAlignment="Center"
         Grid.Row="0"
@@ -34,7 +47,7 @@
 		FontWeight="Bold"
         Height="30" 
         Grid.ColumnSpan="2" 
-        Margin="190,8,222,15" Width="380"
+Width="380"
         />
         <TextBlock
         Text="Название"
@@ -158,21 +171,47 @@
             FontSize="16"
             Grid.Row="6"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="10,0.667,0,22.444"
             Width="250"
-            Height="25"
-            MaxLength="5" TextChanged="txtNumberOfPages_TextChanged">
+            Height="24"
+            MaxLength="5" TextChanged="txtNumberOfPages_TextChanged" Grid.RowSpan="2">
         </TextBox>
+
+        <Border Grid.Row="7"
+                Grid.ColumnSpan="2"
+                Grid.RowSpan="8"
+                Width="150"
+                Height="150"
+                BorderThickness="2"
+                BorderBrush="LightGray"
+                CornerRadius="10">
+            <Image x:Name="imgBook" 
+                   Source="C:\Users\IMac9\source\repos\Library2ISP11-17_ZeyArt_DanArt-update1-master\Images\bookbg.png"/>
+        </Border>
+
+        <Button  x:Name="btnChoosePhoto" 
+                 Content="Выбрать изображение"
+                 VerticalAlignment="Center"
+                 HorizontalAlignment="Right"
+                 FontSize="16"
+                 Grid.Row="12"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 Margin="0 0 10 0"
+                 Width="200"
+                 Height="40"
+                 Click="btnChoosePhoto_Click"/>
+
+
         <Button
             x:Name="btAdd"
             Content="Добавить"
-            Grid.Row="9"
+            Grid.Row="16"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
             FontWeight="Bold" 
-            Grid.ColumnSpan="2" 
-            Margin="310,11.556,355.556,11.667"
-            Width="130" Click="btAdd_Click" 
+         
+            Width="130" Click="btAdd_Click" Margin="0,3.556,325.556,22.667" Grid.RowSpan="2" Grid.Column="1" 
             />
     </Grid>
 </Window>

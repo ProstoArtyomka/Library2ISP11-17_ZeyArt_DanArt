@@ -140,6 +140,21 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                      }
                  }
             }
-        }        
+        }
+
+        private void listBook_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var editBook = new EF.Book();
+            if (listBook.SelectedItem is EF.Book)
+            {
+                editBook = listBook.SelectedItem as EF.Book;
+            }
+
+            BookAddWindow addReaderWindow = new BookAddWindow(editBook);
+            this.Opacity = 0.2;
+            addReaderWindow.ShowDialog();
+            listBook.ItemsSource = AppData.Context.Book.ToList();
+            this.Opacity = 1;
+        }
     }
 }

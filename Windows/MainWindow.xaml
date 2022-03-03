@@ -9,6 +9,10 @@
         Title="MainWindow"
         Height="450"
 		Width="800"
+        MinHeight="450"
+        MinWidth="1000"
+        MaxHeight="450"
+        MaxWidth="1000"
         >
     <Grid>
         <Grid.ColumnDefinitions>

@@ -36,6 +36,7 @@
           <Property Name="YearOfPublishing" Type="int" Nullable="false" />
           <Property Name="NumberOfPages" Type="int" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" />
+          <Property Name="Preview" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -445,7 +446,7 @@
             <End Role="Genre" EntitySet="Genre" />
             <End Role="GenreBook" EntitySet="GenreBook" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
           <Property Type="Binary" Name="definition" Nullable="true" />
@@ -492,6 +493,7 @@
           <Property Name="YearOfPublishing" Type="Int32" Nullable="false" />
           <Property Name="NumberOfPages" Type="Int32" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="Preview" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="AuthorBook" Relationship="Library_ZeynetdinovModel.FK_AuthorBook_Book" FromRole="Book" ToRole="AuthorBook" />
           <NavigationProperty Name="Publishing" Relationship="Library_ZeynetdinovModel.FK_Book_Publishing" FromRole="Book" ToRole="Publishing" />
           <NavigationProperty Name="Extradition" Relationship="Library_ZeynetdinovModel.FK_Extradition_Book" FromRole="Book" ToRole="Extradition" />
@@ -729,7 +731,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -785,6 +787,7 @@
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="Library_ZeynetdinovModel.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="Preview" ColumnName="Preview" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="NumberOfPages" ColumnName="NumberOfPages" />
                 <ScalarProperty Name="YearOfPublishing" ColumnName="YearOfPublishing" />
@@ -902,7 +905,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
