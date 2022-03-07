@@ -270,10 +270,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         }
 
-        private void cmbIsDeleted_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
 
         private void btnChoosePhoto_Click(object sender, RoutedEventArgs e)
         {
