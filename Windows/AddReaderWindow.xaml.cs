@@ -145,7 +145,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (txtPhone.Text.Length > 12)
+            if (txtPhone.Text.Length > 14)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Телефон", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -163,7 +163,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (Convert.ToInt32(txtRating.Text) > 9.9)
+            if (Convert.ToDouble(txtRating.Text) > 9.9)
             {
                 MessageBox.Show("Рейтинг не может быть больше 9.9", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -178,6 +178,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             {
                try
                 {
+                    //Изменение данных Клиента
                     editReader.LastName = txtLastName.Text;
                     editReader.FirstName = txtFirstName.Text;
                     editReader.Patronymic = txtPatronymic.Text;
@@ -193,7 +194,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     }
 
                     AppData.Context.SaveChanges();
-                    MessageBox.Show("Успех", "Данные пользователя изменены", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Успех", "Данные Клиента изменены", MessageBoxButton.OK, MessageBoxImage.Information);
                     this.Close();
             }
                 catch (Exception ex)
@@ -218,6 +219,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                         newReader.Rating = Convert.ToDecimal(txtRating.Text);
                         newReader.IDGender = cmbGender.SelectedIndex + 1;
                         newReader.Address = txtAddress.Text;
+                        newReader.IsDeleted = false;
 
                         if (pathPhoto != null)
                         {

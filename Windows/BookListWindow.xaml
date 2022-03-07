@@ -94,7 +94,7 @@
                                 <Image.Source>
                                     <Binding Path="Preview">
                                         <Binding.TargetNullValue>
-                                            C:\Users\IMac9\source\repos\Library2ISP11-17_ZeyArt_DanArt-update1-master\Images\bookbg.png
+                                            C:\Users\ARTEM\Source\Repos\Library2ISP11-17_ZeyArt_DanArt\Images\bookbg.png
                                         </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>
@@ -103,42 +103,42 @@
                             <TextBlock Text="Название"
                                        Grid.Column="1"
                                        Grid.Row="0"
-                                       HorizontalAlignment="Right"
+                                       HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        Margin="0 0 10 0"/>
 
                             <TextBlock Text="Издатель"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       HorizontalAlignment="Right"
+                                       HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        Margin="0 0 35 0" />
 
                             <TextBlock Text="Год публикации"
                                        Grid.Column="1"
                                        Grid.Row="2"
-                                       HorizontalAlignment="Right"
+                                       HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        Margin="0 0 0 0" />
 
                             <TextBlock Text="Жанр"
                                        Grid.Column="1"
                                        Grid.Row="3"
-                                       HorizontalAlignment="Right"
+                                       HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        Margin="0 0 23 0"/>
 
                             <TextBlock Text="Автор"
                                        Grid.Column="1"
                                        Grid.Row="4"
-                                       HorizontalAlignment="Right"
+                                       HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        Margin="0 0 12 0"/>
 
                             <TextBlock Text="Кол-во страниц"
                                        Grid.Column="1"
                                        Grid.Row="5"
-                                       HorizontalAlignment="Right"
+                                       HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        Margin="0 0 0 0"/>
 

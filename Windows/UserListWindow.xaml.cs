@@ -119,6 +119,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                         if (resultClick == MessageBoxResult.Yes)
                         {
                             //изменение IsDeleted на True
+                            item.IsDeleted = true;
                             AppData.Context.SaveChanges();
                             MessageBox.Show("Пользователь успешно удален", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                             Filter();

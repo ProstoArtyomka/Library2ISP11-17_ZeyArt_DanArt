@@ -47,7 +47,7 @@
         <TextBox x:Name="UserLogin"
             Grid.Row="1"
             Grid.Column="1"
-             Margin="84,43,80,44"
+             Margin="74,43,70,44"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
 				 FontStyle="Italic"
@@ -68,7 +68,7 @@
             x:Name="UserPassword"
             Grid.Row="2"
             Grid.Column="1"
-             Margin="84,44,80,43"
+             Margin="74,44,70,43"
             VerticalAlignment="Center"
             HorizontalAlignment="Center" FontStyle="Italic" Foreground="#FFBAB8B8" Width="100"
             />

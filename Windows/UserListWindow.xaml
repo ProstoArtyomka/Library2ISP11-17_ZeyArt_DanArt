@@ -35,12 +35,12 @@
             HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Height="22" Width="207"
             />
 
-            <ListView x:Name="listReader"
+        <ListView x:Name="listReader"
                   Grid.Row="3"
                   KeyUp="lvReader_KeyUp"
                   MouseDoubleClick="listReader_MouseDoubleClick"
                   SelectionChanged="listReader_SelectionChanged"
-                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <!--<ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="35" DisplayMemberBinding="{Binding ID}"/>
@@ -55,8 +55,6 @@
                     <GridViewColumn Header="Статус Удаления" Width="150" DisplayMemberBinding="{Binding IsDeleted}"/>
                 </GridView>
             </ListView.View>-->
-
-
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel/>
@@ -78,8 +76,6 @@
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-                              
                             </Grid.ColumnDefinitions>
 
                             <Grid.RowDefinitions>
@@ -91,12 +87,12 @@
                             </Grid.RowDefinitions>
 
                             <Image x:Name="photoUser"
-                                   Margin="5"
-                            Grid.RowSpan="3">
+                                   Margin="0 10 0 0"
+                            Grid.RowSpan="5">
                                 <Image.Source>
                                     <Binding Path="Photo">
                                         <Binding.TargetNullValue>
-                                            C:\Users\IMac9\source\repos\Library2ISP11-17_ZeyArt_DanArt-update1-master\Images\userDef.png
+                                            C:\Users\ARTEM\Source\Repos\Library2ISP11-17_ZeyArt_DanArt\Images\userDef.png
                                         </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>
@@ -159,7 +155,7 @@
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
                                        Margin="10 0 0 0" />
-                            
+
 
                             <TextBlock Text="{Binding Path=Address}"
                                        Grid.Column="2"
@@ -182,8 +178,6 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-
         <Button
             x:Name="Back"
             Content="Назад"

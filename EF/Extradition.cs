@@ -20,6 +20,8 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         public int IDBook { get; set; }
         public int IDClient { get; set; }
         public int IDEmployee { get; set; }
+        public byte[] Photo { get; set; }
+        public Nullable<bool> IsСompleted { get; set; }
     
         public virtual Book Book { get; set; }
         public virtual Client Client { get; set; }

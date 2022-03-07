@@ -140,6 +140,9 @@
     <Compile Include="EF\sysdiagrams.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddExtradutionWindow.xaml.cs">
+      <DependentUpon>AddExtradutionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddReaderWindow.xaml.cs">
       <DependentUpon>AddReaderWindow.xaml</DependentUpon>
     </Compile>
@@ -155,6 +158,10 @@
     <Compile Include="Windows\UserListWindow.xaml.cs">
       <DependentUpon>UserListWindow.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\AddExtradutionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\AddReaderWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -258,6 +265,7 @@
       <DependentUpon>BD.edmx</DependentUpon>
       <LastGenOutput>BD.cs</LastGenOutput>
     </Content>
+    <Resource Include="Images\BookExtradition.jpg" />
     <Resource Include="Images\bookbg.png" />
     <Resource Include="Images\userDef.png" />
   </ItemGroup>

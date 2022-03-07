@@ -127,11 +127,11 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                          var resultClick = MessageBox.Show("Вы уверены?", "Подтверите Удаление", MessageBoxButton.YesNo, MessageBoxImage.Question);
                          if (resultClick == MessageBoxResult.Yes)
                          {
-                                
-                                //Изменения IsDeleted на True
-                                AppData.Context.SaveChanges();
-                                MessageBox.Show("Книга успешно удалена", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
-                                Filter();
+                             //Изменения IsDeleted на True
+                             item.IsDeleted = true;
+                             AppData.Context.SaveChanges();
+                             MessageBox.Show("Книга успешно удалена", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
+                             Filter();
                          }
                      }
                         catch (Exception ex)

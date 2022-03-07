@@ -78,6 +78,8 @@
           <Property Name="IDBook" Type="int" Nullable="false" />
           <Property Name="IDClient" Type="int" Nullable="false" />
           <Property Name="IDEmployee" Type="int" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+          <Property Name="IsСompleted" Type="bit" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -542,6 +544,8 @@
           <Property Name="IDBook" Type="Int32" Nullable="false" />
           <Property Name="IDClient" Type="Int32" Nullable="false" />
           <Property Name="IDEmployee" Type="Int32" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="IsСompleted" Type="Boolean" />
           <NavigationProperty Name="Book" Relationship="Library_ZeynetdinovModel.FK_Extradition_Book" FromRole="Extradition" ToRole="Book" />
           <NavigationProperty Name="Client" Relationship="Library_ZeynetdinovModel.FK_Extradition_Client" FromRole="Extradition" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="Library_ZeynetdinovModel.FK_Extradition_Employee" FromRole="Extradition" ToRole="Employee" />
@@ -832,6 +836,8 @@
           <EntitySetMapping Name="Extradition">
             <EntityTypeMapping TypeName="Library_ZeynetdinovModel.Extradition">
               <MappingFragment StoreEntitySet="Extradition">
+                <ScalarProperty Name="IsСompleted" ColumnName="IsСompleted" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="IDEmployee" ColumnName="IDEmployee" />
                 <ScalarProperty Name="IDClient" ColumnName="IDClient" />
                 <ScalarProperty Name="IDBook" ColumnName="IDBook" />

@@ -231,7 +231,7 @@
                 BorderBrush="LightGray"
                 CornerRadius="10">
             <Image x:Name="imgUser" 
-                   Source="C:\Users\IMac9\source\repos\Library2ISP11-17_ZeyArt_DanArt-update1-master\Images\userDef.png"/>
+                   Source="C:\Users\ARTEM\Source\Repos\Library2ISP11-17_ZeyArt_DanArt\Images\userDef.png"/>
         </Border>
 
         <Button  x:Name="btnChoosePhoto" 
@@ -257,7 +257,12 @@
             HorizontalAlignment="Center"
             FontWeight="Bold" 
      
-            Width="130" Click="btAdd_Click" Height="23" Margin="45,6.185,280.556,17.037" Grid.RowSpan="2" Grid.Column="1" 
+            Width="130" 
+            Click="btAdd_Click"
+            Height="23" 
+            Margin="45,6.185,280.556,17.037"
+            Grid.RowSpan="2"
+            Grid.Column="1" 
             />
 
     </Grid>

@@ -184,6 +184,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             {
                 try
                 {
+                    //Изменение данных Книги
                     editBook.NameBook = txtNameBook.Text;
                     editBook.Publishing.NamePublishing = txtPublishing.Text;
                     editBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
@@ -221,6 +222,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                         //newBook.GenreBook = txtGenre.Text;
                         //newBook.AuthorBook = txtAuthor.Text;
                         newBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
+                        newBook.IsDeleted = false;
 
 
                         if (pathPhoto != null)

@@ -139,17 +139,17 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         private void listExtradition_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            //var editExtradition = new EF.Extradition();
-            //if (listExtradition.SelectedItem is EF.Extradition)
-            //{
-            //    editExtradition = listExtradition.SelectedItem as EF.Extradition;
-            //}
+            var editExtradition = new EF.Extradition();
+            if (listExtradition.SelectedItem is EF.Extradition)
+            {
+                editExtradition = listExtradition.SelectedItem as EF.Extradition;
+            }
 
-            //AddReaderWindow addReaderWindow = new AddReaderWindow(editExtradition);
-            //this.Opacity = 0.2;
-            //addReaderWindow.ShowDialog();
-            //listExtradition.ItemsSource = AppData.Context.Extradition.ToList();
-            //this.Opacity = 1;
+            AddExtradutionWindow extradutionWindow = new AddExtradutionWindow(editExtradition);
+            this.Opacity = 0.2;
+            extradutionWindow.ShowDialog();
+            listExtradition.ItemsSource = AppData.Context.Extradition.ToList();
+            this.Opacity = 1;
         }
     }
 }

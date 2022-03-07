@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="ExtraditionBookList" 
         Height="450"
-        Width="800"
+        Width="1000"
+        MinHeight="450"
+        MinWidth="1000"
+        MaxHeight="450"
+        MaxWidth="1000"
         WindowStartupLocation="CenterScreen"
         >
     <Grid>
@@ -35,21 +39,201 @@
                   Grid.Row="3"
                   KeyUp="listExtradition_KeyUp"
                   MouseDoubleClick="listExtradition_MouseDoubleClick"
-                  SelectionChanged="listExtradition_SelectionChanged">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="ID" Width="35" DisplayMemberBinding="{Binding ID}"/>
+                  SelectionChanged="listExtradition_SelectionChanged"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <!--<ListView.View>-->
+            <!--<GridView>
                     <GridViewColumn Header="Дата выдачи" Width="150" DisplayMemberBinding="{Binding DateExtradition}"/>
                     <GridViewColumn Header="Дата возврата" Width="150" DisplayMemberBinding="{Binding DateReturn}"/>
                     <GridViewColumn Header="Название книги" Width="150" DisplayMemberBinding="{Binding Book.NameBook}"/>
-                    <GridViewColumn Header="Фамилия Клиента" Width="150" DisplayMemberBinding="{Binding Client.LastName }"/>
+                    <GridViewColumn Header="Фамилия Клиента" Width="150" DisplayMemberBinding="{Binding Client.LastName}"/>
                     <GridViewColumn Header="Имя Клиента" Width="150" DisplayMemberBinding="{Binding Client.FirstName}"/>
                     <GridViewColumn Header="Телефон Клиента" Width="150" DisplayMemberBinding="{Binding Client.Phone}"/>
                     <GridViewColumn Header="Адресс Клиента" Width="150" DisplayMemberBinding="{Binding Client.Address}"/>
-                    <GridViewColumn Header="Фамилия Сотрудника " Width="150" DisplayMemberBinding="{Binding Employee.LastName}"/>
+                    <GridViewColumn Header="Фамилия Сотрудника" Width="150" DisplayMemberBinding="{Binding Employee.LastName}"/>
                     <GridViewColumn Header="Имя Сотрудника" Width="150" DisplayMemberBinding="{Binding Employee.FirstName}"/>
-                </GridView>
-            </ListView.View>
+                </GridView>-->
+            <!--</ListView.View>-->
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+
+                <DataTemplate>
+                    <Border Background="BurlyWood"
+                         Height="100"
+                         Width="450"
+                         Margin="10"
+                         BorderThickness="1"
+                         CornerRadius="10">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+
+                            <Image x:Name="photoBookExtradition"
+                                   Margin="0 10 0 0"
+                            Grid.RowSpan="8">
+                                <Image.Source>
+                                    <Binding Path="Photo">
+                                        <Binding.TargetNullValue>
+                                            C:\Users\ARTEM\Source\Repos\Library2ISP11-17_ZeyArt_DanArt\Images\BookExtradition.jpg
+                                        </Binding.TargetNullValue>
+                                    </Binding>
+                                </Image.Source>
+                            </Image>
+
+                            <TextBlock Text="Дата выдачи"
+                                       Grid.Column="1"
+                                       Grid.Row="0"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 10 0"/>
+
+                            <TextBlock Text="Дата возврата"
+                                       Grid.Column="1"
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 35 0" />
+
+                            <TextBlock Text="Название книги"
+                                       Grid.Column="1"
+                                       Grid.Row="2"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 10 0" />
+
+                            <TextBlock Text="Фамилия Клиента"
+                                       Grid.Column="1"
+                                       Grid.Row="3"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 23 0"/>
+
+                            <TextBlock Text="Имя Клиента"
+                                       Grid.Column="1"
+                                       Grid.Row="4"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 12 0"/>
+
+                            <TextBlock Text="Телефон Клиента"
+                                       Grid.Column="1"
+                                       Grid.Row="5"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 12 0"/>
+
+                            <TextBlock Text="Адресс Клиента"
+                                       Grid.Column="1"
+                                       Grid.Row="6"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 12 0"/>
+
+                            <TextBlock Text="Фамилия Сотрудника"
+                                       Grid.Column="1"
+                                       Grid.Row="7"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 12 0"/>
+
+                            <TextBlock Text="Имя Сотрудника"
+                                       Grid.Column="1"
+                                       Grid.Row="8"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center"
+                                       Margin="0 0 12 0"/>
+
+
+                            <TextBlock Text="{Binding Path=DateExtradition}"
+                                       Grid.Column="2"
+                                       Grid.Row="0"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+                            <TextBlock Text="{Binding Path=DateReturn}"
+                                       Grid.Column="2"
+                                       Grid.Row="1"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+
+                            <TextBlock Text="{Binding Path=Book.NameBook}"
+                                       Grid.Column="2"
+                                       Grid.Row="2"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+
+                            <TextBlock Text="{Binding Path=Client.LastName}"
+                                       Grid.Column="2"
+                                       Grid.Row="3"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+
+                            <TextBlock Text="{Binding Path=Client.FirstName}"
+                                       Grid.Column="2"
+                                       Grid.Row="4"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+                            <TextBlock Text="{Binding Path=Client.Phone}"
+                                       Grid.Column="2"
+                                       Grid.Row="5"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+                            <TextBlock Text="{Binding Path=Client.Address}"
+                                       Grid.Column="2"
+                                       Grid.Row="6"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+                            <TextBlock Text="{Binding Path=Employee.LastName}"
+                                       Grid.Column="2"
+                                       Grid.Row="7"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+                            <TextBlock Text="{Binding Path=Employee.FirstName}"
+                                       Grid.Column="2"
+                                       Grid.Row="8"
+                                       HorizontalAlignment="Right"
+                                       VerticalAlignment="Center"
+                                       Margin="10 0 0 0" />
+
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
         <Button
             x:Name="Back"
