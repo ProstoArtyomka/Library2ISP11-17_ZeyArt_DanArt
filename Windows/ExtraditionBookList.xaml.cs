@@ -94,8 +94,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         private void Update_Click(object sender, RoutedEventArgs e)
         {
             AddExtradutionWindow window = new AddExtradutionWindow();
-            this.Close();
+            this.Opacity = 0.2;
             window.ShowDialog();
+            listExtradition.ItemsSource = AppData.Context.Extradition.ToList();
+            this.Opacity = 1;
         }
 
         private void listExtradition_SelectionChanged(object sender, SelectionChangedEventArgs e)
