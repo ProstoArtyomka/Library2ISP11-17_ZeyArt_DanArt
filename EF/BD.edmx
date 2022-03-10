@@ -37,6 +37,7 @@
           <Property Name="NumberOfPages" Type="int" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" />
           <Property Name="Preview" Type="varbinary(max)" />
+          <Property Name="Cost" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -80,6 +81,7 @@
           <Property Name="IDEmployee" Type="int" Nullable="false" />
           <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="IsСompleted" Type="bit" />
+          <Property Name="ClientDebt" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -496,6 +498,7 @@
           <Property Name="NumberOfPages" Type="Int32" Nullable="false" />
           <Property Name="IsDeleted" Type="Boolean" />
           <Property Name="Preview" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
           <NavigationProperty Name="AuthorBook" Relationship="Library_ZeynetdinovModel.FK_AuthorBook_Book" FromRole="Book" ToRole="AuthorBook" />
           <NavigationProperty Name="Publishing" Relationship="Library_ZeynetdinovModel.FK_Book_Publishing" FromRole="Book" ToRole="Publishing" />
           <NavigationProperty Name="Extradition" Relationship="Library_ZeynetdinovModel.FK_Extradition_Book" FromRole="Book" ToRole="Extradition" />
@@ -546,6 +549,7 @@
           <Property Name="IDEmployee" Type="Int32" Nullable="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IsСompleted" Type="Boolean" />
+          <Property Name="ClientDebt" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Book" Relationship="Library_ZeynetdinovModel.FK_Extradition_Book" FromRole="Extradition" ToRole="Book" />
           <NavigationProperty Name="Client" Relationship="Library_ZeynetdinovModel.FK_Extradition_Client" FromRole="Extradition" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="Library_ZeynetdinovModel.FK_Extradition_Employee" FromRole="Extradition" ToRole="Employee" />
@@ -791,6 +795,7 @@
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="Library_ZeynetdinovModel.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Preview" ColumnName="Preview" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
                 <ScalarProperty Name="NumberOfPages" ColumnName="NumberOfPages" />
@@ -836,6 +841,7 @@
           <EntitySetMapping Name="Extradition">
             <EntityTypeMapping TypeName="Library_ZeynetdinovModel.Extradition">
               <MappingFragment StoreEntitySet="Extradition">
+                <ScalarProperty Name="ClientDebt" ColumnName="ClientDebt" />
                 <ScalarProperty Name="IsСompleted" ColumnName="IsСompleted" />
                 <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="IDEmployee" ColumnName="IDEmployee" />

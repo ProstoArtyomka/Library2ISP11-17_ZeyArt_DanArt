@@ -59,6 +59,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             //txtGenre.Text = editBook.Genre;
             //txtAuthor.Text = editBook.AuthorBook;
             txtNumberOfPages.Text = Convert.ToString(editBook.NumberOfPages);
+            txtCost.Text = Convert.ToString(editBook.);
 
             isEdit = true;
         }
@@ -108,6 +109,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 if (string.IsNullOrWhiteSpace(txtNameBook.Text))
                 {
                     MessageBox.Show("Поле Название книги не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtCost.Text))
+                {
+                    MessageBox.Show("Поле Цена книги не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -177,6 +184,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 if (txtNumberOfPages.Text.Length > 100)
                 {
                     MessageBox.Show("Недопустимое количество символов для поля Кол-во страниц в книге", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (txtCost.Text.Length > 10)
+                {
+                    MessageBox.Show("Недопустимое количество символов для поля Цена книги ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -257,6 +270,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         }
     }
-    }
+}
 
 

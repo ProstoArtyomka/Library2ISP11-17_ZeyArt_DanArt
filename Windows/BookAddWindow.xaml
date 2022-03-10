@@ -104,6 +104,16 @@ Width="380"
         Height="25" 
         />
 
+        <TextBlock
+        Text="Цена книги"
+        Grid.Row="7"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Right" 
+		FontSize="15" 
+		FontWeight="Bold"
+        Height="25" 
+        />
+
         <TextBox 
             x:Name="txtNameBook"
             VerticalAlignment="Center"
@@ -177,6 +187,20 @@ Width="380"
             MaxLength="5" TextChanged="txtNumberOfPages_TextChanged" Grid.RowSpan="2">
         </TextBox>
 
+        <TextBox 
+            x:Name="txtCost"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            FontSize="16"
+            Grid.Row="7"
+            Grid.Column="1"
+            Margin="10,0.667,0,22.444"
+            Width="250"
+            Height="24"
+            MaxLength="5"
+            Grid.RowSpan="2">
+        </TextBox>
+
         <Border  Grid.Row="9"
                 Grid.Column="1"
                 Grid.ColumnSpan="1"
@@ -188,7 +212,7 @@ Width="380"
                 BorderBrush="LightGray"
                 CornerRadius="10">
             <Image x:Name="imgBook" 
-                   Source="C:\Users\ARTEM\Source\Repos\Library2ISP11-17_ZeyArt_DanArt\Images\bookbg.png"/>
+                   Source="C:\Users\IMac9\Source\Repos\Library2ISP11-17_ZeyArt_DanArt\Images\bookbg.png"/>
         </Border>
 
         <Button  x:Name="btnChoosePhoto" 
