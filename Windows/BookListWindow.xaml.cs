@@ -25,7 +25,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         List<Book> bookList = new List<Book>();
 
-        List<string> listSort = new List<string>() { "По умолчанию","По названию книги", "По издателю", "По году публикации", "По жанру", "По автору", "По кол-ву страниц в книге" , "По статусу удаления" };
+        List<string> listSort = new List<string>() { "По умолчанию","По названию книги", "По издателю", "По году публикации", "По жанру", "По автору", "По кол-ву страниц в книге" , "По цене" , "По статусу удаления" };
         public BookListWindow()
         {
             InitializeComponent();
@@ -84,6 +84,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     bookList = bookList.OrderByDescending(i => i.NumberOfPages).ToList();
                     break;
                 case 7:
+                    bookList = bookList.OrderByDescending(i => i.Cost).ToList();
+                    break;
+                case 8:
                     bookList = bookList.OrderBy(i => i.IsDeleted).ToList();
                     break;
                 default:
@@ -92,7 +95,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             }
 
             listBook.ItemsSource = bookList;
-            }
+        }
 
         private void Back_Click(object sender, RoutedEventArgs e)
         {

@@ -59,7 +59,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             //txtGenre.Text = editBook.Genre;
             //txtAuthor.Text = editBook.AuthorBook;
             txtNumberOfPages.Text = Convert.ToString(editBook.NumberOfPages);
-            txtCost.Text = Convert.ToString(editBook.);
+            txtCost.Text = Convert.ToString(editBook.Cost);
 
             isEdit = true;
         }
@@ -204,6 +204,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     //editBook.Genre = txtGenre.Text;
                     //editBook.Author = txtAuthor.Text;
                     editBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
+                    editBook.Cost = Convert.ToInt32(txtCost.Text);
 
                     if (pathPhoto != null)
                     {
@@ -235,6 +236,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                         //newBook.GenreBook = txtGenre.Text;
                         //newBook.AuthorBook = txtAuthor.Text;
                         newBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
+                        newBook.Cost = Convert.ToInt32(txtCost.Text);
                         newBook.IsDeleted = false;
 
 

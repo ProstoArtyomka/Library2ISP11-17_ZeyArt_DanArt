@@ -37,6 +37,14 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             Filter();
         }
 
+        private void Debt()
+        {
+            if ()
+            {
+
+            }
+        }
+
         private void Filter()
         {
             ExtraditionList = AppData.Context.Extradition.ToList();
