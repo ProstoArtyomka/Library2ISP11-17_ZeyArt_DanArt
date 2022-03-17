@@ -66,7 +66,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             txtPhoneClient.Text = editExtradition.Client.Phone;
             txtAddressClient.Text = editExtradition.Client.Address;
             txtLastNameEmployee.Text = editExtradition.Employee.LastName;
-            txtFirstNameEmployee.Text = editExtradition.Employee.FirstName;
+            txtCostDebt.Text = Convert.ToString(editExtradition.ClientDebt);
 
             isEdit = true;
 
@@ -118,11 +118,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtFirstNameEmployee.Text))
-            {
-                MessageBox.Show("Поле Имя Сотрудника не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
 
             //проверка на кол-во символов
 
@@ -186,9 +181,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (txtFirstNameEmployee.Text.Length > 50)
+            if (txtCostDebt.Text.Length > 8)
             {
-                MessageBox.Show("Недопустимое количество символов для поля Имя Сотрудника", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Недопустимое количество символов для поля Долг", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             if (isEdit)
@@ -204,7 +199,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     editExtradition.Client.Phone = txtPhoneClient.Text;
                     editExtradition.Client.Address = txtAddressClient.Text;
                     editExtradition.Employee.LastName = txtLastNameEmployee.Text;
-                    editExtradition.Employee.FirstName = txtFirstNameEmployee.Text;
+                    editExtradition.ClientDebt = Convert.ToDecimal(txtCostDebt.Text);
 
                     if (txtDateReturn.Text != null)
                     {
@@ -242,7 +237,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                         newExtradition.Client.Phone = txtPhoneClient.Text;
                         newExtradition.Client.Address = txtAddressClient.Text;
                         newExtradition.Employee.LastName = txtLastNameEmployee.Text;
-                        newExtradition.Employee.FirstName = txtFirstNameEmployee.Text;
+                        newExtradition.Employee.FirstName = txtCostDebt.Text;
 
                         if (txtDateReturn.Text != null)
                         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml.Schema;
 using Library2ISP11_17_ZeyArt_DanArt.ClassHelper;
 using Library2ISP11_17_ZeyArt_DanArt.EF;
 
@@ -22,8 +24,8 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
     public partial class ExtraditionBookList : Window
     {
         List<Extradition> ExtraditionList = new List<Extradition>();
-
-        List<string> listSort = new List<string>() { "По умолчанию", "По дате выдачи", "По дате возврата", "По названию книги", "По фамилии клиента", "По имени клиента", "По телефону клиента", "По адрессу клиента", "По фамилии сотрудника", "По имени сотрудника", };
+        
+        List<string> listSort = new List<string>() { "По умолчанию", "По дате выдачи", "По дате возврата", "По названию книги", "По фамилии клиента", "По имени клиента", "По телефону клиента", "По адрессу клиента", "По фамилии сотрудника", "По цене долга", };
 
         public ExtraditionBookList()
         {
@@ -34,15 +36,28 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             cmbSort.ItemsSource = listSort;
             cmbSort.SelectedIndex = 0;
 
+
             Filter();
+
+            Debt();
+
+
         }
 
         private void Debt()
         {
-            if ()
+            EF.Extradition editExtradition = new EF.Extradition();
+            if (DateTime.Now > ((editExtradition.DateExtradition).AddDays(30)))
             {
-
+                double d = Convert.ToDouble(editExtradition.ClientDebt);
+                for (int i = 0; i>d; i++)
+                {
+                    d = editExtradition.Book.Cost / 100;
+                    d++;
+                }
+                
             }
+            AppData.Context.SaveChanges();
         }
 
         private void Filter()
@@ -50,7 +65,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             ExtraditionList = AppData.Context.Extradition.ToList();
             ExtraditionList = ExtraditionList.
                Where(i => i.Client.LastName.ToLower().Contains(txtSearch.Text.ToLower()) || i.Client.LastName.ToLower() .Contains(txtSearch.Text.ToLower())).ToList();
-
             switch (cmbSort.SelectedIndex)
             {
                 case 0:
@@ -81,7 +95,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     ExtraditionList = ExtraditionList.OrderBy(i => i.Employee.LastName).ToList();
                     break;
                 case 9:
-                    ExtraditionList = ExtraditionList.OrderBy(i => i.Employee.FirstName).ToList();
+                    ExtraditionList = ExtraditionList.OrderByDescending(i => i.ClientDebt).ToList();
                     break;
                 default:
                     ExtraditionList = ExtraditionList.OrderBy(i => i.ID).ToList();
@@ -110,9 +124,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         private void listExtradition_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
-
+        
         private void cmbSort_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Filter();
@@ -151,6 +165,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         private void listExtradition_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            
             var editExtradition = new EF.Extradition();
             if (listExtradition.SelectedItem is EF.Extradition)
             {

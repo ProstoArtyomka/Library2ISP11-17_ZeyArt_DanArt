@@ -75,7 +75,7 @@
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="DateExtradition" Type="date" Nullable="false" />
-          <Property Name="DateReturn" Type="date" Nullable="false" />
+          <Property Name="DateReturn" Type="date" />
           <Property Name="IDBook" Type="int" Nullable="false" />
           <Property Name="IDClient" Type="int" Nullable="false" />
           <Property Name="IDEmployee" Type="int" Nullable="false" />
@@ -543,7 +543,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="DateExtradition" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="DateReturn" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DateReturn" Type="DateTime" Precision="0" />
           <Property Name="IDBook" Type="Int32" Nullable="false" />
           <Property Name="IDClient" Type="Int32" Nullable="false" />
           <Property Name="IDEmployee" Type="Int32" Nullable="false" />

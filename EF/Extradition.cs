@@ -16,7 +16,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
     {
         public int ID { get; set; }
         public System.DateTime DateExtradition { get; set; }
-        public System.DateTime DateReturn { get; set; }
+        public Nullable<System.DateTime> DateReturn { get; set; }
         public int IDBook { get; set; }
         public int IDClient { get; set; }
         public int IDEmployee { get; set; }
