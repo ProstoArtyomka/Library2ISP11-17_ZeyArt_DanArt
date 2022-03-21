@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Xml.Schema;
+using DocumentFormat.OpenXml.Drawing;
 using Library2ISP11_17_ZeyArt_DanArt.ClassHelper;
 using Library2ISP11_17_ZeyArt_DanArt.EF;
 
@@ -36,28 +37,38 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             cmbSort.ItemsSource = listSort;
             cmbSort.SelectedIndex = 0;
 
+            var editExtradition = new EF.Extradition();
 
-            Filter();
+            if (Convert.ToDouble(editExtradition.ClientDebt) == 0.00)
+            {
+                listExtradition.Background = Brushes.White;
+            }
 
-            Debt();
+            if (Convert.ToInt32(editExtradition.ClientDebt) == 1.00)
+            {
+                listExtradition.Background = Brushes.Red;
+            }
 
+            Filter();     
 
         }
 
         private void Debt()
         {
-            EF.Extradition editExtradition = new EF.Extradition();
-            if (DateTime.Now > ((editExtradition.DateExtradition).AddDays(30)))
+            var editExtradition = new EF.Extradition();
+
+            if (Convert.ToDouble(editExtradition.ClientDebt) == 1.00)
             {
-                double d = Convert.ToDouble(editExtradition.ClientDebt);
-                for (int i = 0; i>d; i++)
-                {
-                    d = editExtradition.Book.Cost / 100;
-                    d++;
-                }
-                
+                listExtradition.Background = Brushes.Red;                    
+            }          
+            
+            if (Convert.ToInt32(editExtradition.ClientDebt) == 0.00)
+            {
+                listExtradition.Background = Brushes.White;              
             }
+
             AppData.Context.SaveChanges();
+
         }
 
         private void Filter()

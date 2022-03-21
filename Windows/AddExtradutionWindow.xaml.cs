@@ -133,17 +133,17 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (txtDateReturn.Text.Length < txtDateExtradition.Text.Length)
-            {
-                MessageBox.Show("Дата возврата не может быть меньше даты выдачи", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (txtDateReturn.Text.Length < txtDateExtradition.Text.Length)
+            //{
+            //    MessageBox.Show("Дата возврата не может быть меньше даты выдачи", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
-            if (txtDateExtradition.Text.Length > txtDateReturn.Text.Length)
-            {
-                MessageBox.Show("Дата выдачи не может быть больше даты возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (txtDateExtradition.Text.Length > txtDateReturn.Text.Length)
+            //{
+            //    MessageBox.Show("Дата выдачи не может быть больше даты возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
             if (txtNameBook.Text.Length > 100)
             {
