@@ -237,7 +237,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                         newExtradition.Client.Phone = txtPhoneClient.Text;
                         newExtradition.Client.Address = txtAddressClient.Text;
                         newExtradition.Employee.LastName = txtLastNameEmployee.Text;
-                        newExtradition.Employee.FirstName = txtCostDebt.Text;
+                        newExtradition.ClientDebt = Convert.ToDecimal(txtCostDebt.Text);
 
                         if (txtDateReturn.Text != null)
                         {

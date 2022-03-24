@@ -50,11 +50,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             this.Opacity = 1;
         }
 
-            
-
-
-
-
             private void Filter()
             {
             bookList = AppData.Context.Book.ToList();
@@ -137,9 +132,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                              Filter();
                          }
                      }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message.ToString());
+                     catch (Exception ex)
+                     {
+                         MessageBox.Show(ex.Message.ToString());
                      }
                  }
             }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Text;
@@ -37,37 +38,28 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             cmbSort.ItemsSource = listSort;
             cmbSort.SelectedIndex = 0;
 
-            var editExtradition = new EF.Extradition();
+            Filter();
 
-            if (Convert.ToDouble(editExtradition.ClientDebt) == 0.00)
-            {
-                listExtradition.Background = Brushes.White;
-            }
-
-            if (Convert.ToInt32(editExtradition.ClientDebt) == 1.00)
-            {
-                listExtradition.Background = Brushes.Red;
-            }
-
-            Filter();     
+            Debt();
 
         }
 
         private void Debt()
         {
-            var editExtradition = new EF.Extradition();
 
-            if (Convert.ToDouble(editExtradition.ClientDebt) == 1.00)
+
+
+            if (Convert.ToDouble(editExtradition.ClientDebt) == 0.00)
             {
-                listExtradition.Background = Brushes.Red;                    
-            }          
-            
-            if (Convert.ToInt32(editExtradition.ClientDebt) == 0.00)
-            {
-                listExtradition.Background = Brushes.White;              
+                listExtradition.Background = Brushes.Red;
             }
 
-            AppData.Context.SaveChanges();
+            if (Convert.ToDouble(editExtradition.ClientDebt) > 0.00)
+            {
+                listExtradition.Background = Brushes.Red;
+            }
+
+            
 
         }
 
