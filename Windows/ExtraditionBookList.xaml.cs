@@ -26,7 +26,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
     public partial class ExtraditionBookList : Window
     {
         List<Extradition> ExtraditionList = new List<Extradition>();
-        
+    
         List<string> listSort = new List<string>() { "По умолчанию", "По дате выдачи", "По дате возврата", "По названию книги", "По фамилии клиента", "По имени клиента", "По телефону клиента", "По адрессу клиента", "По фамилии сотрудника", "По цене долга", };
 
         public ExtraditionBookList()
@@ -39,29 +39,22 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             cmbSort.SelectedIndex = 0;
 
             Filter();
-
             Debt();
-
         }
 
-        private void Debt()
-        {
+         private void Debt()
+         {
+            Extradition extradition = new Extradition();
+            if (Convert.ToDouble(extradition.ClientDebt) == 0.00)
+            {
+                listExtradition.Background = Brushes.White;
+            }
 
-
-
-            if (Convert.ToDouble(editExtradition.ClientDebt) == 0.00)
+            if (Convert.ToDouble(extradition.ClientDebt) > 0.00)
             {
                 listExtradition.Background = Brushes.Red;
             }
-
-            if (Convert.ToDouble(editExtradition.ClientDebt) > 0.00)
-            {
-                listExtradition.Background = Brushes.Red;
-            }
-
-            
-
-        }
+         }
 
         private void Filter()
         {
