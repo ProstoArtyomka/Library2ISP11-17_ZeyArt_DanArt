@@ -83,6 +83,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ClassHelper\AppData.cs" />
+    <Compile Include="ClassHelper\CalcDebt.cs" />
     <Compile Include="EF\Author.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
