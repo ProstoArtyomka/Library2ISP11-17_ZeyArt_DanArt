@@ -231,7 +231,7 @@
                 BorderBrush="LightGray"
                 CornerRadius="10">
             <Image x:Name="imgUser" 
-                   Source="C:\Users\ARTEM\Source\Repos\Library2ISP11-17_ZeyArt_DanArt\Images\userDef.png"/>
+                   Source="/Images/userDef.png"/>
         </Border>
 
         <Button  x:Name="btnChoosePhoto" 

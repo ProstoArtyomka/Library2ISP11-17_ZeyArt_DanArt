@@ -88,18 +88,18 @@
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
-
+                            <Image Source="/Library2ISP11-17_ZeyArt_DanArt;component/Images/Bookbg.png"
+                                   Margin="0 10 0 0"
+                                   Grid.RowSpan="6"/>
                             <Image x:Name="photoUser"
                                    Margin="0 10 0 0"
                             Grid.RowSpan="6">
                                 <Image.Source>
                                     <Binding Path="Preview">
-                                        <Binding.TargetNullValue>
-                                            C:\Users\ARTEM\Source\Repos\Library2ISP11-17_ZeyArt_DanArt\Images\bookbg.png
-                                        </Binding.TargetNullValue>
                                     </Binding>
                                 </Image.Source>
                             </Image>
+                            
 
                             <TextBlock Text="Название"
                                        Grid.Column="1"

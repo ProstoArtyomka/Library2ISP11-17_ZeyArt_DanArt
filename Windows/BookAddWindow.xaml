@@ -212,7 +212,7 @@ Width="380"
                 BorderBrush="LightGray"
                 CornerRadius="10">
             <Image x:Name="imgBook" 
-                   Source="C:\Users\IMac9\Source\Repos\Library2ISP11-17_ZeyArt_DanArt\Images\bookbg.png"/>
+                   Source="/Images/bookbg.png"/>
         </Border>
 
         <Button  x:Name="btnChoosePhoto" 

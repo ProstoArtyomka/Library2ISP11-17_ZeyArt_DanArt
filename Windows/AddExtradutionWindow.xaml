@@ -255,7 +255,7 @@
                 BorderBrush="LightGray"
                 CornerRadius="10">
             <Image x:Name="imgBook" 
-                   Source="C:\Users\IMac9\source\repos\Library2ISP11-17_ZeyArt_DanArt\Images\BookExtradition.jpg" />
+                   Source="/Images/BookExtradition.jpg" />
         </Border>
 
         <Button  x:Name="btnChoosePhoto" 
