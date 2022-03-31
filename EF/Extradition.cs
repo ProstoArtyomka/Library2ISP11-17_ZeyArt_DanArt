@@ -27,5 +27,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         public virtual Book Book { get; set; }
         public virtual Client Client { get; set; }
         public virtual Employee Employee { get; set; }
+
     }
 }

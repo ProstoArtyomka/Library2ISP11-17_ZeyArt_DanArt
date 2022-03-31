@@ -43,20 +43,19 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             Debt();
         }
 
-         //private void Debt()
-         //{
-         //   Extradition extradition = new Extradition();
-         //   listExtradition.ItemsSource = AppData.Context.Extradition.ToList();
-         //   if (Convert.ToDouble(extradition.ClientDebt) == 0.00)
-         //   {
-         //       listExtradition.Background = Brushes.White;
-         //   }
+        private void Debt()
+        {
+            Extradition extradition = new EF.Extradition();
+            if (extradition.ClientDebt == Convert.ToDecimal(0.00))
+            {
+                listExtradition.Background = Brushes.White;
+            }
+            else
+            {
+                listExtradition.Background = Brushes.Red;
+            }
+        }
 
-         //   if (Convert.ToDouble(extradition.ClientDebt) > 0.00)
-         //   {
-         //       listExtradition.Background = Brushes.Red;
-         //   }
-         //}
 
         private void Filter()
         {
@@ -176,20 +175,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             listExtradition.ItemsSource = AppData.Context.Extradition.ToList();
             this.Opacity = 1;
         }
-
-        private void Debt()
-        {
-            Extradition extradition = new Extradition();
-            extradition.ClientDebt = Convert.ToDecimal(listExtradition.ItemsSource);
-            if (extradition.ClientDebt == Convert.ToDecimal(0.00))
-            {
-                listExtradition.Background = Brushes.White;
-            }
-            else 
-            {
-                listExtradition.Background = Brushes.Red;
-            }
-        }
-
+    
     }
 }

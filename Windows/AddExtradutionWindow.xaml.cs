@@ -261,11 +261,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     MessageBox.Show(ex.Message.ToString());
                 }
             }
-
-
         }
-
-
         private void btnChoosePhoto_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
