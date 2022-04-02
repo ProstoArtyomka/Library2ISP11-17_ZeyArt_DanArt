@@ -63,7 +63,7 @@
             <ListView.ItemTemplate>
 
                 <DataTemplate>
-                    <Border Background="Brown"
+                    <Border Background="BlueViolet"
                          Height="100"
                          Width="450"
                          Margin="10"
@@ -87,7 +87,7 @@
                             </Grid.RowDefinitions>
                             
                             <Image Source="/Library2ISP11-17_ZeyArt_DanArt;component/Images/userDef.png"
-                                   Margin="0 10 0 0"
+                                   Margin="10"
                                    Grid.RowSpan="5"/>
                             <Image x:Name="photoUser"
                                    Margin="0 10 0 0"

@@ -147,6 +147,9 @@
     <Compile Include="EF\sysdiagrams.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
+    <Compile Include="EF\ViewBook.cs">
+      <DependentUpon>BD.tt</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddExtradutionWindow.xaml.cs">
       <DependentUpon>AddExtradutionWindow.xaml</DependentUpon>
     </Compile>
@@ -243,9 +246,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>

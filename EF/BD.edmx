@@ -146,6 +146,29 @@
           <Property Name="NameBook" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="NameGenre" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Library_Zeynetdinov.dbo.ViewBook" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+        <EntityType Name="ViewBook">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NameBook" />
+            <PropertyRef Name="NamePublishing" />
+            <PropertyRef Name="YearOfPublishing" />
+            <PropertyRef Name="NameGenre" />
+            <PropertyRef Name="Nickname" />
+            <PropertyRef Name="NumberOfPages" />
+            <PropertyRef Name="Cost" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NameBook" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="NamePublishing" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="YearOfPublishing" Type="int" Nullable="false" />
+          <Property Name="NameGenre" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nickname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NumberOfPages" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" />
+        </EntityType>
         <Association Name="FK_Author_Gender">
           <End Role="Gender" Type="Self.Gender" Multiplicity="1" />
           <End Role="Author" Type="Self.Author" Multiplicity="*" />
@@ -321,6 +344,19 @@
     [BOOKGENRE].[NameGenre] AS [NameGenre]
     FROM [dbo].[BOOKGENRE] AS [BOOKGENRE]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="ViewBook" EntityType="Self.ViewBook" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ViewBook].[ID] AS [ID], 
+    [ViewBook].[NameBook] AS [NameBook], 
+    [ViewBook].[NamePublishing] AS [NamePublishing], 
+    [ViewBook].[YearOfPublishing] AS [YearOfPublishing], 
+    [ViewBook].[NameGenre] AS [NameGenre], 
+    [ViewBook].[Nickname] AS [Nickname], 
+    [ViewBook].[NumberOfPages] AS [NumberOfPages], 
+    [ViewBook].[Cost] AS [Cost], 
+    [ViewBook].[IsDeleted] AS [IsDeleted]
+    FROM [dbo].[ViewBook] AS [ViewBook]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Author_Gender" Association="Self.FK_Author_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Author" EntitySet="Author" />
@@ -410,6 +446,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Library_ZeynetdinovModel.sysdiagrams" />
           <EntitySet Name="BOOKAUTHOR" EntityType="Library_ZeynetdinovModel.BOOKAUTHOR" />
           <EntitySet Name="BOOKGENRE" EntityType="Library_ZeynetdinovModel.BOOKGENRE" />
+          <EntitySet Name="ViewBook" EntityType="Library_ZeynetdinovModel.ViewBook" />
           <AssociationSet Name="FK_Author_Gender" Association="Library_ZeynetdinovModel.FK_Author_Gender">
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Author" EntitySet="Author" />
@@ -618,6 +655,27 @@
           </Key>
           <Property Name="NameBook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="NameGenre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ViewBook">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="NameBook" />
+            <PropertyRef Name="NamePublishing" />
+            <PropertyRef Name="YearOfPublishing" />
+            <PropertyRef Name="NameGenre" />
+            <PropertyRef Name="Nickname" />
+            <PropertyRef Name="NumberOfPages" />
+            <PropertyRef Name="Cost" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NameBook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NamePublishing" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="YearOfPublishing" Type="Int32" Nullable="false" />
+          <Property Name="NameGenre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nickname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumberOfPages" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <Property Name="IsDeleted" Type="Boolean" />
         </EntityType>
         <Association Name="FK_Author_Gender">
           <End Type="Library_ZeynetdinovModel.Gender" Role="Gender" Multiplicity="1" />
@@ -914,6 +972,21 @@
               <MappingFragment StoreEntitySet="BOOKGENRE">
                 <ScalarProperty Name="NameGenre" ColumnName="NameGenre" />
                 <ScalarProperty Name="NameBook" ColumnName="NameBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ViewBook">
+            <EntityTypeMapping TypeName="Library_ZeynetdinovModel.ViewBook">
+              <MappingFragment StoreEntitySet="ViewBook">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="NumberOfPages" ColumnName="NumberOfPages" />
+                <ScalarProperty Name="Nickname" ColumnName="Nickname" />
+                <ScalarProperty Name="NameGenre" ColumnName="NameGenre" />
+                <ScalarProperty Name="YearOfPublishing" ColumnName="YearOfPublishing" />
+                <ScalarProperty Name="NamePublishing" ColumnName="NamePublishing" />
+                <ScalarProperty Name="NameBook" ColumnName="NameBook" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -12,20 +12,17 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Extradition
+    public partial class ViewBook
     {
         public int ID { get; set; }
-        public System.DateTime DateExtradition { get; set; }
-        public Nullable<System.DateTime> DateReturn { get; set; }
-        public int IDBook { get; set; }
-        public int IDClient { get; set; }
-        public int IDEmployee { get; set; }
-        public byte[] Photo { get; set; }
-        public Nullable<bool> IsСompleted { get; set; }
-        public Nullable<decimal> ClientDebt { get; set; }
-    
-        public virtual Book Book { get; set; }
-        public virtual Client Client { get; set; }
-        public virtual Employee Employee { get; set; }
+        public string NameBook { get; set; }
+        public string NamePublishing { get; set; }
+        public int YearOfPublishing { get; set; }
+        public string NameGenre { get; set; }
+        public string Nickname { get; set; }
+        public int NumberOfPages { get; set; }
+        public int Cost { get; set; }
+        public Nullable<bool> IsDeleted { get; set; }
+        public object Preview { get; internal set; }
     }
 }

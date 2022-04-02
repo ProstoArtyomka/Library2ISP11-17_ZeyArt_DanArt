@@ -24,19 +24,19 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
     public partial class BookAddWindow : Window
     {
 
-        EF.Book editBook = new EF.Book();
+        EF.ViewBook editBook = new EF.ViewBook();
         string pathPhoto = null;
         bool isEdit = true;
 
 
 
-        public BookAddWindow(EF.Book book)
+        public BookAddWindow(EF.ViewBook book)
         {
             InitializeComponent();
 
             if (book.Preview != null)
             {
-                using (MemoryStream stream = new MemoryStream(book.Preview))
+                using (MemoryStream stream = new MemoryStream((int)book.Preview))
                 {
                     BitmapImage bitmapImage = new BitmapImage();
                     bitmapImage.BeginInit();
@@ -54,10 +54,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             editBook = book;
 
             txtNameBook.Text = editBook.NameBook;
-            txtPublishing.Text = editBook.Publishing.NamePublishing;
+            txtPublishing.Text = editBook.NamePublishing;
             txtYearOfPublishing.Text = Convert.ToString(editBook.YearOfPublishing);
-            //txtGenre.Text = editBook.Genre;
-            //txtAuthor.Text = editBook.AuthorBook;
+            txtGenre.Text = editBook.NameGenre;
+            txtAuthor.Text = editBook.Nickname;
             txtNumberOfPages.Text = Convert.ToString(editBook.NumberOfPages);
             txtCost.Text = Convert.ToString(editBook.Cost);
 
@@ -131,17 +131,17 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 }
 
                 //в разработке
-                //if (string.IsNullOrWhiteSpace(txtGenre.Text))
-                //{
-                //MessageBox.Show("Поле Жанр не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                //return;
-                //}
+                if (string.IsNullOrWhiteSpace(txtGenre.Text))
+                {
+                    MessageBox.Show("Поле Жанр не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
-                //if (string.IsNullOrWhiteSpace(txtAuthor.Text))
-                //{
-                //MessageBox.Show("Поле Автор не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                //return;
-                //}
+                if (string.IsNullOrWhiteSpace(txtAuthor.Text))
+                {
+                    MessageBox.Show("Поле Автор не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
                 if (string.IsNullOrWhiteSpace(txtNumberOfPages.Text))
                 {
@@ -199,10 +199,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 {
                     //Изменение данных Книги
                     editBook.NameBook = txtNameBook.Text;
-                    editBook.Publishing.NamePublishing = txtPublishing.Text;
+                    editBook.NamePublishing = txtPublishing.Text;
                     editBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
-                    //editBook.Genre = txtGenre.Text;
-                    //editBook.Author = txtAuthor.Text;
+                    editBook.NameGenre = txtGenre.Text;
+                    editBook.Nickname = txtAuthor.Text;
                     editBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
                     editBook.Cost = Convert.ToInt32(txtCost.Text);
 
@@ -228,13 +228,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     if (resultClick == MessageBoxResult.Yes)
                     {
                         //Добавление новой книги
-                        EF.Book newBook = new EF.Book();
+                        EF.ViewBook newBook = new EF.ViewBook();
                         newBook.NameBook = txtNameBook.Text;
-                        newBook.Publishing.NamePublishing = txtPublishing.Text;
+                        newBook.NamePublishing = txtPublishing.Text;
                         newBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
-                        //в разработке
-                        //newBook.GenreBook = txtGenre.Text;
-                        //newBook.AuthorBook = txtAuthor.Text;
+                        newBook.NameGenre = txtGenre.Text;
+                        newBook.Nickname = txtAuthor.Text;
                         newBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
                         newBook.Cost = Convert.ToInt32(txtCost.Text);
                         newBook.IsDeleted = false;
@@ -245,7 +244,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                             newBook.Preview = File.ReadAllBytes(pathPhoto);
                         }
 
-                        AppData.Context.Book.Add(newBook);
+                        AppData.Context.ViewBook.Add(newBook);
 
                         AppData.Context.SaveChanges();
                         MessageBox.Show("Успех", "Книга успешно добавлена", MessageBoxButton.OK, MessageBoxImage.Information);

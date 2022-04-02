@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using System.Xml.Schema;
 using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Spreadsheet;
+using DocumentFormat.OpenXml.Vml.Wordprocessing;
 using Library2ISP11_17_ZeyArt_DanArt.ClassHelper;
 using Library2ISP11_17_ZeyArt_DanArt.EF;
 
@@ -35,7 +36,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             InitializeComponent();
 
             listExtradition.ItemsSource = AppData.Context.Extradition.ToList();
-
             cmbSort.ItemsSource = listSort;
             cmbSort.SelectedIndex = 0;
 
@@ -45,15 +45,21 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         private void Debt()
         {
-            Extradition extradition = new EF.Extradition();
-            if (extradition.ClientDebt == Convert.ToDecimal(0.00))
-            {
-                listExtradition.Background = Brushes.White;
-            }
-            else
-            {
-                listExtradition.Background = Brushes.Red;
-            }
+            //var editExtradition = new EF.Extradition();
+
+            //if (listExtradition.SelectedItem is EF.Extradition)
+            //{
+            //    editExtradition = listExtradition.SelectedItem as EF.Extradition;
+
+            //    if (Convert.ToDouble(editExtradition.ClientDebt) == 0.00)
+            //    {
+            //        listExtradition.Background = Brushes.White;
+            //    }
+            //    else
+            //    {
+            //        listExtradition.Background = Brushes.Red;
+            //    }
+            //}
         }
 
 
@@ -166,7 +172,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             var editExtradition = new EF.Extradition();
             if (listExtradition.SelectedItem is EF.Extradition)
             {
-                editExtradition = listExtradition.SelectedItem as EF.Extradition;
+                editExtradition = listExtradition.SelectedItem as EF.Extradition;          
             }
 
             AddExtradutionWindow extradutionWindow = new AddExtradutionWindow(editExtradition);
