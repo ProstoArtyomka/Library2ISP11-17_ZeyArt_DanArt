@@ -40,11 +40,13 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             cmbSort.SelectedIndex = 0;
 
             Filter();
+
             Debt();
         }
 
         private void Debt()
         {
+            //Доделать
             //var editExtradition = new EF.Extradition();
 
             //if (listExtradition.SelectedItem is EF.Extradition)
