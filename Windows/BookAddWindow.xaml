@@ -7,7 +7,11 @@
         mc:Ignorable="d"
         Title="BookAddWindow"
         Height="450"
-        Width="800"
+		Width="800"
+        MaxHeight="450"
+		MaxWidth="800"
+        MinHeight="450"
+		MinWidth="800"
         WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -47,7 +51,7 @@
 		FontWeight="Bold"
         Height="30" 
         Grid.ColumnSpan="2" 
-Width="380"
+        Width="380"
         />
         <TextBlock
         Text="Название"

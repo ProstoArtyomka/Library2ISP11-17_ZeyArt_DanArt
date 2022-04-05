@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         Title="MainWindow"
         Height="450"
-		Width="800"
+		Width="1000"
         MinHeight="450"
         MinWidth="1000"
         MaxHeight="450"
@@ -30,11 +30,11 @@
         Text="Добро пожаловать"
         Grid.Column="1"
         Grid.Row="0"
-           Margin="20"
+           Margin="14,10,14,0"
             VerticalAlignment="Top"
             HorizontalAlignment="Center" 
-		FontSize="16" 
-		FontWeight="Bold"
+		FontSize="30" 
+		FontWeight="Bold" Height="44" Width="283"
         ></TextBlock>
         <Button
             x:Name="Book"
@@ -69,6 +69,8 @@
             FontWeight="Bold"
             Grid.Column="2" Click="Extradition_Click"            
             />
+
+
     </Grid>
 </Window>
 

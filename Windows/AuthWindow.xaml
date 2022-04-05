@@ -3,11 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:Library2ISP11_17_ZeyArt_DanArt"
         mc:Ignorable="d"
         Title="AuthWindow"
 		Height="450"
 		Width="800"
+        MaxHeight="450"
+		MaxWidth="800"
+        MinHeight="450"
+		MinWidth="800"
         WindowStartupLocation="CenterScreen"
         >
     <Grid>
@@ -22,16 +27,34 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        
+        <Image 
+            Source="/DesignItems/Library.jpg"
+            Grid.Row="0"
+            Grid.ColumnSpan="3"
+            Margin="-166,-53,-165,-66"
+            Grid.RowSpan="4"
+             />
+        <Image 
+            gif:ImageBehavior.AnimatedSource="/DesignItems/Main.gif"
+            Grid.Row="0"
+            Grid.RowSpan="4"
+            Grid.ColumnSpan="3" Margin="0,0,95,-34.25"
+            />
 
         <TextBlock
         Text="Авторизация"
         Grid.Column="1"
         Grid.Row="0"
-           Margin="20"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Center" 
-		FontSize="16" 
+        Margin="30,35,30,11"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Center" 
+		FontSize="30" 
 		FontWeight="Bold"
+            Height="39"
+            Width="184"
+        FontFamily="Times New Roman"
+        Foreground="#26f7fd"
         ></TextBlock>
 
         <TextBlock
@@ -42,6 +65,8 @@
             VerticalAlignment="Top"
             HorizontalAlignment="Center" 
             FontSize="14"
+            FontFamily="Times New Roman"
+        Foreground="#26f7fd"
         ></TextBlock>
 
         <TextBox x:Name="UserLogin"
@@ -50,8 +75,9 @@
              Margin="74,43,70,44"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
-				 FontStyle="Italic"
-				 Foreground="#FFBAB8B8" Width="100"
+				 FontFamily="Times New Roman"
+                Foreground="Black"
+                 Width="100"
             />
 
         <TextBlock
@@ -62,6 +88,8 @@
             VerticalAlignment="Top"
             HorizontalAlignment="Center" 
             FontSize="14"
+            FontFamily="Times New Roman"
+        Foreground="#26f7fd"
         ></TextBlock>
 
         <TextBox
@@ -70,7 +98,10 @@
             Grid.Column="1"
              Margin="74,44,70,43"
             VerticalAlignment="Center"
-            HorizontalAlignment="Center" FontStyle="Italic" Foreground="#FFBAB8B8" Width="100"
+            HorizontalAlignment="Center"    
+            FontFamily="Times New Roman"
+            Foreground="Black"
+            Width="100"
             />
 
         <Button
@@ -80,18 +111,23 @@
             Grid.Row="3"
             VerticalAlignment="Stretch"
             HorizontalAlignment="Stretch"
-            Margin="40" FontSize="14" FontWeight="Bold" Click="AuthEnter_Click"
+            Margin="40" 
+            FontSize="14"
+            FontWeight="Bold" 
+            FontFamily="Times New Roman"
+            Foreground="Black"
+            Click="AuthEnter_Click"
             />
         <TextBlock 
 			Text="Забыли пароль?"
 		    HorizontalAlignment ="Center"
 		    VerticalAlignment="Center"
 			FontSize="10"
-			Foreground="Blue"
+            FontFamily="Times New Roman"
+			Foreground="#26f7fd"
 			ToolTip="Какая жалость,вспоминай"
 			Grid.Column="1"
 			Grid.Row="3" 
 			Margin="99,81,90,9"/>
-
     </Grid>
 </Window>

@@ -79,6 +79,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -264,6 +267,8 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\1486503771-book-books-education-library-reading-open-book-study_81275.ico" />
+    <Resource Include="DesignItems\Main.gif" />
+    <Resource Include="DesignItems\Library.jpg" />
     <Content Include="EF\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>

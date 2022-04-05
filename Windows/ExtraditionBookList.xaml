@@ -29,10 +29,13 @@
         <TextBlock
             Text="Список выданных книг"
             Grid.Row="0"
-            TextAlignment="Center"
-            Margin="299,8,286,18"
+            Margin="221,-10,223,-2"
             VerticalAlignment="Center"
-            HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Height="22" Width="207"
+            HorizontalAlignment="Center"
+            FontSize="30" 
+            FontWeight="Bold"
+            Height="40" 
+            Width="348"
             />
 
         <ListView x:Name="listExtradition"
@@ -99,7 +102,7 @@
                                     </Binding>
                                 </Image.Source>
                             </Image>
-                            
+
                             <TextBlock Text="Дата выдачи"
                                        Grid.Column="1"
                                        Grid.Row="0"
@@ -162,7 +165,7 @@
                                        HorizontalAlignment="Left"
                                        VerticalAlignment="Center"
                                        Margin="0 0 12 0"/>
-                            
+
 
 
                             <TextBlock Text="{Binding Path=DateExtradition}"

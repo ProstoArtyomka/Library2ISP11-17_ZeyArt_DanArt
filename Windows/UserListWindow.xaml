@@ -29,10 +29,13 @@
         <TextBlock
             Text="Список читателей"
             Grid.Row="0"
-            TextAlignment="Center"
-            Margin="299,8,286,18"
+            Margin="260,-10,266,-2"
             VerticalAlignment="Center"
-            HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" Height="22" Width="207"
+            HorizontalAlignment="Center"
+            FontSize="30" 
+            FontWeight="Bold"
+            Height="40" 
+            Width="266"
             />
 
         <ListView x:Name="listReader"
@@ -85,7 +88,7 @@
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
-                            
+
                             <Image Source="/Library2ISP11-17_ZeyArt_DanArt;component/Images/userDef.png"
                                    Margin="10"
                                    Grid.RowSpan="5"/>
@@ -97,7 +100,7 @@
                                     </Binding>
                                 </Image.Source>
                             </Image>
-                            
+
 
                             <TextBlock Text="Фамилия"
                                        Grid.Column="1"
