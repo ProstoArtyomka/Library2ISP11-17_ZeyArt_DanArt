@@ -64,7 +64,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         {
             readerList = AppData.Context.Client.ToList();
             readerList = readerList.
-                Where(i => i.LastName.ToLower().Contains(txtSearch.Text.ToLower()) || i.FirstName.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+                Where(i => i.LastName.ToLower().Contains(txtSearch.Text.ToLower()) 
+                || i.FirstName.ToLower().Contains(txtSearch.Text.ToLower())
+                || i.Address.ToLower().Contains(txtSearch.Text.ToLower())
+                || i.FirstName.ToLower().Contains(txtSearch.Text.ToLower())
+                || i.Rating.ToString().Contains(txtSearch.Text.ToLower())
+                || i.IsDeleted.ToString().Contains(txtSearch.Text.ToLower())).ToList();
 
             switch (cmbSort.SelectedIndex)
             { 

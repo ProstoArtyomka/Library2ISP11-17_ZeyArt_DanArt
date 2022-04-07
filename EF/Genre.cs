@@ -17,13 +17,13 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Genre()
         {
-            this.GenreBook = new HashSet<GenreBook>();
+            this.Book = new HashSet<Book>();
         }
     
         public int ID { get; set; }
         public string NameGenre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GenreBook> GenreBook { get; set; }
+        public virtual ICollection<Book> Book { get; set; }
     }
 }

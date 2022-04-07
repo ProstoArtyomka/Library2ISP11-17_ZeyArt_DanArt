@@ -17,9 +17,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Book()
         {
-            this.AuthorBook = new HashSet<AuthorBook>();
             this.Extradition = new HashSet<Extradition>();
-            this.GenreBook = new HashSet<GenreBook>();
+            this.Author = new HashSet<Author>();
+            this.Genre = new HashSet<Genre>();
         }
     
         public int ID { get; set; }
@@ -31,12 +31,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         public byte[] Preview { get; set; }
         public int Cost { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AuthorBook> AuthorBook { get; set; }
         public virtual Publishing Publishing { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Extradition> Extradition { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<GenreBook> GenreBook { get; set; }
+        public virtual ICollection<Author> Author { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Genre> Genre { get; set; }
     }
 }

@@ -93,9 +93,6 @@
     <Compile Include="EF\Author.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
-    <Compile Include="EF\AuthorBook.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
     <Compile Include="EF\BD.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -133,9 +130,6 @@
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Genre.cs">
-      <DependentUpon>BD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="EF\GenreBook.cs">
       <DependentUpon>BD.tt</DependentUpon>
     </Compile>
     <Compile Include="EF\Publishing.cs">

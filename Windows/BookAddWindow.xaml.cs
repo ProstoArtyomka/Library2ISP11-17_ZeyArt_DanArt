@@ -36,7 +36,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
             if (book.Preview != null)
             {
-                using (MemoryStream stream = new MemoryStream((int)book.Preview))
+                using (MemoryStream stream = new MemoryStream((byte[])book.Preview))
                 {
                     BitmapImage bitmapImage = new BitmapImage();
                     bitmapImage.BeginInit();
@@ -63,6 +63,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
             isEdit = true;
         }
+
             public BookAddWindow()
             {
                 InitializeComponent();

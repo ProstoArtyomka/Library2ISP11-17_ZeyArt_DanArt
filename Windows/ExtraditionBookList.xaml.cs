@@ -40,36 +40,21 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             cmbSort.SelectedIndex = 0;
 
             Filter();
-
-            Debt();
         }
-
-        private void Debt()
-        {
-            //Доделать
-            //var editExtradition = new EF.Extradition();
-
-            //if (listExtradition.SelectedItem is EF.Extradition)
-            //{
-            //    editExtradition = listExtradition.SelectedItem as EF.Extradition;
-
-            //    if (Convert.ToDouble(editExtradition.ClientDebt) == 0.00)
-            //    {
-            //        listExtradition.Background = Brushes.White;
-            //    }
-            //    else
-            //    {
-            //        listExtradition.Background = Brushes.Red;
-            //    }
-            //}
-        }
-
 
         private void Filter()
         {
             ExtraditionList = AppData.Context.Extradition.ToList();
             ExtraditionList = ExtraditionList.
-               Where(i => i.Client.LastName.ToLower().Contains(txtSearch.Text.ToLower()) || i.Client.LastName.ToLower() .Contains(txtSearch.Text.ToLower())).ToList();
+               Where(i => i.DateExtradition.ToString().Contains(txtSearch.Text.ToLower()) 
+                     || i.DateReturn.ToString() .Contains(txtSearch.Text.ToLower())
+                     || i.Book.NameBook.ToLower().Contains(txtSearch.Text.ToLower())
+                     || i.Client.LastName.ToLower().Contains(txtSearch.Text.ToLower())
+                     || i.Client.FirstName.ToLower().Contains(txtSearch.Text.ToLower())
+                     || i.Client.Phone.ToLower().Contains(txtSearch.Text.ToLower())
+                     || i.Client.Address.ToLower().Contains(txtSearch.Text.ToLower())
+                     || i.Employee.LastName.ToLower().Contains(txtSearch.Text.ToLower())
+                     || i.ClientDebt.ToString().Contains(txtSearch.Text.ToLower())).ToList();
             switch (cmbSort.SelectedIndex)
             {
                 case 0:

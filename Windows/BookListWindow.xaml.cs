@@ -35,11 +35,8 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             cmbSort.ItemsSource = listSort;
             cmbSort.SelectedIndex = 0;
 
-            Filter();
-
-            
+            Filter();  
         }
-
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
@@ -50,11 +47,18 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             this.Opacity = 1;
         }
 
-            private void Filter()
-            {
+        private void Filter()
+        {
             bookList = AppData.Context.ViewBook.ToList();
             bookList = bookList.
-                Where(i => i.NameBook.ToLower().Contains(txtSearch.Text.ToLower()) || i.NamePublishing.ToLower().Contains(txtSearch.Text.ToLower())).ToList();
+                Where(i => i.NameBook.ToLower().Contains(txtSearch.Text.ToLower()) 
+                || i.NamePublishing.ToLower().Contains(txtSearch.Text.ToLower())
+                || i.YearOfPublishing.ToString().Contains(txtSearch.Text.ToLower())
+                || i.NameGenre.ToLower().Contains(txtSearch.Text.ToLower())
+                || i.Nickname.ToLower().Contains(txtSearch.Text.ToLower())
+                || i.NumberOfPages.ToString().Contains(txtSearch.Text.ToLower())
+                || i.Cost.ToString().Contains(txtSearch.Text.ToLower())
+                || i.IsDeleted.ToString().Contains(txtSearch.Text.ToLower())).ToList();
             switch (cmbSort.SelectedIndex)
             {
                 case 0:

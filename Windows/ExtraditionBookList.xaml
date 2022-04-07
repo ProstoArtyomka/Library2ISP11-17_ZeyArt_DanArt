@@ -92,7 +92,7 @@
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
                             <Image Source="/Library2ISP11-17_ZeyArt_DanArt;component/Images/BookExtradition.jpg"
-                                   Margin="0 10 0 0"
+                                   Margin="10"
                                    Grid.RowSpan="8"/>
                             <Image x:Name="photoBookExtradition"
                                    Margin="0 10 0 0"

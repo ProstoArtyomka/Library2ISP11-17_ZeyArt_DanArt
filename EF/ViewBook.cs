@@ -23,6 +23,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         public int NumberOfPages { get; set; }
         public int Cost { get; set; }
         public Nullable<bool> IsDeleted { get; set; }
-        public object Preview { get; internal set; }
+        public byte[] Preview { get; set; }
     }
 }
