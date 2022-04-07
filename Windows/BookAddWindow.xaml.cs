@@ -147,7 +147,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 }
 
                 //проверка на кол-во символов
-
                 if (txtNameBook.Text.Length > 100)
                 {
                     MessageBox.Show("Недопустимое количество символов для поля Название книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
