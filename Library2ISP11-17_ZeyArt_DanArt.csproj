@@ -263,6 +263,7 @@
     <Resource Include="Images\1486503771-book-books-education-library-reading-open-book-study_81275.ico" />
     <Resource Include="DesignItems\Main.gif" />
     <Resource Include="DesignItems\Library.jpg" />
+    <Resource Include="DesignItems\ExtraditionBook.gif" />
     <Content Include="EF\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>
