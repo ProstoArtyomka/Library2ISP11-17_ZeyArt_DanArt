@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:Library2ISP11_17_ZeyArt_DanArt.Windows"
         mc:Ignorable="d"
         Title="BookListWindow"
@@ -17,8 +18,6 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width ="*"/>
-
-
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="48*"/>
@@ -28,21 +27,35 @@
             <RowDefinition Height="36*"/>
         </Grid.RowDefinitions>
 
+        <Image 
+            gif:ImageBehavior.AnimatedSource="/DesignItems/Books.gif"
+            Grid.Row="0"
+            Grid.RowSpan="5"
+            Stretch="Fill"/>
         <TextBlock
             Text="Список книг"
             Grid.Row="0"
             Margin="203,-10,202,-2"
             VerticalAlignment="Center"
-            HorizontalAlignment="Center" FontSize="30" FontWeight="Bold" Height="40" Width="187"
+            HorizontalAlignment="Center"
+            FontSize="32" 
+            FontWeight="Bold"
+            Height="40" 
+            Width="187"
+            FontFamily="Times New Roman"
+            TextAlignment="Center"
+            Foreground="Black"
             />
 
-        <ListView x:Name="listBook"
-                  Grid.Row="3"
-                  KeyUp="listBook_KeyUp"
-                  SelectionChanged="listBook_SelectionChanged" 
-                  MouseDoubleClick="listBook_MouseDoubleClick"
-                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                 >
+        <ListView 
+            x:Name="listBook"
+            Grid.Row="3"
+            KeyUp="listBook_KeyUp"
+            SelectionChanged="listBook_SelectionChanged" 
+            MouseDoubleClick="listBook_MouseDoubleClick"
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+            Background="{x:Null}"
+            BorderBrush="{x:Null}">
             <!--<ListView.View>
                 <GridView>
                     <GridViewColumn Header="ID" Width="35" DisplayMemberBinding="{Binding ID}"/>
@@ -63,20 +76,18 @@
             <ListView.ItemTemplate>
 
                 <DataTemplate>
-                    <Border Background="Red"
-                         Height="100"
-                         Width="450"
-                         Margin="10"
-                         BorderThickness="1"
-                         CornerRadius="10">
-
+                    <Border 
+                        Background="#FF7D0000"
+                        Height="100"
+                        Width="450"
+                        Margin="10"
+                        BorderThickness="1"
+                        CornerRadius="10">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
                                 <ColumnDefinition Width="1*"/>
-                                <ColumnDefinition Width="1*"/>
-
                             </Grid.ColumnDefinitions>
 
                             <Grid.RowDefinitions>
@@ -88,11 +99,11 @@
                                 <RowDefinition Height="1*"/>
                                 <RowDefinition Height="1*"/>
                             </Grid.RowDefinitions>
-                            <Image Source="/Library2ISP11-17_ZeyArt_DanArt;component/Images/Bookbg.png"
-                                   Margin="0 10 0 0"
+                            <Image Source="/Images/Bookbg.png"
+                                   Margin="15"
                                    Grid.RowSpan="6"/>
                             <Image x:Name="photoUser"
-                                   Margin="0 10 0 0"
+                                   Margin="5"
                             Grid.RowSpan="6">
                                 <Image.Source>
                                     <Binding Path="Preview">
@@ -101,71 +112,87 @@
                             </Image>
 
 
-                            <TextBlock Text="Название"
+                            <TextBlock Text="Название:"
                                        Grid.Column="1"
                                        Grid.Row="0"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
                                        Margin="0 0 10 0"/>
 
-                            <TextBlock Text="Издатель"
+                            <TextBlock Text="Издатель:"
                                        Grid.Column="1"
                                        Grid.Row="1"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0 0 35 0" />
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0" />
 
-                            <TextBlock Text="Год публикации"
+                            <TextBlock Text="Год публикации:"
                                        Grid.Column="1"
                                        Grid.Row="2"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0 0 0 0" />
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0" />
 
-                            <TextBlock Text="Жанр"
+                            <TextBlock Text="Жанр:"
                                        Grid.Column="1"
                                        Grid.Row="3"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0 0 23 0"/>
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0"/>
 
-                            <TextBlock Text="Автор"
+                            <TextBlock Text="Автор:"
                                        Grid.Column="1"
                                        Grid.Row="4"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0 0 12 0"/>
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0"/>
 
-                            <TextBlock Text="Кол-во страниц"
+                            <TextBlock Text="Кол-во страниц:"
                                        Grid.Column="1"
                                        Grid.Row="5"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0 0 0 0"/>
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0"/>
 
-                            <TextBlock Text="Цена книги"
+                            <TextBlock Text="Цена книги:"
                                        Grid.Column="1"
                                        Grid.Row="6"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0 0 0 0"/>
-
-
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0"/>
 
                             <TextBlock Text="{Binding Path=NameBook}"
                                        Grid.Column="2"
                                        FontSize="10"
                                        Grid.Row="0"
-                                       HorizontalAlignment="Left"
+                                       HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0 0 0 0" />
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0" />
 
                             <TextBlock Text="{Binding Path=NamePublishing}"
                                        Grid.Column="2"
                                        Grid.Row="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="10 0 0 0" />
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0" />
 
 
                             <TextBlock Text="{Binding Path=YearOfPublishing}"
@@ -173,7 +200,9 @@
                                        Grid.Row="2"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="10 0 0 0" />
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0" />
 
 
                             <TextBlock Text="{Binding Path=NameGenre}"
@@ -181,7 +210,9 @@
                                        Grid.Row="3"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0 0 0 0" />
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0" />
 
 
                             <TextBlock Text="{Binding Path=Nickname}"
@@ -189,21 +220,27 @@
                                        Grid.Row="4"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="0 0 0 0" />
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0" />
 
                             <TextBlock Text="{Binding Path=NumberOfPages}"
                                        Grid.Column="2"
                                        Grid.Row="5"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="10 0 0 0" />
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0" />
 
                             <TextBlock Text="{Binding Path=Cost}"
                                        Grid.Column="2"
                                        Grid.Row="6"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Margin="10 0 0 0" />
+                                       Foreground="Black"
+                                       FontFamily="Times New Roman"
+                                       Margin="0 0 10 0" />
                         </Grid>
                     </Border>
                 </DataTemplate>
@@ -215,38 +252,76 @@
             x:Name="Back"
             Content="Назад"
             Grid.Row="4"
-            VerticalAlignment="Stretch"
-            HorizontalAlignment="Stretch"
-            Margin="5,5,658,5" Click="Back_Click" FontWeight="Bold"
-   />
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Margin="15,5,914,8" 
+            Click="Back_Click" 
+            FontWeight="Bold"
+            FontFamily="Times New Roman"
+            Foreground="Black"
+            Background="#FF7D0000"
+            BorderBrush="{x:Null}" 
+            FontSize="14"
+            Height="23" 
+            Width="53">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
         <Button
             x:Name="Update"
             Content="Добавить"
             Grid.Row="4"
-            VerticalAlignment="Stretch"
-            HorizontalAlignment="Stretch"
-           Margin="653,4.778,9.556,4.667"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
             FontWeight="Bold" 
             Click="Update_Click"
-   />
+            FontFamily="Times New Roman" 
+            FontSize="14"
+            Foreground="Black"
+            Background="#FF7D0000"
+            Margin="890,3,20,6"
+            BorderBrush="{x:Null}" 
+            Height="23" 
+            Width="74">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
         <WrapPanel Grid.Row="1" 
           VerticalAlignment="Center">
 
-            <TextBlock Text="Поиск"
+            <TextBlock 
+                Text="Поиск"
                 Margin="20 0 10 0"
-                 FontSize="18"/>
-            <TextBox x:Name="txtSearch"
+                FontFamily="Times New Roman"
+                FontSize="18"
+                FontWeight="Black"
+                Foreground="Black"/>
+            <TextBox 
+                x:Name="txtSearch"
                 Width="150" 
-                     FontSize="18" 
-                     TextChanged="txtSearch_TextChanged"
-/>
-            <ComboBox x:Name="cmbSort"
+                FontSize="18" 
+                FontFamily="Times New Roman"
+                FontWeight="Black"
+                TextChanged="txtSearch_TextChanged"
+                BorderBrush="Black"
+                Background="{x:Null}" SelectionBrush="#FF7D0000"/>
+            <ComboBox 
+                x:Name="cmbSort"
                 Width="150" 
-                      Margin="20 0" 
-                      SelectionChanged="cmbSort_SelectionChanged" />
+                FontFamily="Times New Roman"
+                Margin="20 0" 
+                FontWeight="Black"
+                SelectionChanged="cmbSort_SelectionChanged" 
+                BorderBrush="Black" 
+                Background="{x:Null}"/>
         </WrapPanel>
-
     </Grid>
 </Window>

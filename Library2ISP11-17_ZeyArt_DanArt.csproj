@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Images\1486503771-book-books-education-library-reading-open-book-study_81275.ico</ApplicationIcon>
+    <ApplicationIcon>bookshelf.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
@@ -260,10 +260,17 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\1486503771-book-books-education-library-reading-open-book-study_81275.ico" />
-    <Resource Include="DesignItems\Main.gif" />
-    <Resource Include="DesignItems\Library.jpg" />
+    <Resource Include="Images\Library.ico" />
     <Resource Include="DesignItems\ExtraditionBook.gif" />
+    <Resource Include="DesignItems\Vega.gif" />
+    <Resource Include="DesignItems\Menu.jpg" />
+    <Resource Include="bookshelf.ico" />
+    <Resource Include="DesignItems\Books.gif" />
+    <Resource Include="DesignItems\NewBook.gif" />
+    <Resource Include="DesignItems\Reader.gif" />
+    <Resource Include="DesignItems\NewReader.gif" />
+    <Resource Include="DesignItems\NewExtraditionBook.gif" />
+    <Resource Include="DesignItems\Library.jpg" />
     <Content Include="EF\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>

@@ -62,7 +62,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             cmbGender.DisplayMemberPath = "NameGender";
 
             tbTitle.Text = "Изменения данных читателя";
-            btAdd.Content = "Изменить";
+            btAdd.Content = "Изменить читателя";
 
             editReader = reader;
 
@@ -257,6 +257,11 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                pathPhoto = openFileDialog.FileName;
             }
 
+        }
+
+        private void btEnd_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

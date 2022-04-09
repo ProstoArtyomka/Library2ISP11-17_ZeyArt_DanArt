@@ -27,82 +27,85 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Image 
             Source="/DesignItems/Library.jpg"
             Grid.Row="0"
             Grid.ColumnSpan="3"
-            Margin="-166,-53,-165,-66"
             Grid.RowSpan="4"
-             />
+            Stretch="Fill"/>
         <Image 
-            gif:ImageBehavior.AnimatedSource="/DesignItems/Main.gif"
+            gif:ImageBehavior.AnimatedSource="/DesignItems/Vega.gif"
             Grid.Row="0"
             Grid.RowSpan="4"
-            Grid.ColumnSpan="3" Margin="0,0,95,-34.25"
-            />
+            Grid.ColumnSpan="3"
+            Margin="151,10,-56,-44.25"/>
 
         <TextBlock
-        Text="Авторизация"
-        Grid.Column="1"
-        Grid.Row="0"
-        Margin="30,35,30,11"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Center" 
-		FontSize="30" 
-		FontWeight="Bold"
-            Height="39"
-            Width="184"
-        FontFamily="Times New Roman"
-        Foreground="#26f7fd"
-        ></TextBlock>
-
-        <TextBlock
-        Text="Введите Логин"
-        Grid.Column="1"
-        Grid.Row="1"
-           Margin="5"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Center" 
-            FontSize="14"
-            FontFamily="Times New Roman"
-        Foreground="#26f7fd"
-        ></TextBlock>
-
-        <TextBox x:Name="UserLogin"
-            Grid.Row="1"
+            Text="Авторизация"
             Grid.Column="1"
-             Margin="74,43,70,44"
+            Grid.Row="0"
+            Margin="29,7,18,31"
+            TextAlignment="Center"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
-				 FontFamily="Times New Roman"
-                Foreground="Black"
-                 Width="100"
-            />
+		    FontSize="30" 
+		    FontWeight="Bold"
+            Height="47"
+            Width="197"
+            FontFamily="Times New Roman"
+            Foreground="Blue"/>
 
         <TextBlock
-        Text="Введите Пароль"
-        Grid.Column="1"
-        Grid.Row="2"
-           Margin="5"
+            Text="Введите Логин"
+            TextAlignment="Center"
+            Grid.Column="1"
+            Grid.Row="1"
+            Margin="78,0,70,0"
             VerticalAlignment="Top"
             HorizontalAlignment="Center" 
             FontSize="14"
             FontFamily="Times New Roman"
-        Foreground="#26f7fd"
-        ></TextBlock>
+            Foreground="Blue" Width="96"/>
+
+        <TextBox 
+            x:Name="UserLogin"
+            Grid.Row="1"
+            Grid.Column="1"
+            Margin="78,27,71,42"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+		    FontFamily="Times New Roman"
+            Foreground="Black"
+            Width="95"
+            Background="{x:Null}" 
+            BorderBrush="#FF0078D7">
+        </TextBox>
+
+        <TextBlock
+            Text="Введите Пароль"
+            TextAlignment="Center"
+            Grid.Column="1"
+            Grid.Row="1"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center" 
+            FontSize="14"
+            FontFamily="Times New Roman"
+            Foreground="Blue" 
+            Margin="78,64,71,-10" Width="95"/>
 
         <TextBox
             x:Name="UserPassword"
-            Grid.Row="2"
+            Grid.Row="1"
             Grid.Column="1"
-             Margin="74,44,70,43"
+            Margin="78,85,71,89"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"    
             FontFamily="Times New Roman"
             Foreground="Black"
-            Width="100"
-            />
+            Width="95"
+            BorderBrush="#FF0078D7" 
+            Background="{x:Null}" Grid.RowSpan="2"/>
 
         <Button
             x:Name="AuthEnter"
@@ -111,20 +114,28 @@
             Grid.Row="3"
             VerticalAlignment="Stretch"
             HorizontalAlignment="Stretch"
-            Margin="40" 
-            FontSize="14"
+            Margin="80,37,80,37" 
+            FontSize="18"
             FontWeight="Bold" 
             FontFamily="Times New Roman"
             Foreground="Black"
-            Click="AuthEnter_Click"
-            />
+            BorderBrush="{x:Null}"
+            Background="{x:Null}"
+            Click="AuthEnter_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
         <TextBlock 
 			Text="Забыли пароль?"
 		    HorizontalAlignment ="Center"
 		    VerticalAlignment="Center"
 			FontSize="10"
             FontFamily="Times New Roman"
-			Foreground="#26f7fd"
+			Foreground="Blue"
 			ToolTip="Какая жалость,вспоминай"
 			Grid.Column="1"
 			Grid.Row="3" 

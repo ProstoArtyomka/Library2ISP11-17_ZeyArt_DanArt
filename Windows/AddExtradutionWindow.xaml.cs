@@ -54,7 +54,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
 
             tbTitle.Text = "Изменения записи о выдаче книги";
-            btAdd.Content = "Изменить";
+            btAdd.Content = "Изменить запись";
 
             editExtradition = extradition;
 
@@ -133,17 +133,17 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            //if (txtDateReturn.Text.Length < txtDateExtradition.Text.Length)
-            //{
-            //    MessageBox.Show("Дата возврата не может быть меньше даты выдачи", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    return;
-            //}
+            if (txtDateReturn.Text.Length < txtDateExtradition.Text.Length)
+            {
+                MessageBox.Show("Дата возврата не может быть меньше даты выдачи", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-            //if (txtDateExtradition.Text.Length > txtDateReturn.Text.Length)
-            //{
-            //    MessageBox.Show("Дата выдачи не может быть больше даты возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-            //    return;
-            //}
+            if (txtDateExtradition.Text.Length > txtDateReturn.Text.Length)
+            {
+                MessageBox.Show("Дата выдачи не может быть больше даты возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             if (txtNameBook.Text.Length > 100)
             {
@@ -184,6 +184,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             if (txtCostDebt.Text.Length > 8)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Долг", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (Convert.ToDouble(txtCostDebt.Text) < 0.00)
+            {
+                MessageBox.Show("Недопустимое значение для поля Долг", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             if (isEdit)
@@ -272,6 +278,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 pathPhoto = openFileDialog.FileName;
             }
 
+        }
+        private void btEnd_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

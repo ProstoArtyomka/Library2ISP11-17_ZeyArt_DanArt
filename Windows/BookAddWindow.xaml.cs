@@ -49,7 +49,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             }
 
             tbTitle.Text = "Изменения данных книги";
-            btAdd.Content = "Изменить";
+            btAdd.Content = "Изменить книгу";
 
             editBook = book;
 
@@ -126,8 +126,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     MessageBox.Show("Поле Год публикации не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-
-                //в разработке
                 if (string.IsNullOrWhiteSpace(txtGenre.Text))
                 {
                     MessageBox.Show("Поле Жанр не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -189,6 +187,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     return;
                 }
 
+                if (Convert.ToDouble(txtCost.Text.Length) < 0.00)
+                {
+                MessageBox.Show("Недопустимая цена для поля Цена книги ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+                }
+                
             if (isEdit)
             {
                 try
@@ -265,6 +269,11 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 pathPhoto = openFileDialog.FileName;
             }
 
+        }
+
+        private void btEnd_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

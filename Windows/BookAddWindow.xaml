@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:Library2ISP11_17_ZeyArt_DanArt.Windows"
         mc:Ignorable="d"
         Title="BookAddWindow"
@@ -37,217 +38,331 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-
-
         </Grid.RowDefinitions>
+        <Image 
+            gif:ImageBehavior.AnimatedSource="/DesignItems/NewBook.gif"
+            Grid.Row="0"
+            Grid.RowSpan="18"
+            Grid.ColumnSpan="2"
+            Stretch="Fill"/>
         <TextBlock
             x:Name="tbTitle"
-        Text="Добавление Книги"
+            Text="Добавление Книги"
             TextAlignment="Center"
-        Grid.Row="0"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Center" 
-		FontSize="20" 
-		FontWeight="Bold"
-        Height="30" 
-        Grid.ColumnSpan="2" 
-        Width="380"
+            FontFamily="Times New Roman"
+            Grid.Row="0"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center" 
+		    FontSize="25" 
+		    FontWeight="Bold"
+            Height="30" 
+            Grid.ColumnSpan="2" 
+            Width="380"
         />
         <TextBlock
-        Text="Название"
-        Grid.Row="1"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Right" 
-		FontSize="15" 
-		FontWeight="Bold"
-        Height="25" 
+            Text="Название"
+            Grid.Row="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Right" 
+		    FontSize="20" 
+            FontFamily="Times New Roman"
+            TextAlignment="Center"
+		    FontWeight="Bold"
+            Height="24" 
+            Margin="0,22,0,0"
+            Grid.RowSpan="2" 
         />
         <TextBlock
-        Text="Издатель"
-        Grid.Row="2"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Right" 
-		FontSize="15" 
-		FontWeight="Bold"
-        Height="25" 
+            Text="Издатель"
+            Grid.Row="4"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Right" 
+		    FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Center"
+		    FontWeight="Bold"
+            Height="25" 
         />
         <TextBlock
-        Text="Год публикации"
-        Grid.Row="3"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Right" 
-		FontSize="15" 
-		FontWeight="Bold"
-        Height="25" 
+            Text="Год публикации"
+            Grid.Row="6"
+            FontFamily="Times New Roman"
+            TextAlignment="Center"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Right" 
+		    FontSize="20" 
+		    FontWeight="Bold"
+            Height="25" 
         />
         <TextBlock
-        Text="Жанр"
-        Grid.Row="4"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Right" 
-		FontSize="15" 
-		FontWeight="Bold"
-        Height="25" 
+            Text="Жанр"
+            Grid.Row="8"
+            FontFamily="Times New Roman"
+            TextAlignment="Center"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Right" 
+		    FontSize="20"  
+		    FontWeight="Bold"
+            Height="25" 
         />
         <TextBlock
         Text="Автор"
-        Grid.Row="5"
+        Grid.Row="10"
+        FontFamily="Times New Roman"
+        TextAlignment="Center"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
-		FontSize="15" 
+		FontSize="20" 
 		FontWeight="Bold"
         Height="25" 
         />
         <TextBlock
         Text="Кол-во страниц в книге"
-        Grid.Row="6"
+        Grid.Row="12"
+        FontFamily="Times New Roman"
+        TextAlignment="Center"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
-		FontSize="15" 
+		FontSize="20" 
 		FontWeight="Bold"
         Height="25" 
         />
 
         <TextBlock
         Text="Цена книги"
-        Grid.Row="7"
+        FontFamily="Times New Roman"
+        TextAlignment="Center"
+        Grid.Row="14"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
-		FontSize="15" 
+		FontSize="20" 
 		FontWeight="Bold"
-        Height="25" 
+        Height="25"
+        Grid.ColumnSpan="2"
+        Margin="0,21,453,0"
+        Grid.RowSpan="2" 
         />
 
         <TextBox 
             x:Name="txtNameBook"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
             Grid.Row="1"
+            Grid.RowSpan="3"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="10,21,0,22"
             Width="250"
-            Height="25"
-            MaxLength="100" TextChanged="txtNameBook_TextChanged">
+            Height="26"
+            MaxLength="100"  
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Background="{x:Null}"
+            BorderBrush="Black"
+            TextChanged="txtNameBook_TextChanged"  
+            SelectionBrush="Red">
         </TextBox>
         <TextBox 
             x:Name="txtPublishing"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="2"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Grid.Row="3"
+            Grid.RowSpan="2"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="10,21,0,0"
             Width="250"
             Height="25"
-            MaxLength="100" TextChanged="txtPublishing_TextChanged">
+            MaxLength="100"
+            TextChanged="txtPublishing_TextChanged"
+            Background="{x:Null}"
+            BorderBrush="Black" 
+            SelectionBrush="Red" 
+            Foreground="Red">
         </TextBox>
         <TextBox 
             x:Name="txtYearOfPublishing"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="3"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Grid.Row="5"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="10,22,0,22"
             Width="250"
             Height="25"
-            MaxLength="50" TextChanged="txtYearOfPublishing_TextChanged">
+            MaxLength="50" 
+            TextChanged="txtYearOfPublishing_TextChanged"
+            Background="{x:Null}"
+            BorderBrush="Black" 
+            Grid.RowSpan="3"
+            SelectionBrush="Red">
         </TextBox>
         <TextBox 
             x:Name="txtGenre"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="4"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Grid.Row="7"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="10,21,0,0"
             Width="250"
             Height="25"
-            MaxLength="50" TextChanged="txtGenre_TextChanged">
+            MaxLength="50"
+            Background="{x:Null}"
+            BorderBrush="Black"
+            TextChanged="txtGenre_TextChanged" 
+            SelectionBrush="Red"
+            Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtAuthor"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="5"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Grid.Row="9"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="10,21,0,0"
             Width="250"
             Height="25"
-            MaxLength="100" TextChanged="txtAuthor_TextChanged">
+            MaxLength="100" 
+            Background="{x:Null}"
+            BorderBrush="Black"
+            TextChanged="txtAuthor_TextChanged"
+            Grid.RowSpan="2"
+            SelectionBrush="Red">
         </TextBox>
         <TextBox 
             x:Name="txtNumberOfPages"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="6"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Grid.Row="11"
             Grid.Column="1"
-            Margin="10,0.667,0,22.444"
+            Margin="10,22,0,0"
             Width="250"
             Height="24"
-            MaxLength="5" TextChanged="txtNumberOfPages_TextChanged" Grid.RowSpan="2">
+            MaxLength="5"
+            Background="{x:Null}"
+            BorderBrush="Black"
+            TextChanged="txtNumberOfPages_TextChanged"
+            Grid.RowSpan="2"
+            SelectionBrush="Red">
         </TextBox>
 
         <TextBox 
             x:Name="txtCost"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="7"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Grid.Row="14"
             Grid.Column="1"
-            Margin="10,0.667,0,22.444"
+            Margin="10,21,0,1"
             Width="250"
             Height="24"
             MaxLength="5"
-            Grid.RowSpan="2">
-        </TextBox>
+            Background="{x:Null}"
+            BorderBrush="Black" 
+            Grid.RowSpan="2"
+            SelectionBrush="Red"/>
 
-        <Border  Grid.Row="9"
+        <Border Grid.Row="3"
                 Grid.Column="1"
                 Grid.ColumnSpan="1"
                 Grid.RowSpan="7"
-                Margin="36,12,269.556,2.815"
+                Margin="270,4,4,0"
                 Width="150"
                 Height="150"
                 BorderThickness="2"
-                BorderBrush="LightGray"
+                BorderBrush="Black"
                 CornerRadius="10">
             <Image x:Name="imgBook" 
-                   Source="/Images/bookbg.png"/>
+                   Source="/Images/bookbg.png" />
         </Border>
 
-        <Button  x:Name="btnChoosePhoto" 
-                 Content="Выбрать изображение"
-                 VerticalAlignment="Center"
-                 HorizontalAlignment="Right"
-                 FontSize="16"
-                 Grid.Row="12"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="2"
-                 Margin="0 0 10 0"
-                 Width="200"
-                 Height="40"
-                 Click="btnChoosePhoto_Click"/>
+        <Button  
+            x:Name="btnChoosePhoto" 
+            Content="Выбрать изображение"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Right"
+            FontSize="14"
+            Grid.Row="10"
+            Grid.Column="1"
+            Margin="0,10,19,18"
+            Width="150"
+            Height="41"
+            Click="btnChoosePhoto_Click"
+            FontFamily="Times New Roman" 
+            FontWeight="Black"
+            Foreground="Black"
+            Background="#FF7D0000"
+            BorderBrush="{x:Null}" 
+            Grid.RowSpan="3" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
 
         <Button
             x:Name="btAdd"
-            Content="Добавить"
+            Content="Добавить книгу"
             Grid.Row="16"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
-            FontWeight="Bold" 
-     
-            Width="130" 
+            FontWeight="Black" 
+            Width="97" 
             Click="btAdd_Click"
-            Height="23" 
-            Margin="45,6.185,280.556,17.037"
+            Height="25" 
+            Margin="327,2,10,11"
             Grid.RowSpan="2"
             Grid.Column="1" 
-            />
+            FontFamily="Times New Roman" 
+            Foreground="Black"
+            Background="#FF7D0000"
+            BorderBrush="{x:Null}" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button
+            x:Name="btEnd"
+            Content="Назад"
+            Grid.Row="16"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontWeight="Black" 
+            Width="91" 
+            Click="btEnd_Click"
+            Height="25" 
+            Margin="10,2,217,11"
+            Grid.RowSpan="2" 
+            FontFamily="Times New Roman" 
+            Foreground="Black"
+            Background="#FF7D0000"
+            BorderBrush="{x:Null}" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
     </Grid>
 </Window>

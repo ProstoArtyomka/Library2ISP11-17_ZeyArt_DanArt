@@ -41,8 +41,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt
             }
             else
             {
-                MessageBox.Show("Пользователь с такими данными не найден!");
+                MessageBox.Show("Пользователь с такими данными не найден!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
         }
+
     }
 }

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         xmlns:local="clr-namespace:Library2ISP11_17_ZeyArt_DanArt.Windows"
         mc:Ignorable="d"
         Title="AddExtradutionWindow"
@@ -37,27 +38,38 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
-
         </Grid.RowDefinitions>
+        <Image 
+            gif:ImageBehavior.AnimatedSource="/DesignItems/NewExtraditionBook.gif"
+            Grid.Row="0"
+            Grid.RowSpan="18"
+            Grid.ColumnSpan="2"
+            Stretch="Fill"/>
         <TextBlock
             x:Name="tbTitle"
-        Text="Добавление записи о выдаче книги"
+            Text="Добавление записи о выдаче книги"
             TextAlignment="Center"
-        Grid.Row="0"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Center" 
-		FontSize="20" 
-		FontWeight="Bold"
-        Height="30" 
-        Grid.ColumnSpan="2" 
-        Width="371" Margin="252,-4,169,20" Grid.RowSpan="2"
-        />
+            Foreground="White"
+            FontSize="25"
+            FontFamily="Times New Roman"
+            Grid.Row="0"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center" 
+		    FontWeight="Bold"
+            Height="30" 
+            Grid.ColumnSpan="2" 
+            Width="407"
+            Margin="152,-4,152,21"
+            Grid.RowSpan="2"/>
         <TextBlock
         Text="Дата выдачи"
         Grid.Row="1"
+        FontSize="20" 
+        FontFamily="Times New Roman"
+        Foreground="White"
+        TextAlignment="Center"
         VerticalAlignment="Center"
-        HorizontalAlignment="Right" 
-		FontSize="15" 
+        HorizontalAlignment="Right"  
 		FontWeight="Bold"
         Height="25" 
         />
@@ -66,73 +78,99 @@
         Grid.Row="2"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
-		FontSize="15" 
+		FontSize="20" 
+            FontFamily="Times New Roman"
+            Foreground="White"
+            TextAlignment="Center"
 		FontWeight="Bold"
-        Height="25" 
+        Height="25" Margin="0,14,0,7" Grid.RowSpan="2" Width="130" 
         />
         <TextBlock
         Text="Название книги"
-        Grid.Row="3"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Right" 
-		FontSize="15" 
-		FontWeight="Bold"
-        Height="25" 
-        />
-        <TextBlock
-        Text="Фамилия Клиента"
         Grid.Row="4"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
-		FontSize="15" 
+		FontSize="20" 
+        FontFamily="Times New Roman"
+         Foreground="White"
+            TextAlignment="Center"
 		FontWeight="Bold"
-        Height="25" 
+        Height="25" Margin="0,12,0,9" Grid.RowSpan="2" 
         />
         <TextBlock
-        Text="Имя Клиента"
-        Grid.Row="5"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Right" 
-		FontSize="15" 
-		FontWeight="Bold"
-        Height="25" 
-        />
-        <TextBlock
-        Text="Телефон Клиента"
+        Text="Фамилия Клиента"
         Grid.Row="6"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
-		FontSize="15" 
+		FontSize="20" 
+            FontFamily="Times New Roman"
+            Foreground="White"
+            TextAlignment="Center"
 		FontWeight="Bold"
-        Height="25" 
+        Height="25" Margin="0,13,0,8" Grid.RowSpan="2" 
         />
         <TextBlock
-        Text="Адрес Клиента"
-        Grid.Row="7"
-        VerticalAlignment="Center"
-        HorizontalAlignment="Right" 
-		FontSize="15" 
-		FontWeight="Bold"
-        Height="25" 
-        />
-        <TextBlock
-        Text="Фамилия Сотрудника"
+        Text="Имя Клиента"
         Grid.Row="8"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
-		FontSize="15" 
+		FontSize="20" 
+            FontFamily="Times New Roman"
+            Foreground="White"
+            TextAlignment="Center"
 		FontWeight="Bold"
-        Height="25" 
+        Height="25" Margin="0,12,0,9" Grid.RowSpan="2" 
+        />
+        <TextBlock
+        Text="Телефон Клиента"
+        Grid.Row="10"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Right" 
+		FontSize="20" 
+            FontFamily="Times New Roman"
+            Foreground="White"
+            TextAlignment="Center" 
+		FontWeight="Bold"
+        Height="25" Margin="0,11,0,10" Grid.RowSpan="2" 
+        />
+        <TextBlock
+        Text="Адрес Клиента"
+        Grid.Row="12"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Right" 
+		FontSize="20" 
+            FontFamily="Times New Roman"
+            Foreground="White"
+            TextAlignment="Center"
+		FontWeight="Bold"
+        Height="24" Margin="0,10,0,13" Grid.RowSpan="2" 
+        />
+        <TextBlock
+        Text="Фамилия Сотрудника"
+        Grid.Row="14"
+        VerticalAlignment="Center"
+        HorizontalAlignment="Right" 
+		FontSize="20" 
+            FontFamily="Times New Roman"
+            Foreground="White"
+            TextAlignment="Center" 
+		FontWeight="Bold"
+        Height="24"
+            Margin="0,3,0,21"
+            Grid.RowSpan="2" 
         />
 
         <TextBlock
         Text="Цена долга"
-        Grid.Row="9"
+        Grid.Row="15"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
-		FontSize="15" 
+		FontSize="20" 
+            FontFamily="Times New Roman"
+            Foreground="White"
+            TextAlignment="Center"
 		FontWeight="Bold"
-        Height="25" 
+        Height="26" Margin="0,18,0,4" Grid.RowSpan="2" 
         />
 
 
@@ -140,157 +178,244 @@
             x:Name="txtDateExtradition"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
             Grid.Row="1"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="12,0,0,22"
             Width="250"
-            Height="25"
-            MaxLength="50">
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Background="{x:Null}"
+            BorderBrush="White"
+            Foreground="White"
+            MaxLength="50" 
+            Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtDateReturn"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Background="{x:Null}"
+            BorderBrush="White"
+            Foreground="White"
             Grid.Row="2"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="12,14,0,7"
             Width="250"
             Height="25"
-            MaxLength="50">
+            MaxLength="50"
+            Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtNameBook"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="3"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Background="{x:Null}"
+            BorderBrush="White"
+            Foreground="White"
+            Grid.Row="4"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="12,12,0,9"
             Width="250"
             Height="25"
-            MaxLength="50">
+            MaxLength="50" Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtLastNameClient"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="4"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Background="{x:Null}"
+            BorderBrush="White"
+            Foreground="White"
+            Grid.Row="6"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="12,13,0,8"
             Width="250"
             Height="25"
-            MaxLength="12">
+            MaxLength="12" Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtFirstNameClient"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="5"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Background="{x:Null}"
+            BorderBrush="White"
+            Foreground="White"
+            Grid.Row="8"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="12,12,0,9"
             Width="250"
             Height="25"
-            MaxLength="100">
+            MaxLength="100" Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtPhoneClient"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="6"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Background="{x:Null}"
+            BorderBrush="White"
+            Foreground="White"
+            Grid.Row="10"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="12,11,0,10"
             Width="250"
             Height="25"
-            MaxLength="3">
+            MaxLength="3" Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtAddressClient"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="7"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Background="{x:Null}"
+            BorderBrush="White"
+            Foreground="White"
+            Grid.Row="12"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="12,8,0,10"
             Width="250"
-            Height="25"
-            MaxLength="3">
+            Height="26"
+            MaxLength="3" Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtLastNameEmployee"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="8"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Background="{x:Null}"
+            BorderBrush="White"
+            Foreground="White"
+            Grid.Row="14"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="12,1,0,18"
             Width="250"
             Height="25"
-            MaxLength="100">
+            MaxLength="100" Grid.RowSpan="2">
         </TextBox>
 
         <TextBox 
             x:Name="txtCostDebt"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="16"
-            Grid.Row="9"
+            FontSize="20"
+            FontFamily="Times New Roman"
+            TextAlignment="Left"
+            Background="{x:Null}"
+            BorderBrush="White"
+            Foreground="White"
+            Grid.Row="15"
             Grid.Column="1"
-            Margin="10 0 0 0"
+            Margin="12,16,0,3"
             Width="250"
             Height="25"
-            MaxLength="100">
+            MaxLength="100" Grid.RowSpan="2">
         </TextBox>
 
         <!-- Блок с изображением -->
 
-        <Border Grid.Row="10"
+        <Border Grid.Row="3"
                 Grid.Column="1"
                 Grid.ColumnSpan="1"
                 Grid.RowSpan="7"
-                Margin="25,0,259,16"
+                Margin="270,4,4,0"
                 Width="150"
                 Height="150"
                 BorderThickness="2"
-                BorderBrush="LightGray"
+                BorderBrush="White"
                 CornerRadius="10">
             <Image x:Name="imgBook" 
                    Source="/Images/BookExtradition.jpg" />
         </Border>
 
         <Button  x:Name="btnChoosePhoto" 
-                 Content="Выбрать изображение"
-                 VerticalAlignment="Center"
-                 HorizontalAlignment="Right"
-                 FontSize="16"
-                 Grid.Row="12"
-                 Grid.Column="0"
-                 Grid.ColumnSpan="2"
-                 Margin="0 0 10 0"
-                 Width="200"
-                 Height="40"
-                 Click="btnChoosePhoto_Click"/>
-
-        <!-- Кнопка добавить -->
+                Content="Выбрать изображение"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Right"
+            FontSize="14"
+            Grid.Row="10"
+            Grid.Column="1"
+            Margin="2,12,17,14"
+            Width="150"
+            Height="42"
+            Click="btnChoosePhoto_Click"
+            FontFamily="Times New Roman" 
+            FontWeight="Black"
+            Foreground="White"
+            Background="Black"
+            BorderBrush="White" 
+            Grid.RowSpan="3" >
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
         <Button
             x:Name="btAdd"
-            Content="Добавить"
+            Content="Добавить запись"
             Grid.Row="16"
             VerticalAlignment="Center"
             HorizontalAlignment="Center"
-            FontWeight="Bold" 
-     
-            Width="130" 
+            FontWeight="Black" 
+            Width="112" 
             Click="btAdd_Click"
-            Height="23" 
-            Margin="35,3,269,0"
-            Grid.Column="1" Grid.RowSpan="2" 
-            />
+            Height="25" 
+            Margin="327,2,10,11"
+            Grid.RowSpan="2"
+            Grid.Column="1" 
+            FontFamily="Times New Roman" 
+            Foreground="White"
+            Background="Black"
+            BorderBrush="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+        <Button
+            x:Name="btEnd"
+            Content="Назад"
+            Grid.Row="16"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            FontWeight="Black" 
+            Width="91" 
+            Click="btEnd_Click"
+            Height="25" 
+            Margin="10,2,217,11"
+            Grid.RowSpan="2" 
+            FontFamily="Times New Roman" 
+            Foreground="White"
+            Background="Black"
+            BorderBrush="White">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
 
     </Grid>
 </Window>

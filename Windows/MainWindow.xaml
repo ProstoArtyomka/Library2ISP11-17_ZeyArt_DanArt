@@ -16,25 +16,34 @@
         >
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width ="*"/>
-            <ColumnDefinition Width ="*"/>
-            <ColumnDefinition Width ="*"/>
+            <ColumnDefinition Width = "*"/>
+            <ColumnDefinition Width = "*"/>
+            <ColumnDefinition Width = "*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height = "*"/>
+            <RowDefinition Height = "*"/>
+            <RowDefinition Height = "*"/>
         </Grid.RowDefinitions>
-
+        <Image 
+            Source="C:\Users\ARTEM\source\repos\Library2ISP11-17_ZeyArt_DanArt/DesignItems/Menu.jpg" 
+            Grid.ColumnSpan="3" 
+            Grid.RowSpan="3"
+            Stretch="Fill"
+            />
         <TextBlock
         Text="Добро пожаловать"
         Grid.Column="1"
         Grid.Row="0"
-           Margin="14,10,14,0"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Center" 
+        TextAlignment="Center"
+        FontFamily="Times New Roman"
+        Margin="27,10,21,0"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Center" 
 		FontSize="30" 
-		FontWeight="Bold" Height="44" Width="283"
+		FontWeight="Bold"
+        Height="44"
+        Width="283"
         ></TextBlock>
         <Button
             x:Name="Book"
@@ -42,35 +51,62 @@
             Grid.Row="1"
             VerticalAlignment="Stretch"
             HorizontalAlignment="Stretch"
-            Margin="24,44"
+            Margin="100,50"
             FontSize="14"
-            FontWeight="Bold" Click="Book_Click"
-            
-            />
+            FontWeight="Bold"
+            Click="Book_Click"
+            FontFamily="Times New Roman"
+            Foreground="Black"
+            Background="#FF7D0000"
+            BorderBrush="{x:Null}">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
         <Button
             x:Name="Reader"
             Content="Список Читателей"
             Grid.Row="1"
             VerticalAlignment="Stretch"
             HorizontalAlignment="Stretch"
-            Margin="24,44"
+            Margin="100,50"
             FontSize="14"
             FontWeight="Bold"
-            Grid.Column="1" Click="Reader_Click"            
-            />
+            Grid.Column="1"
+            FontFamily="Times New Roman"
+            Foreground="#FFF5B75A"
+            Background="#FFAA4419"
+            Click="Reader_Click"
+            BorderBrush="{x:Null}">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
         <Button
             x:Name="Extradition"
             Content="Список Выданных книг"
             Grid.Row="1"
             VerticalAlignment="Stretch"
             HorizontalAlignment="Stretch"
-            Margin="22.778,44.111,25.556,43.778"
+            Margin="85,50"
             FontSize="14"
             FontWeight="Bold"
-            Grid.Column="2" Click="Extradition_Click"            
-            />
-
-
+            Grid.Column="2"
+            FontFamily="Times New Roman"
+            Foreground="White"
+            Background="Black"
+            Click="Extradition_Click" 
+            BorderBrush="{x:Null}">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
     </Grid>
 </Window>
 
