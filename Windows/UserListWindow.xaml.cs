@@ -24,7 +24,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         List<Client> readerList = new List<Client>();
 
-        List<string> listSort = new List<string>() { "По умолчанию", "По фамилии", "По имени", "По адресу", "По рейтингу" , "По статусу удаления" };
+        List<string> listSort = new List<string>() { "По умолчанию", "По фамилии", "По имени", "По адресу", "По рейтингу" };
+
+        List<string> listSortIsDeleted = new List<string>() {"Не удален", "Удален" };
 
 
         public UserListWindow()
@@ -32,6 +34,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             InitializeComponent();
 
             listReader.ItemsSource = AppData.Context.Client.ToList();
+
+            cmbSortIsDeleted.ItemsSource = listSortIsDeleted;
+            cmbSortIsDeleted.SelectedIndex = 0;
 
             cmbSort.ItemsSource = listSort;
             cmbSort.SelectedIndex = 0;
@@ -71,6 +76,15 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 || i.Rating.ToString().Contains(txtSearch.Text.ToLower())
                 || i.IsDeleted.ToString().Contains(txtSearch.Text.ToLower())).ToList();
 
+            if (cmbSortIsDeleted.SelectedIndex == 0)
+            {
+                readerList = readerList.Where(i => Convert.ToInt32(i.IsDeleted) == 0).ToList();
+            }
+            else 
+            {
+                readerList = readerList.Where(i => Convert.ToInt32(i.IsDeleted) == 1).ToList();
+            }
+
             switch (cmbSort.SelectedIndex)
             { 
             case 0:
@@ -88,15 +102,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             case 4:
                 readerList = readerList.OrderByDescending(i => i.Rating).ToList();
                 break;
-            case 5:
-                readerList = readerList.OrderByDescending(i => i.IsDeleted).ToList();
-                break;
             default:
                 readerList = readerList.OrderBy(i => i.ID).ToList();
                 break;
             }
-
-            listReader.ItemsSource = readerList;
+    
+          listReader.ItemsSource = readerList;
         }
 
          
@@ -110,6 +121,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         {
             Filter();
         }
+
+        private void cmbSortIsDeleted_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Filter();
+        }
+
 
         private void lvReader_KeyUp(object sender,System.Windows.Input.KeyEventArgs e)
         {

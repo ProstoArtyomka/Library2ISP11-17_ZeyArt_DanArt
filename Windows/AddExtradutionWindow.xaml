@@ -174,7 +174,7 @@
         />
 
 
-        <TextBox 
+        <DatePicker 
             x:Name="txtDateExtradition"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
@@ -182,33 +182,26 @@
             Grid.Column="1"
             Margin="12,0,0,22"
             Width="250"
-            FontSize="20"
+            FontSize="15"
             FontFamily="Times New Roman"
-            TextAlignment="Left"
             Background="{x:Null}"
-            BorderBrush="White"
-            Foreground="White"
-            MaxLength="50" 
+            BorderBrush="{x:Null}"
             Grid.RowSpan="2">
-        </TextBox>
-        <TextBox 
+        </DatePicker>
+        <DatePicker 
             x:Name="txtDateReturn"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="20"
+            FontSize="15"
             FontFamily="Times New Roman"
-            TextAlignment="Left"
-            Background="{x:Null}"
-            BorderBrush="White"
-            Foreground="White"
+            BorderBrush="{x:Null}"
+            Foreground="Black"
             Grid.Row="2"
             Grid.Column="1"
             Margin="12,14,0,7"
             Width="250"
             Height="25"
-            MaxLength="50"
-            Grid.RowSpan="2">
-        </TextBox>
+            Grid.RowSpan="2" Background="{x:Null}"/>
         <TextBox 
             x:Name="txtNameBook"
             VerticalAlignment="Center"

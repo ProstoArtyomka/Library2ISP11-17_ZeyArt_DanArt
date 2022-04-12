@@ -31,11 +31,18 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
     
         List<string> listSort = new List<string>() { "По умолчанию", "По дате выдачи", "По дате возврата", "По названию книги", "По фамилии клиента", "По имени клиента", "По телефону клиента", "По адрессу клиента", "По фамилии сотрудника", "По цене долга", };
 
+        List<string> listSortIsDebt = new List<string>() { "Долга нету", "Долг есть" };
+
         public ExtraditionBookList()
         {
             InitializeComponent();
 
             listExtradition.ItemsSource = AppData.Context.Extradition.ToList();
+
+
+            cmbSortIsDebt.ItemsSource = listSortIsDebt;
+            cmbSortIsDebt.SelectedIndex = 0;
+
             cmbSort.ItemsSource = listSort;
             cmbSort.SelectedIndex = 0;
 
@@ -55,6 +62,15 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                      || i.Client.Address.ToLower().Contains(txtSearch.Text.ToLower())
                      || i.Employee.LastName.ToLower().Contains(txtSearch.Text.ToLower())
                      || i.ClientDebt.ToString().Contains(txtSearch.Text.ToLower())).ToList();
+
+            if (cmbSortIsDebt.SelectedIndex == 0)
+            {
+                ExtraditionList = ExtraditionList.Where(i => Convert.ToInt32(i.ClientDebt) == 0).ToList();
+            }
+            else
+            {
+                ExtraditionList = ExtraditionList.Where(i => Convert.ToInt32(i.ClientDebt) > 0).ToList();
+            }
             switch (cmbSort.SelectedIndex)
             {
                 case 0:
@@ -122,6 +138,11 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             Filter();
         }
 
+        private void cmbSortIsDebt_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Filter();
+        }
+
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             Filter();
@@ -168,6 +189,5 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             listExtradition.ItemsSource = AppData.Context.Extradition.ToList();
             this.Opacity = 1;
         }
-    
     }
 }

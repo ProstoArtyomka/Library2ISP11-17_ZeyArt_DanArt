@@ -82,6 +82,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
+            if (string.IsNullOrWhiteSpace(txtDateReturn.Text))
+            {
+                MessageBox.Show("Поле Дата возврата не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             if (string.IsNullOrWhiteSpace(txtNameBook.Text))
             {
                 MessageBox.Show("Поле Название книги не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -119,15 +125,14 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             }
 
 
-            //проверка на кол-во символов
-
-            if (txtDateExtradition.Text.Length > 200)
+            //Проверка на кол-во символов
+            if (txtDateExtradition.Text.Length > 50)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Дата выдачи", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (txtDateReturn.Text.Length > 200)
+            if (txtDateReturn.Text.Length > 50)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Дата возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -145,7 +150,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (txtNameBook.Text.Length > 100)
+            if (txtNameBook.Text.Length > 50)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Название книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

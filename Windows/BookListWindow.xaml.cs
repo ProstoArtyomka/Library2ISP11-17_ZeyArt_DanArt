@@ -25,12 +25,17 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         List<ViewBook> bookList = new List<ViewBook>();
 
-        List<string> listSort = new List<string>() { "По умолчанию","По названию книги", "По издателю", "По году публикации", "По жанру", "По автору", "По кол-ву страниц в книге" , "По цене" , "По статусу удаления" };
+        List<string> listSort = new List<string>() { "По умолчанию","По названию книги", "По издателю", "По году публикации", "По жанру", "По автору", "По кол-ву страниц в книге" , "По цене"};
+
+        List<string> listSortIsDeleted = new List<string>() { "Не удалена", "Удалена" };
         public BookListWindow()
         {
             InitializeComponent();
 
             listBook.ItemsSource = AppData.Context.ViewBook.ToList();
+
+            cmbSortIsDeleted.ItemsSource = listSortIsDeleted;
+            cmbSortIsDeleted.SelectedIndex = 0;
 
             cmbSort.ItemsSource = listSort;
             cmbSort.SelectedIndex = 0;
@@ -59,6 +64,16 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 || i.NumberOfPages.ToString().Contains(txtSearch.Text.ToLower())
                 || i.Cost.ToString().Contains(txtSearch.Text.ToLower())
                 || i.IsDeleted.ToString().Contains(txtSearch.Text.ToLower())).ToList();
+
+            if (cmbSortIsDeleted.SelectedIndex == 0)
+            {
+                bookList = bookList.Where(i => Convert.ToInt32(i.IsDeleted) == 0).ToList();
+            }
+            else
+            {
+                bookList = bookList.Where(i => Convert.ToInt32(i.IsDeleted) == 1).ToList();
+            }
+
             switch (cmbSort.SelectedIndex)
             {
                 case 0:
@@ -85,9 +100,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 case 7:
                     bookList = bookList.OrderByDescending(i => i.Cost).ToList();
                     break;
-                case 8:
-                    bookList = bookList.OrderBy(i => i.IsDeleted).ToList();
-                    break;
                 default:
                     bookList = bookList.OrderBy(i => i.ID).ToList();
                    break;
@@ -109,6 +121,11 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         }
 
         private void txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Filter();
+        }
+
+        private void cmbSortIsDeleted_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Filter();
         }
@@ -157,6 +174,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             addReaderWindow.ShowDialog();
             listBook.ItemsSource = AppData.Context.ViewBook.ToList();
             this.Opacity = 1;
-        }
+        } 
     }
 }

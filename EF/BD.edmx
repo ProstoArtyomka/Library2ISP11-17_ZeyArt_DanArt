@@ -47,7 +47,7 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Phone" Type="nchar" MaxLength="14" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Rating" Type="decimal" Precision="2" Scale="1" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
@@ -63,7 +63,7 @@
           <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Patronymic" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Phone" Type="nchar" MaxLength="14" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" />
           <Property Name="Login" Type="nvarchar" MaxLength="70" Nullable="false" />
           <Property Name="Password" Type="nvarchar" MaxLength="70" Nullable="false" />
@@ -112,7 +112,7 @@
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NamePublishing" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Phone" Type="nchar" MaxLength="14" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
           <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Website" Type="nvarchar" MaxLength="1500" Nullable="false" />
         </EntityType>
@@ -135,16 +135,6 @@
           </Key>
           <Property Name="NameBook" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="Nickname" Type="nvarchar" MaxLength="50" Nullable="false" />
-        </EntityType>
-        <!--Ошибки, обнаруженные при создании:
-предупреждение 6002: В таблице или представлении "Library_Zeynetdinov.dbo.BOOKGENRE" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
-        <EntityType Name="BOOKGENRE">
-          <Key>
-            <PropertyRef Name="NameBook" />
-            <PropertyRef Name="NameGenre" />
-          </Key>
-          <Property Name="NameBook" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="NameGenre" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "Library_Zeynetdinov.dbo.ViewBook" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
@@ -339,12 +329,6 @@
     [BOOKAUTHOR].[Nickname] AS [Nickname]
     FROM [dbo].[BOOKAUTHOR] AS [BOOKAUTHOR]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="BOOKGENRE" EntityType="Self.BOOKGENRE" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [BOOKGENRE].[NameBook] AS [NameBook], 
-    [BOOKGENRE].[NameGenre] AS [NameGenre]
-    FROM [dbo].[BOOKGENRE] AS [BOOKGENRE]</DefiningQuery>
-          </EntitySet>
           <EntitySet Name="ViewBook" EntityType="Self.ViewBook" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [ViewBook].[ID] AS [ID], 
@@ -445,7 +429,6 @@
           <EntitySet Name="Publishing" EntityType="Library_ZeynetdinovModel.Publishing" />
           <EntitySet Name="sysdiagrams" EntityType="Library_ZeynetdinovModel.sysdiagrams" />
           <EntitySet Name="BOOKAUTHOR" EntityType="Library_ZeynetdinovModel.BOOKAUTHOR" />
-          <EntitySet Name="BOOKGENRE" EntityType="Library_ZeynetdinovModel.BOOKGENRE" />
           <EntitySet Name="ViewBook" EntityType="Library_ZeynetdinovModel.ViewBook" />
           <AssociationSet Name="FK_Author_Gender" Association="Library_ZeynetdinovModel.FK_Author_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -531,7 +514,7 @@
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="14" FixedLength="true" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Rating" Type="Decimal" Precision="2" Scale="1" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
@@ -549,7 +532,7 @@
           <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="14" FixedLength="true" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Login" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
@@ -597,7 +580,7 @@
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NamePublishing" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" Nullable="false" MaxLength="14" FixedLength="true" Unicode="true" />
+          <Property Name="Phone" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Website" Type="String" Nullable="false" MaxLength="1500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Book" Relationship="Library_ZeynetdinovModel.FK_Book_Publishing" FromRole="Publishing" ToRole="Book" />
@@ -619,14 +602,6 @@
           </Key>
           <Property Name="NameBook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="Nickname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="BOOKGENRE">
-          <Key>
-            <PropertyRef Name="NameBook" />
-            <PropertyRef Name="NameGenre" />
-          </Key>
-          <Property Name="NameBook" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="NameGenre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ViewBook">
           <Key>
@@ -878,14 +853,6 @@
             <EntityTypeMapping TypeName="Library_ZeynetdinovModel.BOOKAUTHOR">
               <MappingFragment StoreEntitySet="BOOKAUTHOR">
                 <ScalarProperty Name="Nickname" ColumnName="Nickname" />
-                <ScalarProperty Name="NameBook" ColumnName="NameBook" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="BOOKGENRE">
-            <EntityTypeMapping TypeName="Library_ZeynetdinovModel.BOOKGENRE">
-              <MappingFragment StoreEntitySet="BOOKGENRE">
-                <ScalarProperty Name="NameGenre" ColumnName="NameGenre" />
                 <ScalarProperty Name="NameBook" ColumnName="NameBook" />
               </MappingFragment>
             </EntityTypeMapping>

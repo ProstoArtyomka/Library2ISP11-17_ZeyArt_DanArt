@@ -322,6 +322,15 @@
                 SelectionChanged="cmbSort_SelectionChanged" 
                 BorderBrush="Black" 
                 Background="{x:Null}"/>
+            <ComboBox
+                x:Name="cmbSortIsDeleted"
+                Width="150" 
+                FontFamily="Times New Roman"
+                Margin="5 0" 
+                FontWeight="Black"
+                SelectionChanged ="cmbSortIsDeleted_SelectionChanged"
+                BorderBrush="Black" 
+                Background="{x:Null}"/>
         </WrapPanel>
     </Grid>
 </Window>

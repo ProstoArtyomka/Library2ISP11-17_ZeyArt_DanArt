@@ -187,7 +187,7 @@
                                        VerticalAlignment="Center"
                                        Foreground="#FFF5B75A"
                                        FontFamily="Times New Roman"
-                                       Margin="0 0 2 0" />
+                                       Margin="0 0 10 0" />
 
 
                             <TextBlock Text="{Binding Path=Address}"
@@ -284,6 +284,17 @@
                 Background="#FFAA4419"
                 BorderBrush="{x:Null}"
                 SelectionChanged="cmbSort_SelectionChanged" 
+                />
+            <ComboBox
+                x:Name="cmbSortIsDeleted"
+                Width="112" 
+                Margin="5 0" 
+                FontFamily="Times New Roman"
+                FontWeight="Bold"
+                Foreground="#FFF5B75A"
+                Background="#FFAA4419"
+                BorderBrush="{x:Null}"
+                SelectionChanged ="cmbSortIsDeleted_SelectionChanged"
                 />
         </WrapPanel>
 
