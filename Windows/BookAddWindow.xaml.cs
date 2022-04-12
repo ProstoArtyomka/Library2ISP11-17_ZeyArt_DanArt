@@ -157,7 +157,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     return;
                 }
 
-                if (txtYearOfPublishing.Text.Length > 5)
+                if (txtYearOfPublishing.Text.Length > 4)
                 {
                     MessageBox.Show("Недопустимое количество символов для поля Год публикации", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
@@ -169,19 +169,19 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     return;
                 }
 
-                if (txtAuthor.Text.Length > 100)
+                if (txtAuthor.Text.Length > 50)
                 {
                     MessageBox.Show("Недопустимое количество символов для поля Автор", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                if (txtNumberOfPages.Text.Length > 100)
+                if ((txtNumberOfPages.Text.Length > 4) || (txtNumberOfPages.Text.Length < 1))
                 {
                     MessageBox.Show("Недопустимое количество символов для поля Кол-во страниц в книге", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
-                if (txtCost.Text.Length > 10)
+                if (txtCost.Text.Length > 8)
                 {
                     MessageBox.Show("Недопустимое количество символов для поля Цена книги ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
@@ -192,72 +192,113 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 MessageBox.Show("Недопустимая цена для поля Цена книги ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
                 }
-                
-            if (isEdit)
-            {
-                try
+
+                //Валидация Издателя
+                if (AppData.Context.Publishing.Where(i => i.NamePublishing == txtPublishing.Text).FirstOrDefault() == null)
                 {
-                    //Изменение данных Книги
-                    editBook.NameBook = txtNameBook.Text;
-                    editBook.NamePublishing = txtPublishing.Text;
-                    editBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
-                    editBook.NameGenre = txtGenre.Text;
-                    editBook.Nickname = txtAuthor.Text;
-                    editBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
-                    editBook.Cost = Convert.ToInt32(txtCost.Text);
-
-                    if (pathPhoto != null)
-                    {
-                        editBook.Preview = File.ReadAllBytes(pathPhoto);
-                    }
-
-                    AppData.Context.SaveChanges();
-                    MessageBox.Show("Успех", "Информация о книге изменена", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.Close();
+                    MessageBox.Show("Такого Издателя не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
                 }
-                catch (Exception ex)
+
+                //Валидация Жанра
+                if (AppData.Context.Genre.Where(i => i.NameGenre == txtGenre.Text).FirstOrDefault() == null)
                 {
-                    MessageBox.Show(ex.Message.ToString());
+                    MessageBox.Show("Такого Жанра не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
                 }
-            }
-            else
-            {
-                try
+
+                //Валидация Автора
+                if (AppData.Context.Author.Where(i => i.Nickname == txtAuthor.Text).FirstOrDefault() == null)
                 {
-                    var resultClick = MessageBox.Show("Вы уверены?", "Подтвердите добавление книги", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                    if (resultClick == MessageBoxResult.Yes)
-                    {
-                        //Добавление новой книги
-                        EF.ViewBook newBook = new EF.ViewBook();
-                        newBook.NameBook = txtNameBook.Text;
-                        newBook.NamePublishing = txtPublishing.Text;
-                        newBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
-                        newBook.NameGenre = txtGenre.Text;
-                        newBook.Nickname = txtAuthor.Text;
-                        newBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
-                        newBook.Cost = Convert.ToInt32(txtCost.Text);
-                        newBook.IsDeleted = false;
+                    MessageBox.Show("Такого Автора не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
+                //Валидация Страниц в книге
+                string NumberOfPages = txtNumberOfPages.Text;
+                if (NumberOfPages.Any(Char.IsUpper) || (NumberOfPages.Any(Char.IsLower) || (NumberOfPages.Any(Char.IsPunctuation) || (NumberOfPages.Any(Char.IsWhiteSpace)))))
+                {
+                    MessageBox.Show("Поле Кол-во страниц в книге может содержать только ПОЛОЖИТЕЛЬНЫЕ цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
 
-                        if (pathPhoto != null)
+                //Валидация Долга
+                if ((txtCost.Text.Length > 8) || (txtCost.Text.Length < 1))
+                {
+                    MessageBox.Show("Недопустимое количество символов для поля Цена книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (Convert.ToDouble(txtCost.Text) < 0.00)
+                {
+                    MessageBox.Show("Недопустимое значение для поля Цена книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+
+                if (isEdit)
                         {
-                            newBook.Preview = File.ReadAllBytes(pathPhoto);
+                            try
+                            {
+                                //Изменение данных Книги
+                                editBook.NameBook = txtNameBook.Text;
+                                editBook.NamePublishing = txtPublishing.Text;
+                                editBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
+                                editBook.NameGenre = txtGenre.Text;
+                                editBook.Nickname = txtAuthor.Text;
+                                editBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
+                                editBook.Cost = Convert.ToInt32(txtCost.Text);
+
+                                if (pathPhoto != null)
+                                {
+                                    editBook.Preview = File.ReadAllBytes(pathPhoto);
+                                }
+
+                                AppData.Context.SaveChanges();
+                                MessageBox.Show("Успех", "Информация о книге изменена", MessageBoxButton.OK, MessageBoxImage.Information);
+                                this.Close();
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message.ToString());
+                            }
                         }
+                        else
+                        {
+                            try
+                            {
+                                var resultClick = MessageBox.Show("Вы уверены?", "Подтвердите добавление книги", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                                if (resultClick == MessageBoxResult.Yes)
+                                {
+                                    //Добавление новой книги
+                                    EF.ViewBook newBook = new EF.ViewBook();
+                                    newBook.NameBook = txtNameBook.Text;
+                                    newBook.NamePublishing = txtPublishing.Text;
+                                    newBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
+                                    newBook.NameGenre = txtGenre.Text;
+                                    newBook.Nickname = txtAuthor.Text;
+                                    newBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
+                                    newBook.Cost = Convert.ToInt32(txtCost.Text);
+                                    newBook.IsDeleted = false;
 
-                        AppData.Context.ViewBook.Add(newBook);
 
-                        AppData.Context.SaveChanges();
-                        MessageBox.Show("Успех", "Книга успешно добавлена", MessageBoxButton.OK, MessageBoxImage.Information);
-                        this.Close();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message.ToString());
-                }
+                                    if (pathPhoto != null)
+                                    {
+                                        newBook.Preview = File.ReadAllBytes(pathPhoto);
+                                    }
+
+                                    AppData.Context.ViewBook.Add(newBook);
+
+                                    AppData.Context.SaveChanges();
+                                    MessageBox.Show("Успех", "Книга успешно добавлена", MessageBoxButton.OK, MessageBoxImage.Information);
+                                    this.Close();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message.ToString());
+                            }
+                        }
             }
-
-           }
 
         private void btnChoosePhoto_Click(object sender, RoutedEventArgs e)
         {

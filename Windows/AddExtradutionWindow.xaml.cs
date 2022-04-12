@@ -138,18 +138,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (txtDateReturn.Text.Length < txtDateExtradition.Text.Length)
-            {
-                MessageBox.Show("Дата возврата не может быть меньше даты выдачи", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            if (txtDateExtradition.Text.Length > txtDateReturn.Text.Length)
-            {
-                MessageBox.Show("Дата выдачи не может быть больше даты возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
             if (txtNameBook.Text.Length > 50)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Название книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -186,6 +174,46 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
+            //Валидация Книги
+            if (AppData.Context.Book.Where(i => i.NameBook == txtNameBook.Text).FirstOrDefault() == null)
+            {
+                MessageBox.Show("Такой книги не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //Валидация Клиента
+            if (AppData.Context.Client.Where(i => i.LastName == txtLastNameClient.Text).FirstOrDefault() == null)
+            {
+                MessageBox.Show("Такой Фамилии Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (AppData.Context.Client.Where(i => i.FirstName == txtFirstNameClient.Text).FirstOrDefault() == null)
+            {
+                MessageBox.Show("Такого Имени Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (AppData.Context.Client.Where(i => i.Phone == txtPhoneClient.Text).FirstOrDefault() == null)
+            {
+                MessageBox.Show("Такого Номера телефона Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (AppData.Context.Client.Where(i => i.Address == txtAddressClient.Text).FirstOrDefault() == null)
+            {
+                MessageBox.Show("Такого Адресса Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //Валидация Сотрудника
+            if (AppData.Context.Employee.Where(i => i.LastName == txtLastNameEmployee.Text).FirstOrDefault() == null)
+            {
+                MessageBox.Show("Такой Фамилии Сотрудника не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //Валидация Долга
             if (txtCostDebt.Text.Length > 8)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Долг", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -197,6 +225,28 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 MessageBox.Show("Недопустимое значение для поля Долг", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            string Cost = txtCostDebt.Text;
+
+            if (Cost.Any(Char.IsUpper) || (Cost.Any(Char.IsLower) || (Cost.Any(Char.IsPunctuation) || (Cost.Any(Char.IsWhiteSpace)))))
+            {
+                MessageBox.Show("Поле Цена долга может содержать только ПОЛОЖИТЕЛЬНЫЕ цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //Валидация Дат
+            if (txtDateReturn.Text.Length < txtDateExtradition.Text.Length)
+            {
+                MessageBox.Show("Дата возврата не может быть меньше даты выдачи", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (txtDateExtradition.Text.Length > txtDateReturn.Text.Length)
+            {
+                MessageBox.Show("Дата выдачи не может быть больше даты возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             if (isEdit)
             {
                 try

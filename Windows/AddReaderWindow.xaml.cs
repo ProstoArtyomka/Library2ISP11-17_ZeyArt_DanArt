@@ -127,31 +127,31 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
             //проверка на кол-во символов
 
-            if (txtLastName.Text.Length > 100)
+            if ((txtLastName.Text.Length > 50) || (txtLastName.Text.Length < 5))
             {
                 MessageBox.Show("Недопустимое количество символов для поля Фамилия", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (txtFirstName.Text.Length > 100)
+            if ((txtFirstName.Text.Length > 50) || (txtFirstName.Text.Length < 5))
             {
                 MessageBox.Show("Недопустимое количество символов для поля Имя", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (txtPatronymic.Text.Length > 100)
+            if ((txtPatronymic.Text.Length > 50) || (txtPatronymic.Text.Length < 5))
             {
                 MessageBox.Show("Недопустимое количество символов для поля Отчество", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (txtPhone.Text.Length > 14)
+            if (txtPhone.Text.Length > 20)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Телефон", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (txtEmail.Text.Length > 100)
+            if ((txtEmail.Text.Length > 50) || (txtEmail.Text.Length < 5))
             {
                 MessageBox.Show("Недопустимое количество символов для поля Почта", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -162,18 +162,34 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 MessageBox.Show("Недопустимое количество символов для поля Рейтинг", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
-            if (Convert.ToDouble(txtRating.Text) > 9.9)
-            {
-                MessageBox.Show("Рейтинг не может быть больше 9.9", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            if (txtAddress.Text.Length > 150)
+            if (txtAddress.Text.Length > 100)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Адрес", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            //Валидация значения рейтинга
+            if ((Convert.ToDouble(txtRating.Text) > 9.9) || (Convert.ToDouble(txtRating.Text) < 0.0))
+            {
+                MessageBox.Show("Рейтинг не может быть больше 9.9 или меньше 0.0", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            string Rating = txtRating.Text;
+            if (Rating.Any(Char.IsUpper) || (Rating.Any(Char.IsLower) || (Rating.Any(Char.IsPunctuation) || (Rating.Any(Char.IsWhiteSpace)))))
+            {
+                MessageBox.Show("Поле Рейтинг может содержать только ПОЛОЖИТЕЛЬНЫЕ цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //Валидация номера телефона
+            string Phone = txtPhone.Text;
+            if (Phone.Any(Char.IsUpper) || (Phone.Any(Char.IsLower) || (Phone.Any(Char.IsPunctuation) || (Phone.Any(Char.IsWhiteSpace)))))
+            {
+                MessageBox.Show("Поле Телефон может содержать только цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+
             if (isEdit)
             {
                try

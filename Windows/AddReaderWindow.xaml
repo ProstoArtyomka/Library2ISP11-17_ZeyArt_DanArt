@@ -214,7 +214,7 @@
             Margin="10,0,0,21"
             Width="250"
             Height="25"
-            MaxLength="12">
+            MaxLength="20">
         </TextBox>
         <TextBox 
             x:Name="txtEmail"
@@ -231,7 +231,7 @@
             Margin="10,22,0,0"
             Width="250"
             Height="24"
-            MaxLength="100">
+            MaxLength="50">
         </TextBox>
         <TextBox 
             x:Name="txtRating"

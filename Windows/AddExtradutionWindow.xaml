@@ -251,7 +251,8 @@
             Margin="12,12,0,9"
             Width="250"
             Height="25"
-            MaxLength="100" Grid.RowSpan="2">
+            MaxLength="100" 
+            Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtPhoneClient"
@@ -268,7 +269,7 @@
             Margin="12,11,0,10"
             Width="250"
             Height="25"
-            MaxLength="3" Grid.RowSpan="2">
+            MaxLength="20" Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtAddressClient"
@@ -285,7 +286,7 @@
             Margin="12,8,0,10"
             Width="250"
             Height="26"
-            MaxLength="3" Grid.RowSpan="2">
+            MaxLength="100" Grid.RowSpan="2">
         </TextBox>
         <TextBox 
             x:Name="txtLastNameEmployee"
