@@ -52,7 +52,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 }
             }
 
-
             tbTitle.Text = "Изменения записи о выдаче книги";
             btAdd.Content = "Изменить запись";
 
@@ -69,7 +68,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             txtCostDebt.Text = Convert.ToString(editExtradition.ClientDebt);
 
             isEdit = true;
-
         }
 
 
@@ -289,23 +287,38 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     if (resultClick == MessageBoxResult.Yes)
                     {
                         //Добавление Заказа
-                        //Доработать
                         EF.Extradition newExtradition = new EF.Extradition();
                         newExtradition.DateExtradition = Convert.ToDateTime(txtDateExtradition.Text);
                         newExtradition.DateReturn = Convert.ToDateTime(txtDateReturn.Text);
-                        var Book = AppData.Context.Book.Find(txtNameBook.Text);
-                        newExtradition.IDBook = Convert.ToInt32(Book.ID);
-                        var Client = AppData.Context.Client.Find(txtLastNameClient.Text, txtFirstNameClient.Text, txtPhoneClient.Text, txtAddressClient.Text);
-                        newExtradition.IDClient = Convert.ToInt32(Client.ID);
-                        var Employee = AppData.Context.Employee.Find(txtLastNameEmployee.Text);
-                        newExtradition.IDEmployee = Convert.ToInt32(Employee.ID); 
+
+                        var Book = AppData.Context.Book.ToList().
+                        Where(i => i.NameBook == txtNameBook.Text).
+                        FirstOrDefault();
+                        newExtradition.IDBook = Book.ID;
+
+                        var Client = AppData.Context.Client.ToList().
+                        Where(i => i.LastName == txtLastNameClient.Text
+                        && i.FirstName == txtFirstNameClient.Text
+                        && i.Phone == txtPhoneClient.Text
+                        && i.Address == txtAddressClient.Text).
+                        FirstOrDefault();
+                        newExtradition.IDClient = Client.ID;
+
+                        var Employee = AppData.Context.Employee.ToList().
+                        Where(i => i.LastName == txtLastNameEmployee.Text).
+                        FirstOrDefault();   
+                        
+                        newExtradition.IDEmployee = Employee.ID;
                         newExtradition.ClientDebt = Convert.ToDecimal(txtCostDebt.Text);
 
                         if (txtDateReturn.Text != null)
                         {
-                            editExtradition.IsСompleted = true;
+                            newExtradition.IsСompleted = true;
                         }
-
+                        else
+                        {
+                            newExtradition.IsСompleted = false;
+                        }
                         if (pathPhoto != null)
                         {
                             newExtradition.Photo = File.ReadAllBytes(pathPhoto);
