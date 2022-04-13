@@ -17,7 +17,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Author()
         {
-            this.Book = new HashSet<Book>();
+            this.AuthorBook = new HashSet<AuthorBook>();
         }
     
         public int ID { get; set; }
@@ -31,6 +31,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
     
         public virtual Gender Gender { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Book> Book { get; set; }
+        public virtual ICollection<AuthorBook> AuthorBook { get; set; }
     }
 }

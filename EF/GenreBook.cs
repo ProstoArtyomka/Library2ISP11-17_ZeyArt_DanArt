@@ -12,20 +12,21 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class Extradition
+    public partial class GenreBook
     {
-        public int ID { get; set; }
-        public System.DateTime DateExtradition { get; set; }
-        public Nullable<System.DateTime> DateReturn { get; set; }
-        public int IDBook { get; set; }
-        public int IDClient { get; set; }
-        public int IDEmployee { get; set; }
-        public byte[] Photo { get; set; }
-        public Nullable<bool> IsСompleted { get; set; }
-        public decimal ClientDebt { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public GenreBook()
+        {
+            this.Book = new HashSet<Book>();
+        }
     
-        public virtual Book Book { get; set; }
-        public virtual Client Client { get; set; }
-        public virtual Employee Employee { get; set; }
+        public int IDGenre { get; set; }
+        public int IDBook { get; set; }
+        public int ID { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Book> Book { get; set; }
+        public virtual Book Book1 { get; set; }
+        public virtual Genre Genre { get; set; }
     }
 }

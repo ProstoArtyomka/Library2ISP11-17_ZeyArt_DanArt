@@ -23,7 +23,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
     {
 
 
-        List<ViewBook> bookList = new List<ViewBook>();
+        List<Book> bookList = new List<Book>();
 
         List<string> listSort = new List<string>() { "По умолчанию","По названию книги", "По издателю", "По году публикации", "По жанру", "По автору", "По кол-ву страниц в книге" , "По цене"};
 
@@ -32,7 +32,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         {
             InitializeComponent();
 
-            listBook.ItemsSource = AppData.Context.ViewBook.ToList();
+            listBook.ItemsSource = AppData.Context.Book.ToList();
 
             cmbSortIsDeleted.ItemsSource = listSortIsDeleted;
             cmbSortIsDeleted.SelectedIndex = 0;
@@ -48,19 +48,19 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             BookAddWindow window = new BookAddWindow();
             this.Opacity = 0.2;
             window.ShowDialog();
-            listBook.ItemsSource = AppData.Context.ViewBook.ToList();
+            listBook.ItemsSource = AppData.Context.Book.ToList();
             this.Opacity = 1;
         }
 
         private void Filter()
         {
-            bookList = AppData.Context.ViewBook.ToList();
+            bookList = AppData.Context.Book.ToList();
             bookList = bookList.
                 Where(i => i.NameBook.ToLower().Contains(txtSearch.Text.ToLower()) 
-                || i.NamePublishing.ToLower().Contains(txtSearch.Text.ToLower())
+                || i.Publishing.NamePublishing.ToLower().Contains(txtSearch.Text.ToLower())
                 || i.YearOfPublishing.ToString().Contains(txtSearch.Text.ToLower())
-                || i.NameGenre.ToLower().Contains(txtSearch.Text.ToLower())
-                || i.Nickname.ToLower().Contains(txtSearch.Text.ToLower())
+                || i.IDGenreBook.ToString().Contains(txtSearch.Text.ToLower())
+                || i.IDAuthorBook.ToString().Contains(txtSearch.Text.ToLower())
                 || i.NumberOfPages.ToString().Contains(txtSearch.Text.ToLower())
                 || i.Cost.ToString().Contains(txtSearch.Text.ToLower())
                 || i.IsDeleted.ToString().Contains(txtSearch.Text.ToLower())).ToList();
@@ -83,16 +83,16 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     bookList = bookList.OrderBy(i => i.NameBook).ToList();
                     break;
                 case 2:
-                    bookList = bookList.OrderBy(i => i.NamePublishing).ToList();
+                    bookList = bookList.OrderBy(i => i.Publishing.NamePublishing).ToList();
                     break;
                 case 3:
                     bookList = bookList.OrderByDescending(i => i.YearOfPublishing).ToList();
                     break;
                 case 4:
-                    bookList = bookList.OrderByDescending(i => i.NameGenre).ToList();
+                    bookList = bookList.OrderByDescending(i => i.IDGenreBook).ToList();
                     break;
                 case 5:
-                    bookList = bookList.OrderByDescending(i => i.Nickname).ToList();
+                    bookList = bookList.OrderByDescending(i => i.IDAuthorBook).ToList();
                     break;
                 case 6:
                     bookList = bookList.OrderByDescending(i => i.NumberOfPages).ToList();
@@ -138,8 +138,8 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         {
             if (e.Key == System.Windows.Input.Key.Delete || e.Key == System.Windows.Input.Key.Back)
             {
-               var item = listBook.SelectedItem as EF.ViewBook;
-                 if (listBook.SelectedItem is EF.ViewBook || listBook.SelectedIndex != -1)
+               var item = listBook.SelectedItem as EF.Book;
+                 if (listBook.SelectedItem is EF.Book || listBook.SelectedIndex != -1)
                  {
                      try
                      {
@@ -163,10 +163,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
         private void listBook_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var editBook = new EF.ViewBook();
-            if (listBook.SelectedItem is EF.ViewBook)
+            var editBook = new EF.Book();
+            if (listBook.SelectedItem is EF.Book)
             {
-                editBook = listBook.SelectedItem as EF.ViewBook;
+                editBook = listBook.SelectedItem as EF.Book;
             }
 
             BookAddWindow addReaderWindow = new BookAddWindow(editBook);

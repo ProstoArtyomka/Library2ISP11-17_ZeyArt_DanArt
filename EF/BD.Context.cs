@@ -28,12 +28,14 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         }
     
         public virtual DbSet<Author> Author { get; set; }
+        public virtual DbSet<AuthorBook> AuthorBook { get; set; }
         public virtual DbSet<Book> Book { get; set; }
         public virtual DbSet<Client> Client { get; set; }
         public virtual DbSet<Employee> Employee { get; set; }
         public virtual DbSet<Extradition> Extradition { get; set; }
         public virtual DbSet<Gender> Gender { get; set; }
         public virtual DbSet<Genre> Genre { get; set; }
+        public virtual DbSet<GenreBook> GenreBook { get; set; }
         public virtual DbSet<Publishing> Publishing { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<BOOKAUTHOR> BOOKAUTHOR { get; set; }

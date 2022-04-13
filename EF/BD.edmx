@@ -20,11 +20,11 @@
         </EntityType>
         <EntityType Name="AuthorBook">
           <Key>
-            <PropertyRef Name="IDBook" />
-            <PropertyRef Name="IDAuthor" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="IDBook" Type="int" Nullable="false" />
           <Property Name="IDAuthor" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -38,6 +38,8 @@
           <Property Name="IsDeleted" Type="bit" />
           <Property Name="Preview" Type="varbinary(max)" />
           <Property Name="Cost" Type="int" Nullable="false" />
+          <Property Name="IDAuthorBook" Type="int" Nullable="false" />
+          <Property Name="IDGenreBook" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -81,7 +83,7 @@
           <Property Name="IDEmployee" Type="int" Nullable="false" />
           <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="IsСompleted" Type="bit" />
-          <Property Name="ClientDebt" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ClientDebt" Type="decimal" Precision="10" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -99,11 +101,11 @@
         </EntityType>
         <EntityType Name="GenreBook">
           <Key>
-            <PropertyRef Name="IDGenre" />
-            <PropertyRef Name="IDBook" />
+            <PropertyRef Name="ID" />
           </Key>
           <Property Name="IDGenre" Type="int" Nullable="false" />
           <Property Name="IDBook" Type="int" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Publishing">
           <Key>
@@ -193,6 +195,30 @@
             </Principal>
             <Dependent Role="AuthorBook">
               <PropertyRef Name="IDBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_AuthorBook">
+          <End Role="AuthorBook" Type="Self.AuthorBook" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuthorBook">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="IDAuthorBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_GenreBook">
+          <End Role="GenreBook" Type="Self.GenreBook" Multiplicity="1" />
+          <End Role="Book" Type="Self.Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenreBook">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="IDGenreBook" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -355,6 +381,14 @@
             <End Role="Book" EntitySet="Book" />
             <End Role="AuthorBook" EntitySet="AuthorBook" />
           </AssociationSet>
+          <AssociationSet Name="FK_Book_AuthorBook" Association="Self.FK_Book_AuthorBook">
+            <End Role="AuthorBook" EntitySet="AuthorBook" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_GenreBook" Association="Self.FK_Book_GenreBook">
+            <End Role="GenreBook" EntitySet="GenreBook" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
           <AssociationSet Name="FK_Book_Publishing" Association="Self.FK_Book_Publishing">
             <End Role="Publishing" EntitySet="Publishing" />
             <End Role="Book" EntitySet="Book" />
@@ -420,12 +454,14 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="Author" EntityType="Library_ZeynetdinovModel.Author" />
+          <EntitySet Name="AuthorBook" EntityType="Library_ZeynetdinovModel.AuthorBook" />
           <EntitySet Name="Book" EntityType="Library_ZeynetdinovModel.Book" />
           <EntitySet Name="Client" EntityType="Library_ZeynetdinovModel.Client" />
           <EntitySet Name="Employee" EntityType="Library_ZeynetdinovModel.Employee" />
           <EntitySet Name="Extradition" EntityType="Library_ZeynetdinovModel.Extradition" />
           <EntitySet Name="Gender" EntityType="Library_ZeynetdinovModel.Gender" />
           <EntitySet Name="Genre" EntityType="Library_ZeynetdinovModel.Genre" />
+          <EntitySet Name="GenreBook" EntityType="Library_ZeynetdinovModel.GenreBook" />
           <EntitySet Name="Publishing" EntityType="Library_ZeynetdinovModel.Publishing" />
           <EntitySet Name="sysdiagrams" EntityType="Library_ZeynetdinovModel.sysdiagrams" />
           <EntitySet Name="BOOKAUTHOR" EntityType="Library_ZeynetdinovModel.BOOKAUTHOR" />
@@ -434,6 +470,22 @@
             <End Role="Gender" EntitySet="Gender" />
             <End Role="Author" EntitySet="Author" />
           </AssociationSet>
+          <AssociationSet Name="FK_AuthorBook_Author1" Association="Library_ZeynetdinovModel.FK_AuthorBook_Author1">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="AuthorBook" EntitySet="AuthorBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AuthorBook_Book1" Association="Library_ZeynetdinovModel.FK_AuthorBook_Book1">
+            <End Role="Book" EntitySet="Book" />
+            <End Role="AuthorBook" EntitySet="AuthorBook" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_AuthorBook" Association="Library_ZeynetdinovModel.FK_Book_AuthorBook">
+            <End Role="AuthorBook" EntitySet="AuthorBook" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Book_GenreBook" Association="Library_ZeynetdinovModel.FK_Book_GenreBook">
+            <End Role="GenreBook" EntitySet="GenreBook" />
+            <End Role="Book" EntitySet="Book" />
+          </AssociationSet>
           <AssociationSet Name="FK_Book_Publishing" Association="Library_ZeynetdinovModel.FK_Book_Publishing">
             <End Role="Publishing" EntitySet="Publishing" />
             <End Role="Book" EntitySet="Book" />
@@ -441,6 +493,10 @@
           <AssociationSet Name="FK_Extradition_Book" Association="Library_ZeynetdinovModel.FK_Extradition_Book">
             <End Role="Book" EntitySet="Book" />
             <End Role="Extradition" EntitySet="Extradition" />
+          </AssociationSet>
+          <AssociationSet Name="FK_GenreBook_Book1" Association="Library_ZeynetdinovModel.FK_GenreBook_Book1">
+            <End Role="Book" EntitySet="Book" />
+            <End Role="GenreBook" EntitySet="GenreBook" />
           </AssociationSet>
           <AssociationSet Name="FK_Client_Gender" Association="Library_ZeynetdinovModel.FK_Client_Gender">
             <End Role="Gender" EntitySet="Gender" />
@@ -454,13 +510,9 @@
             <End Role="Employee" EntitySet="Employee" />
             <End Role="Extradition" EntitySet="Extradition" />
           </AssociationSet>
-          <AssociationSet Name="AuthorBook" Association="Library_ZeynetdinovModel.AuthorBook">
-            <End Role="Author" EntitySet="Author" />
-            <End Role="Book" EntitySet="Book" />
-          </AssociationSet>
-          <AssociationSet Name="GenreBook" Association="Library_ZeynetdinovModel.GenreBook">
-            <End Role="Book" EntitySet="Book" />
+          <AssociationSet Name="FK_GenreBook_Genre1" Association="Library_ZeynetdinovModel.FK_GenreBook_Genre1">
             <End Role="Genre" EntitySet="Genre" />
+            <End Role="GenreBook" EntitySet="GenreBook" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -487,7 +539,18 @@
           <Property Name="Website" Type="String" Nullable="false" MaxLength="1500" FixedLength="false" Unicode="true" />
           <Property Name="IDGender" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Gender" Relationship="Library_ZeynetdinovModel.FK_Author_Gender" FromRole="Author" ToRole="Gender" />
-          <NavigationProperty Name="Book" Relationship="Library_ZeynetdinovModel.AuthorBook" FromRole="Author" ToRole="Book" />
+          <NavigationProperty Name="AuthorBook" Relationship="Library_ZeynetdinovModel.FK_AuthorBook_Author1" FromRole="Author" ToRole="AuthorBook" />
+        </EntityType>
+        <EntityType Name="AuthorBook">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="IDBook" Type="Int32" Nullable="false" />
+          <Property Name="IDAuthor" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Author" Relationship="Library_ZeynetdinovModel.FK_AuthorBook_Author1" FromRole="AuthorBook" ToRole="Author" />
+          <NavigationProperty Name="Book" Relationship="Library_ZeynetdinovModel.FK_AuthorBook_Book1" FromRole="AuthorBook" ToRole="Book" />
+          <NavigationProperty Name="Book1" Relationship="Library_ZeynetdinovModel.FK_Book_AuthorBook" FromRole="AuthorBook" ToRole="Book" />
         </EntityType>
         <EntityType Name="Book">
           <Key>
@@ -501,10 +564,14 @@
           <Property Name="IsDeleted" Type="Boolean" />
           <Property Name="Preview" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="Cost" Type="Int32" Nullable="false" />
+          <Property Name="IDAuthorBook" Type="Int32" Nullable="false" />
+          <Property Name="IDGenreBook" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="AuthorBook" Relationship="Library_ZeynetdinovModel.FK_AuthorBook_Book1" FromRole="Book" ToRole="AuthorBook" />
+          <NavigationProperty Name="AuthorBook1" Relationship="Library_ZeynetdinovModel.FK_Book_AuthorBook" FromRole="Book" ToRole="AuthorBook" />
+          <NavigationProperty Name="GenreBook" Relationship="Library_ZeynetdinovModel.FK_Book_GenreBook" FromRole="Book" ToRole="GenreBook" />
           <NavigationProperty Name="Publishing" Relationship="Library_ZeynetdinovModel.FK_Book_Publishing" FromRole="Book" ToRole="Publishing" />
           <NavigationProperty Name="Extradition" Relationship="Library_ZeynetdinovModel.FK_Extradition_Book" FromRole="Book" ToRole="Extradition" />
-          <NavigationProperty Name="Author" Relationship="Library_ZeynetdinovModel.AuthorBook" FromRole="Book" ToRole="Author" />
-          <NavigationProperty Name="Genre" Relationship="Library_ZeynetdinovModel.GenreBook" FromRole="Book" ToRole="Genre" />
+          <NavigationProperty Name="GenreBook1" Relationship="Library_ZeynetdinovModel.FK_GenreBook_Book1" FromRole="Book" ToRole="GenreBook" />
         </EntityType>
         <EntityType Name="Client">
           <Key>
@@ -551,7 +618,7 @@
           <Property Name="IDEmployee" Type="Int32" Nullable="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IsСompleted" Type="Boolean" />
-          <Property Name="ClientDebt" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ClientDebt" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <NavigationProperty Name="Book" Relationship="Library_ZeynetdinovModel.FK_Extradition_Book" FromRole="Extradition" ToRole="Book" />
           <NavigationProperty Name="Client" Relationship="Library_ZeynetdinovModel.FK_Extradition_Client" FromRole="Extradition" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="Library_ZeynetdinovModel.FK_Extradition_Employee" FromRole="Extradition" ToRole="Employee" />
@@ -571,7 +638,18 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NameGenre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Book" Relationship="Library_ZeynetdinovModel.GenreBook" FromRole="Genre" ToRole="Book" />
+          <NavigationProperty Name="GenreBook" Relationship="Library_ZeynetdinovModel.FK_GenreBook_Genre1" FromRole="Genre" ToRole="GenreBook" />
+        </EntityType>
+        <EntityType Name="GenreBook">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="IDGenre" Type="Int32" Nullable="false" />
+          <Property Name="IDBook" Type="Int32" Nullable="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Book" Relationship="Library_ZeynetdinovModel.FK_Book_GenreBook" FromRole="GenreBook" ToRole="Book" />
+          <NavigationProperty Name="Book1" Relationship="Library_ZeynetdinovModel.FK_GenreBook_Book1" FromRole="GenreBook" ToRole="Book" />
+          <NavigationProperty Name="Genre" Relationship="Library_ZeynetdinovModel.FK_GenreBook_Genre1" FromRole="GenreBook" ToRole="Genre" />
         </EntityType>
         <EntityType Name="Publishing">
           <Key>
@@ -637,6 +715,54 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_AuthorBook_Author1">
+          <End Type="Library_ZeynetdinovModel.Author" Role="Author" Multiplicity="1" />
+          <End Type="Library_ZeynetdinovModel.AuthorBook" Role="AuthorBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AuthorBook">
+              <PropertyRef Name="IDAuthor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AuthorBook_Book1">
+          <End Type="Library_ZeynetdinovModel.Book" Role="Book" Multiplicity="1" />
+          <End Type="Library_ZeynetdinovModel.AuthorBook" Role="AuthorBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AuthorBook">
+              <PropertyRef Name="IDBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_AuthorBook">
+          <End Type="Library_ZeynetdinovModel.AuthorBook" Role="AuthorBook" Multiplicity="1" />
+          <End Type="Library_ZeynetdinovModel.Book" Role="Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AuthorBook">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="IDAuthorBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Book_GenreBook">
+          <End Type="Library_ZeynetdinovModel.GenreBook" Role="GenreBook" Multiplicity="1" />
+          <End Type="Library_ZeynetdinovModel.Book" Role="Book" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GenreBook">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Book">
+              <PropertyRef Name="IDGenreBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Book_Publishing">
           <End Type="Library_ZeynetdinovModel.Publishing" Role="Publishing" Multiplicity="1" />
           <End Type="Library_ZeynetdinovModel.Book" Role="Book" Multiplicity="*" />
@@ -657,6 +783,18 @@
               <PropertyRef Name="ID" />
             </Principal>
             <Dependent Role="Extradition">
+              <PropertyRef Name="IDBook" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_GenreBook_Book1">
+          <End Type="Library_ZeynetdinovModel.Book" Role="Book" Multiplicity="1" />
+          <End Type="Library_ZeynetdinovModel.GenreBook" Role="GenreBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Book">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GenreBook">
               <PropertyRef Name="IDBook" />
             </Dependent>
           </ReferentialConstraint>
@@ -697,13 +835,17 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="AuthorBook">
-          <End Type="Library_ZeynetdinovModel.Author" Role="Author" Multiplicity="*" />
-          <End Type="Library_ZeynetdinovModel.Book" Role="Book" Multiplicity="*" />
-        </Association>
-        <Association Name="GenreBook">
-          <End Type="Library_ZeynetdinovModel.Book" Role="Book" Multiplicity="*" />
-          <End Type="Library_ZeynetdinovModel.Genre" Role="Genre" Multiplicity="*" />
+        <Association Name="FK_GenreBook_Genre1">
+          <End Type="Library_ZeynetdinovModel.Genre" Role="Genre" Multiplicity="1" />
+          <End Type="Library_ZeynetdinovModel.GenreBook" Role="GenreBook" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genre">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="GenreBook">
+              <PropertyRef Name="IDGenre" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -749,9 +891,20 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="AuthorBook">
+            <EntityTypeMapping TypeName="Library_ZeynetdinovModel.AuthorBook">
+              <MappingFragment StoreEntitySet="AuthorBook">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDAuthor" ColumnName="IDAuthor" />
+                <ScalarProperty Name="IDBook" ColumnName="IDBook" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Book">
             <EntityTypeMapping TypeName="Library_ZeynetdinovModel.Book">
               <MappingFragment StoreEntitySet="Book">
+                <ScalarProperty Name="IDGenreBook" ColumnName="IDGenreBook" />
+                <ScalarProperty Name="IDAuthorBook" ColumnName="IDAuthorBook" />
                 <ScalarProperty Name="Cost" ColumnName="Cost" />
                 <ScalarProperty Name="Preview" ColumnName="Preview" />
                 <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
@@ -826,6 +979,15 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="GenreBook">
+            <EntityTypeMapping TypeName="Library_ZeynetdinovModel.GenreBook">
+              <MappingFragment StoreEntitySet="GenreBook">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IDBook" ColumnName="IDBook" />
+                <ScalarProperty Name="IDGenre" ColumnName="IDGenre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Publishing">
             <EntityTypeMapping TypeName="Library_ZeynetdinovModel.Publishing">
               <MappingFragment StoreEntitySet="Publishing">
@@ -873,22 +1035,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="AuthorBook" TypeName="Library_ZeynetdinovModel.AuthorBook" StoreEntitySet="AuthorBook">
-            <EndProperty Name="Book">
-              <ScalarProperty Name="ID" ColumnName="IDBook" />
-            </EndProperty>
-            <EndProperty Name="Author">
-              <ScalarProperty Name="ID" ColumnName="IDAuthor" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="GenreBook" TypeName="Library_ZeynetdinovModel.GenreBook" StoreEntitySet="GenreBook">
-            <EndProperty Name="Genre">
-              <ScalarProperty Name="ID" ColumnName="IDGenre" />
-            </EndProperty>
-            <EndProperty Name="Book">
-              <ScalarProperty Name="ID" ColumnName="IDBook" />
-            </EndProperty>
-          </AssociationSetMapping>
           </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

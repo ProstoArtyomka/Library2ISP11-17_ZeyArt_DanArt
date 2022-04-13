@@ -24,13 +24,13 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
     public partial class BookAddWindow : Window
     {
 
-        EF.ViewBook editBook = new EF.ViewBook();
+        EF.Book editBook = new EF.Book();
         string pathPhoto = null;
         bool isEdit = true;
 
 
 
-        public BookAddWindow(EF.ViewBook book)
+        public BookAddWindow(EF.Book book)
         {
             InitializeComponent();
 
@@ -54,10 +54,19 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             editBook = book;
 
             txtNameBook.Text = editBook.NameBook;
-            txtPublishing.Text = editBook.NamePublishing;
+            var Publishing = AppData.Context.Publishing.ToList().
+                        Where(i => i.ID == book.IDPublishing).
+                        FirstOrDefault();
+            txtPublishing.Text = Publishing.NamePublishing;
             txtYearOfPublishing.Text = Convert.ToString(editBook.YearOfPublishing);
-            txtGenre.Text = editBook.NameGenre;
-            txtAuthor.Text = editBook.Nickname;
+            var GenreBook = AppData.Context.Genre.ToList().
+                        Where(i => i.ID == book.IDGenreBook).
+                        FirstOrDefault();
+            txtGenre.Text = GenreBook.NameGenre;
+            var AuthorBook = AppData.Context.Author.ToList().
+                        Where(i => i.ID == book.IDAuthorBook).
+                        FirstOrDefault();
+            txtAuthor.Text = AuthorBook.Nickname;
             txtNumberOfPages.Text = Convert.ToString(editBook.NumberOfPages);
             txtCost.Text = Convert.ToString(editBook.Cost);
 
@@ -241,10 +250,19 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                             {
                                 //Изменение данных Книги
                                 editBook.NameBook = txtNameBook.Text;
-                                editBook.NamePublishing = txtPublishing.Text;
+                                var Publishing = AppData.Context.Publishing.ToList().
+                                                Where(i => i.NamePublishing == txtPublishing.Text).
+                                                FirstOrDefault();
+                                Publishing.NamePublishing = txtPublishing.Text;
                                 editBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
-                                editBook.NameGenre = txtGenre.Text;
-                                editBook.Nickname = txtAuthor.Text;
+                                var GenreBook = AppData.Context.Genre.ToList().
+                                    Where(i => i.NameGenre == txtGenre.Text).
+                                    FirstOrDefault();
+                                GenreBook.NameGenre = txtGenre.Text;
+                                var AuthorBook = AppData.Context.Author.ToList().
+                                            Where(i => i.Nickname == txtAuthor.Text).
+                                            FirstOrDefault();
+                                AuthorBook.Nickname = txtAuthor.Text;
                                 editBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
                                 editBook.Cost = Convert.ToInt32(txtCost.Text);
 
@@ -270,12 +288,21 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                                 if (resultClick == MessageBoxResult.Yes)
                                 {
                                     //Добавление новой книги
-                                    EF.ViewBook newBook = new EF.ViewBook();
+                                    EF.Book newBook = new EF.Book();
                                     newBook.NameBook = txtNameBook.Text;
-                                    newBook.NamePublishing = txtPublishing.Text;
+                                    var Publishing = AppData.Context.Publishing.ToList().
+                                                Where(i => i.NamePublishing == txtPublishing.Text).
+                                                FirstOrDefault();
+                                    newBook.IDPublishing = Publishing.ID;
                                     newBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
-                                    newBook.NameGenre = txtGenre.Text;
-                                    newBook.Nickname = txtAuthor.Text;
+                                    var GenreBook = AppData.Context.Genre.ToList().
+                                                Where(i => i.NameGenre == txtGenre.Text).
+                                                FirstOrDefault();
+                                    newBook.IDGenreBook = GenreBook.ID;
+                                    var AuthorBook = AppData.Context.Author.ToList().
+                                                Where(i => i.Nickname == txtAuthor.Text).
+                                                FirstOrDefault();
+                                    newBook.IDAuthorBook = AuthorBook.ID;
                                     newBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
                                     newBook.Cost = Convert.ToInt32(txtCost.Text);
                                     newBook.IsDeleted = false;
@@ -286,7 +313,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                                         newBook.Preview = File.ReadAllBytes(pathPhoto);
                                     }
 
-                                    AppData.Context.ViewBook.Add(newBook);
+                                    AppData.Context.Book.Add(newBook);
 
                                     AppData.Context.SaveChanges();
                                     MessageBox.Show("Успех", "Книга успешно добавлена", MessageBoxButton.OK, MessageBoxImage.Information);
