@@ -23,9 +23,17 @@ namespace Library2ISP11_17_ZeyArt_DanArt
     /// </summary>
     public partial class MainWindow : Window
     {
+       EF.Employee userAuth = new EF.Employee();
         public MainWindow()
         {
             InitializeComponent();
+        }
+        public MainWindow(Employee user)
+        {
+            InitializeComponent();
+
+            userAuth = user;
+            Title.Text = "Добро пожаловать, " + userAuth.LastName + " " + userAuth.FirstName + "!";
         }
 
         private void Book_Click(object sender, RoutedEventArgs e)

@@ -34,8 +34,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt
                 FirstOrDefault();
             if (userAuth!=null)
             {
-                //это верное решение
-                MainWindow mainWindow = new MainWindow();
+                MainWindow mainWindow = new MainWindow(userAuth);
                 mainWindow.Show();
                 this.Close();
             }
