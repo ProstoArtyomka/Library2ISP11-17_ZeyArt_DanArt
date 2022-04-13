@@ -171,11 +171,11 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             //Валидация значения рейтинга
             if ((Convert.ToDouble(txtRating.Text) > 9.9) || (Convert.ToDouble(txtRating.Text) < 0.0))
             {
-                MessageBox.Show("Рейтинг не может быть больше 9.9 или меньше 0.0", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Рейтинг не может быть больше 9,9 или меньше 0,0", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             string Rating = txtRating.Text;
-            if (Rating.Any(Char.IsUpper) || (Rating.Any(Char.IsLower) || (Rating.Any(Char.IsPunctuation) || (Rating.Any(Char.IsWhiteSpace)))))
+            if (Rating.Any(Char.IsUpper) || (Rating.Any(Char.IsLower) || (Rating.Any(Char.IsWhiteSpace))))
             {
                 MessageBox.Show("Поле Рейтинг может содержать только ПОЛОЖИТЕЛЬНЫЕ цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

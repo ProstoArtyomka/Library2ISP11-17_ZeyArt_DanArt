@@ -228,9 +228,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
             string Cost = txtCostDebt.Text;
 
-            if (Cost.Any(Char.IsUpper) || (Cost.Any(Char.IsLower) || (Cost.Any(Char.IsPunctuation) || (Cost.Any(Char.IsWhiteSpace)))))
+            if (Cost.Any(Char.IsUpper) || (Cost.Any(Char.IsLower) || (Cost.Any(Char.IsWhiteSpace))))
             {
-                MessageBox.Show("Поле Цена долга может содержать только ПОЛОЖИТЕЛЬНЫЕ цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Поле Цена долга может содержать только ПОЛОЖИТЕЛЬНЫЕ цифры");
                 return;
             }
 
@@ -289,15 +289,16 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     if (resultClick == MessageBoxResult.Yes)
                     {
                         //Добавление Заказа
+                        //Доработать
                         EF.Extradition newExtradition = new EF.Extradition();
                         newExtradition.DateExtradition = Convert.ToDateTime(txtDateExtradition.Text);
                         newExtradition.DateReturn = Convert.ToDateTime(txtDateReturn.Text);
-                        newExtradition.Book.NameBook = txtNameBook.Text;
-                        newExtradition.Client.LastName = txtLastNameClient.Text;
-                        newExtradition.Client.FirstName = txtFirstNameClient.Text;
-                        newExtradition.Client.Phone = txtPhoneClient.Text;
-                        newExtradition.Client.Address = txtAddressClient.Text;
-                        newExtradition.Employee.LastName = txtLastNameEmployee.Text;
+                        var Book = AppData.Context.Book.Find(txtNameBook.Text);
+                        newExtradition.IDBook = Convert.ToInt32(Book.ID);
+                        var Client = AppData.Context.Client.Find(txtLastNameClient.Text, txtFirstNameClient.Text, txtPhoneClient.Text, txtAddressClient.Text);
+                        newExtradition.IDClient = Convert.ToInt32(Client.ID);
+                        var Employee = AppData.Context.Employee.Find(txtLastNameEmployee.Text);
+                        newExtradition.IDEmployee = Convert.ToInt32(Employee.ID); 
                         newExtradition.ClientDebt = Convert.ToDecimal(txtCostDebt.Text);
 
                         if (txtDateReturn.Text != null)
