@@ -8,15 +8,13 @@ __Окно авторизации__
 
 __Главное окно__
 
-![image](https://user-images.githubusercontent.com/86298391/162595463-52f4a4d9-eb87-49e8-9dfa-c2c2747cf643.png)
-
+![image](https://user-images.githubusercontent.com/86298391/163237375-3b42e37a-169b-46f8-9fe8-34f8dde04430.png)
 
 ---
 
 __Окно списка книг__
 
-![image](https://user-images.githubusercontent.com/86298391/162595477-d85adb7d-431d-4e9f-a2e8-3c1288fabf0a.png)
-
+![image](https://user-images.githubusercontent.com/86298391/163237724-ae8e8704-6d7f-42f5-83d2-5ccc50eec516.png)
 ---
 
 __Окно изменения книги__
@@ -34,14 +32,13 @@ __Окно добавление книги__
 
 __Окно списка читателей__
 
-![image](https://user-images.githubusercontent.com/86298391/162595502-695b9ff0-b99a-4cdf-bbcd-e59c1f285ed6.png)
+![image](https://user-images.githubusercontent.com/86298391/163237524-e28be326-f0a7-48fd-97f7-b0696903765d.png)
 
 ---
 
 __Окно изменения читателей__
 
-![image](https://user-images.githubusercontent.com/86298391/162595531-51a86d1f-c887-49bb-a359-2e8024c42d23.png)
-
+![image](https://user-images.githubusercontent.com/86298391/163238021-6fbaa73a-09a0-46f2-9f5c-bd97f287726e.png)
 ---
 
 __Окно добавление читателей__
@@ -52,7 +49,7 @@ __Окно добавление читателей__
 
 __Окно списка выданных книг__
 
-![image](https://user-images.githubusercontent.com/86298391/162595545-64304726-8c4f-4f40-9599-3df39f3875bf.png)
+![image](https://user-images.githubusercontent.com/86298391/163237762-a4f19f33-d631-4895-a7ff-3e319de22d05.png)
 
 ---
 
