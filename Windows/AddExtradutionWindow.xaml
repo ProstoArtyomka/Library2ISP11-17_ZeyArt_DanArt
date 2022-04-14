@@ -321,7 +321,10 @@
             Margin="12,16,0,3"
             Width="250"
             Height="25"
-            MaxLength="100" Grid.RowSpan="2">
+            MaxLength="100" 
+            Grid.RowSpan="2"
+            IsReadOnly="True"
+            SelectionBrush="{x:Null}">
         </TextBox>
 
         <!-- Блок с изображением -->

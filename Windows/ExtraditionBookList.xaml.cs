@@ -41,7 +41,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
 
             cmbSortIsDebt.ItemsSource = listSortIsDebt;
-            cmbSortIsDebt.SelectedIndex = 0;
+            cmbSortIsDebt.SelectedIndex = 1;
 
             cmbSort.ItemsSource = listSort;
             cmbSort.SelectedIndex = 0;

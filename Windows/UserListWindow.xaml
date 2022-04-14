@@ -271,7 +271,7 @@
                 Foreground="#FFF5B75A"
                 Background="{x:Null}"
                 TextChanged="txtSearch_TextChanged"
-                BorderBrush="Black" 
+                BorderBrush="#FFAA4419" 
                 SelectionBrush="#FFAA4419" 
                 />
             <ComboBox 

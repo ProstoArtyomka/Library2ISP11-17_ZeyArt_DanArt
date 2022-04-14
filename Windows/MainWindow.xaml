@@ -57,8 +57,8 @@
             FontWeight="Bold"
             Click="Book_Click"
             FontFamily="Times New Roman"
-            Foreground="Black"
-            Background="#FF7D0000"
+            Foreground="#FF0B0BDA"
+            Background="#FF1BA227"
             BorderBrush="{x:Null}">
             <Button.Resources>
                 <Style TargetType="Border">

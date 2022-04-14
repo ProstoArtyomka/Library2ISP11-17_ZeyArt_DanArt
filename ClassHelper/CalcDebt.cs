@@ -8,9 +8,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.ClassHelper
 {
     public static class CalcDebt
     {
-        public static double Debt(DateTime dateStart, double price)
+        public static double Debt(DateTime dateStart, DateTime dateEnd, double price)
         {
-            int dayCount = (DateTime.Now - dateStart).Days;
+            int dayCount = (dateEnd - dateStart).Days;
             double debt = (dayCount - 30) * 0.01 * price;
             if (debt > 0)
             {
@@ -18,7 +18,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.ClassHelper
             }
             else
             {
-                return 0;
+                return 0.00;
             }
         }
     }

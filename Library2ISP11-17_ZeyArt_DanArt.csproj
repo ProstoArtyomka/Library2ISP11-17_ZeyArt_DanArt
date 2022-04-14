@@ -274,6 +274,7 @@
     <Resource Include="DesignItems\NewReader.gif" />
     <Resource Include="DesignItems\NewExtraditionBook.gif" />
     <Resource Include="DesignItems\Library.jpg" />
+    <Resource Include="DesignItems\ReadBook.gif" />
     <Content Include="EF\BD.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>BD.edmx</DependentUpon>

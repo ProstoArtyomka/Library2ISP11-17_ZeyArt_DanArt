@@ -37,7 +37,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         {
             InitializeComponent();
 
-
             if (extradition.Photo != null)
             {
                 using (MemoryStream stream = new MemoryStream(extradition.Photo))
@@ -65,7 +64,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             txtPhoneClient.Text = editExtradition.Client.Phone;
             txtAddressClient.Text = editExtradition.Client.Address;
             txtLastNameEmployee.Text = editExtradition.Employee.LastName;
-            txtCostDebt.Text = Convert.ToString(CalcDebt.Debt(Convert.ToDateTime(editExtradition.DateExtradition),Convert.ToDouble(editExtradition.Book.Cost)));
+            txtCostDebt.Text = Convert.ToString(CalcDebt.Debt(Convert.ToDateTime(editExtradition.DateExtradition), Convert.ToDateTime(editExtradition.DateReturn),Convert.ToDouble(editExtradition.Book.Cost)));
 
             isEdit = true;
         }
@@ -258,7 +257,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     editExtradition.Client.Phone = txtPhoneClient.Text;
                     editExtradition.Client.Address = txtAddressClient.Text;
                     editExtradition.Employee.LastName = txtLastNameEmployee.Text;
-                    editExtradition.ClientDebt = Convert.ToDecimal(txtCostDebt.Text);
+                    editExtradition.ClientDebt = Convert.ToDecimal(CalcDebt.Debt(Convert.ToDateTime(txtDateExtradition.Text), Convert.ToDateTime(txtDateReturn.Text), Convert.ToDouble(editExtradition.Book.Cost)));
 
                     if (txtDateReturn.Text != null)
                     {
@@ -309,7 +308,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                         FirstOrDefault();   
                         
                         newExtradition.IDEmployee = Employee.ID;
-                        newExtradition.ClientDebt = Convert.ToDecimal(txtCostDebt.Text);
+                        newExtradition.ClientDebt = Convert.ToDecimal(CalcDebt.Debt(Convert.ToDateTime(txtDateExtradition.Text), Convert.ToDateTime(txtDateReturn.Text), Convert.ToDouble(Book.Cost)));
 
                         if (txtDateReturn.Text != null)
                         {

@@ -28,7 +28,7 @@
         </Grid.RowDefinitions>
 
         <Image 
-            gif:ImageBehavior.AnimatedSource="/DesignItems/Books.gif"
+            gif:ImageBehavior.AnimatedSource="/DesignItems/ReadBook.gif"
             Grid.Row="0"
             Grid.RowSpan="5"
             Stretch="Fill"/>
@@ -44,7 +44,7 @@
             Width="187"
             FontFamily="Times New Roman"
             TextAlignment="Center"
-            Foreground="Black"
+            Foreground="#FF0B0BDA"
             />
 
         <ListView 
@@ -77,7 +77,7 @@
 
                 <DataTemplate>
                     <Border 
-                        Background="#FF7D0000"
+                        Background="#FF1BA227"
                         Height="100"
                         Width="450"
                         Margin="10"
@@ -117,7 +117,7 @@
                                        Grid.Row="0"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0"/>
 
@@ -126,7 +126,7 @@
                                        Grid.Row="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0" />
 
@@ -135,7 +135,7 @@
                                        Grid.Row="2"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0" />
 
@@ -144,7 +144,7 @@
                                        Grid.Row="3"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0"/>
 
@@ -153,7 +153,7 @@
                                        Grid.Row="4"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0"/>
 
@@ -162,7 +162,7 @@
                                        Grid.Row="5"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0"/>
 
@@ -171,7 +171,7 @@
                                        Grid.Row="6"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0"/>
 
@@ -181,7 +181,7 @@
                                        Grid.Row="0"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0" />
 
@@ -190,7 +190,7 @@
                                        Grid.Row="1"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0" />
 
@@ -200,7 +200,7 @@
                                        Grid.Row="2"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0" />
 
@@ -210,7 +210,7 @@
                                        Grid.Row="3"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0" />
 
@@ -220,7 +220,7 @@
                                        Grid.Row="4"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0" />
 
@@ -229,7 +229,7 @@
                                        Grid.Row="5"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0" />
 
@@ -238,7 +238,7 @@
                                        Grid.Row="6"
                                        HorizontalAlignment="Right"
                                        VerticalAlignment="Center"
-                                       Foreground="Black"
+                                       Foreground="#FF0B0BDA"
                                        FontFamily="Times New Roman"
                                        Margin="0 0 10 0" />
                         </Grid>
@@ -258,8 +258,8 @@
             Click="Back_Click" 
             FontWeight="Bold"
             FontFamily="Times New Roman"
-            Foreground="Black"
-            Background="#FF7D0000"
+            Foreground="#FF0B0BDA"
+            Background="#FF1BA227"
             BorderBrush="{x:Null}" 
             FontSize="14"
             Height="23" 
@@ -281,8 +281,8 @@
             Click="Update_Click"
             FontFamily="Times New Roman" 
             FontSize="14"
-            Foreground="Black"
-            Background="#FF7D0000"
+            Foreground="#FF0B0BDA"
+            Background="#FF1BA227"
             Margin="890,3,20,6"
             BorderBrush="{x:Null}" 
             Height="23" 
@@ -303,7 +303,7 @@
                 FontFamily="Times New Roman"
                 FontSize="18"
                 FontWeight="Black"
-                Foreground="Black"/>
+                Foreground="#FF0B0BDA"/>
             <TextBox 
                 x:Name="txtSearch"
                 Width="150" 
@@ -311,8 +311,10 @@
                 FontFamily="Times New Roman"
                 FontWeight="Black"
                 TextChanged="txtSearch_TextChanged"
-                BorderBrush="Black"
-                Background="{x:Null}" SelectionBrush="#FF7D0000"/>
+                BorderBrush="#FF1BA227"
+                Background="{x:Null}" 
+                Foreground="#FF0B0BDA"
+                SelectionBrush="{x:Null}" OpacityMask="#FF1BA227"/>
             <ComboBox 
                 x:Name="cmbSort"
                 Width="150" 
@@ -320,9 +322,10 @@
                 Margin="20 0" 
                 FontWeight="Black"
                 SelectionChanged="cmbSort_SelectionChanged" 
-                BorderBrush="Black" 
-                Background="{x:Null}"/>
-            <ComboBox
+                BorderBrush="#FF0B0BDA" 
+                Background="{x:Null}">
+            </ComboBox>
+                <ComboBox
                 x:Name="cmbSortIsDeleted"
                 Width="150" 
                 FontFamily="Times New Roman"
