@@ -22,7 +22,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         public int IDEmployee { get; set; }
         public byte[] Photo { get; set; }
         public Nullable<bool> IsСompleted { get; set; }
-        public decimal ClientDebt { get; set; }
+        public Nullable<decimal> ClientDebt { get; set; }
     
         public virtual Book Book { get; set; }
         public virtual Client Client { get; set; }

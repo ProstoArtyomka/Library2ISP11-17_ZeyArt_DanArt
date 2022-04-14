@@ -311,10 +311,10 @@
                 FontFamily="Times New Roman"
                 FontWeight="Black"
                 TextChanged="txtSearch_TextChanged"
-                BorderBrush="#FF1BA227"
+                BorderBrush="Black"
                 Background="{x:Null}" 
                 Foreground="#FF0B0BDA"
-                SelectionBrush="{x:Null}" OpacityMask="#FF1BA227"/>
+                SelectionBrush="{x:Null}"/>
             <ComboBox 
                 x:Name="cmbSort"
                 Width="150" 
@@ -323,7 +323,7 @@
                 FontWeight="Black"
                 SelectionChanged="cmbSort_SelectionChanged" 
                 BorderBrush="#FF0B0BDA" 
-                Background="{x:Null}">
+                Background="{x:Null}" Foreground="#FF0B0BDA">
             </ComboBox>
                 <ComboBox
                 x:Name="cmbSortIsDeleted"
@@ -332,8 +332,8 @@
                 Margin="5 0" 
                 FontWeight="Black"
                 SelectionChanged ="cmbSortIsDeleted_SelectionChanged"
-                BorderBrush="Black" 
-                Background="{x:Null}"/>
+                BorderBrush="#FF0B0BDA" 
+                Background="{x:Null}" Foreground="#FF0B0BDA"/>
         </WrapPanel>
     </Grid>
 </Window>

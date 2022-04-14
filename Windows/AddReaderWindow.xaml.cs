@@ -57,7 +57,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 }
             }
 
-
             cmbGender.ItemsSource = AppData.Context.Gender.ToList();
             cmbGender.DisplayMemberPath = "NameGender";
 
@@ -73,12 +72,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             txtEmail.Text = editReader.Email;
             txtRating.Text = Convert.ToString(editReader.Rating);
             cmbGender.SelectedIndex = editReader.IDGender - 1;
-            txtAddress.Text = editReader.LastName;
+            txtAddress.Text = editReader.Address;
 
             isEdit = true;
-
         }
-
 
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
@@ -126,7 +123,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             }
 
             //проверка на кол-во символов
-
             if ((txtLastName.Text.Length > 50) || (txtLastName.Text.Length < 1))
             {
                 MessageBox.Show("Недопустимое количество символов для поля Фамилия", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);

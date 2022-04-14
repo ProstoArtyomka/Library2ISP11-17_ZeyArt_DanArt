@@ -28,8 +28,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         string pathPhoto = null;
         bool isEdit = true;
 
-
-
         public BookAddWindow(EF.Book book)
         {
             InitializeComponent();
@@ -53,20 +51,24 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
             editBook = book;
 
+            cmbPublishing.ItemsSource = AppData.Context.Publishing.ToList();
+            cmbPublishing.DisplayMemberPath = "NamePublishing";
+
+            cmbPublishing.SelectedIndex = editBook.IDPublishing - 1;
+
             txtNameBook.Text = editBook.NameBook;
-            var Publishing = AppData.Context.Publishing.ToList().
-                        Where(i => i.ID == book.IDPublishing).
-                        FirstOrDefault();
-            txtPublishing.Text = Publishing.NamePublishing;
             txtYearOfPublishing.Text = Convert.ToString(editBook.YearOfPublishing);
-            var GenreBook = AppData.Context.Genre.ToList().
-                        Where(i => i.ID == book.IDGenreBook).
-                        FirstOrDefault();
-            txtGenre.Text = GenreBook.NameGenre;
-            var AuthorBook = AppData.Context.Author.ToList().
-                        Where(i => i.ID == book.IDAuthorBook).
-                        FirstOrDefault();
-            txtAuthor.Text = AuthorBook.Nickname;
+
+            cmbGenre.ItemsSource = AppData.Context.Genre.ToList();
+            cmbGenre.DisplayMemberPath = "NameGenre";
+
+            cmbGenre.SelectedIndex = editBook.IDGenreBook - 1;
+
+            cmbAuthor.ItemsSource = AppData.Context.Author.ToList();
+            cmbAuthor.DisplayMemberPath = "Nickname";
+
+            cmbAuthor.SelectedIndex = editBook.IDAuthorBook - 1;
+
             txtNumberOfPages.Text = Convert.ToString(editBook.NumberOfPages);
             txtCost.Text = Convert.ToString(editBook.Cost);
 
@@ -77,7 +79,16 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             {
                 InitializeComponent();
 
-                isEdit = false;
+                cmbPublishing.ItemsSource = AppData.Context.Publishing.ToList();
+                cmbPublishing.DisplayMemberPath = "NamePublishing";
+
+                cmbGenre.ItemsSource = AppData.Context.Genre.ToList();
+                cmbGenre.DisplayMemberPath = "NameGenre";
+
+                cmbAuthor.ItemsSource = AppData.Context.Author.ToList();
+                cmbAuthor.DisplayMemberPath = "Nickname";
+
+            isEdit = false;
             }
             private void txtNameBook_TextChanged(object sender, TextChangedEventArgs e)
             {
@@ -124,7 +135,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtPublishing.Text))
+            if (string.IsNullOrWhiteSpace(cmbPublishing.Text))
             {
                 MessageBox.Show("Поле Издатель не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -135,13 +146,13 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 MessageBox.Show("Поле Год публикации не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if (string.IsNullOrWhiteSpace(txtGenre.Text))
+            if (string.IsNullOrWhiteSpace(cmbGenre.Text))
             {
                 MessageBox.Show("Поле Жанр не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtAuthor.Text))
+            if (string.IsNullOrWhiteSpace(cmbAuthor.Text))
             {
                 MessageBox.Show("Поле Автор не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -160,29 +171,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (txtPublishing.Text.Length > 100)
-            {
-                MessageBox.Show("Недопустимое количество символов для поля Издатель", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
             if (txtYearOfPublishing.Text.Length > 4)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Год публикации", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (txtGenre.Text.Length > 50)
-            {
-                MessageBox.Show("Недопустимое количество символов для поля Жанр", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            if (txtAuthor.Text.Length > 50)
-            {
-                MessageBox.Show("Недопустимое количество символов для поля Автор", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
 
             if ((txtNumberOfPages.Text.Length > 4) || (txtNumberOfPages.Text.Length < 1))
             {
@@ -203,18 +197,18 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             }
 
             //Валидация Издателя
-            if (AppData.Context.Publishing.Where(i => i.NamePublishing == txtPublishing.Text).FirstOrDefault() == null)
-            {
-                MessageBox.Show("Такого Издателя не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (AppData.Context.Publishing.Where(i => i.NamePublishing == txtPublishing.Text).FirstOrDefault() == null)
+            //{
+            //    MessageBox.Show("Такого Издателя не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
             //Валидация Жанра
-            if (AppData.Context.Genre.Where(i => i.NameGenre == txtGenre.Text).FirstOrDefault() == null)
-            {
-                MessageBox.Show("Такого Жанра не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (AppData.Context.Genre.Where(i => i.NameGenre == txtGenre.Text).FirstOrDefault() == null)
+            //{
+            //    MessageBox.Show("Такого Жанра не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
             //Валидация Автора
             //if (AppData.Context.Author.Where(i => i.Nickname == txtAuthor.Text).FirstOrDefault() == null)
@@ -228,6 +222,18 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             if (NumberOfPages.Any(Char.IsUpper) || (NumberOfPages.Any(Char.IsLower) || (NumberOfPages.Any(Char.IsPunctuation) || (NumberOfPages.Any(Char.IsWhiteSpace)))))
             {
                 MessageBox.Show("Поле Кол-во страниц в книге может содержать только ПОЛОЖИТЕЛЬНЫЕ цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (Convert.ToInt32(NumberOfPages) < 0)
+            {
+                MessageBox.Show("Поле Кол-во страниц в книге не может быть отрицательным значением", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (Convert.ToInt32(NumberOfPages) < 20)
+            {
+                MessageBox.Show("Книга не может иметь так мало страниц", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             //Валидация года публикации
@@ -244,15 +250,14 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-
-            if (true)
+            if (Convert.ToInt32(YearOfPublishing) > Convert.ToInt32(DateTime.Now.Year))
             {
-
+                MessageBox.Show("Поле Год публикации не может быть больше текущего времени", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
-
             //Валидация Долга
-            if ((txtCost.Text.Length > 8) || (txtCost.Text.Length < 1))
+            if ((txtCost.Text.Length > 10) || (txtCost.Text.Length < 1))
                 {
                     MessageBox.Show("Недопустимое количество символов для поля Цена книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
@@ -260,7 +265,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
                 if (Convert.ToDouble(txtCost.Text) < 0.00)
                 {
-                    MessageBox.Show("Недопустимое значение для поля Цена книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Поле Цена книги не может быть ОТРИЦАТЕЛЬНЫМ числом", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
 
@@ -270,19 +275,11 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                             {
                                 //Изменение данных Книги
                                 editBook.NameBook = txtNameBook.Text;
-                                var Publishing = AppData.Context.Publishing.ToList().
-                                                Where(i => i.NamePublishing == txtPublishing.Text).
-                                                FirstOrDefault();
-                                Publishing.NamePublishing = txtPublishing.Text;
+
+                                editBook.IDPublishing = cmbPublishing.SelectedIndex + 1;
                                 editBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
-                                var GenreBook = AppData.Context.Genre.ToList().
-                                    Where(i => i.NameGenre == txtGenre.Text).
-                                    FirstOrDefault();
-                                GenreBook.NameGenre = txtGenre.Text;
-                                var AuthorBook = AppData.Context.Author.ToList().
-                                            Where(i => i.Nickname == txtAuthor.Text).
-                                            FirstOrDefault();
-                                AuthorBook.Nickname = txtAuthor.Text;
+                                editBook.IDGenreBook = cmbGenre.SelectedIndex + 1;
+                                editBook.IDAuthorBook = cmbAuthor.SelectedIndex + 1;
                                 editBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
                                 editBook.Cost = Convert.ToInt32(txtCost.Text);
 
@@ -310,19 +307,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                                     //Добавление новой книги
                                     EF.Book newBook = new EF.Book();
                                     newBook.NameBook = txtNameBook.Text;
-                                    var Publishing = AppData.Context.Publishing.ToList().
-                                                Where(i => i.NamePublishing == txtPublishing.Text).
-                                                FirstOrDefault();
-                                    newBook.IDPublishing = Publishing.ID;
+                                    newBook.IDPublishing = cmbPublishing.SelectedIndex + 1;
                                     newBook.YearOfPublishing = Convert.ToInt32(txtYearOfPublishing.Text);
-                                    var GenreBook = AppData.Context.Genre.ToList().
-                                                Where(i => i.NameGenre == txtGenre.Text).
-                                                FirstOrDefault();
-                                    newBook.IDGenreBook = GenreBook.ID;
-                                    var AuthorBook = AppData.Context.Author.ToList().
-                                                Where(i => i.Nickname == txtAuthor.Text).
-                                                FirstOrDefault();
-                                    newBook.IDAuthorBook = AuthorBook.ID;
+                                    newBook.IDGenreBook = cmbGenre.SelectedIndex + 1;
+                                    newBook.IDAuthorBook = cmbAuthor.SelectedIndex + 1;
                                     newBook.NumberOfPages = Convert.ToInt32(txtNumberOfPages.Text);
                                     newBook.Cost = Convert.ToInt32(txtCost.Text);
                                     newBook.IsDeleted = false;

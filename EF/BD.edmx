@@ -83,7 +83,7 @@
           <Property Name="IDEmployee" Type="int" Nullable="false" />
           <Property Name="Photo" Type="varbinary(max)" />
           <Property Name="IsСompleted" Type="bit" />
-          <Property Name="ClientDebt" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="ClientDebt" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="Gender">
           <Key>
@@ -618,7 +618,7 @@
           <Property Name="IDEmployee" Type="Int32" Nullable="false" />
           <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
           <Property Name="IsСompleted" Type="Boolean" />
-          <Property Name="ClientDebt" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+          <Property Name="ClientDebt" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Book" Relationship="Library_ZeynetdinovModel.FK_Extradition_Book" FromRole="Extradition" ToRole="Book" />
           <NavigationProperty Name="Client" Relationship="Library_ZeynetdinovModel.FK_Extradition_Client" FromRole="Extradition" ToRole="Client" />
           <NavigationProperty Name="Employee" Relationship="Library_ZeynetdinovModel.FK_Extradition_Employee" FromRole="Extradition" ToRole="Employee" />

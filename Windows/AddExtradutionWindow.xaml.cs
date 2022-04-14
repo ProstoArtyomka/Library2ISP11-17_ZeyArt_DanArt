@@ -30,6 +30,15 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
         {
             InitializeComponent();
 
+            cmbNameBook.ItemsSource = AppData.Context.Book.ToList();
+            cmbNameBook.DisplayMemberPath = "NameBook";
+
+            cmbClient.ItemsSource = AppData.Context.Client.ToList();
+            cmbClient.DisplayMemberPath = "LastName";
+
+            cmbEmployee.ItemsSource = AppData.Context.Employee.ToList();
+            cmbEmployee.DisplayMemberPath = "LastName";
+
             isEdit = false;
         }
 
@@ -56,14 +65,23 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
             editExtradition = extradition;
 
+            cmbNameBook.ItemsSource = AppData.Context.Book.ToList();
+            cmbNameBook.DisplayMemberPath = "NameBook";
+
+            cmbClient.ItemsSource = AppData.Context.Client.ToList(); 
+            cmbClient.DisplayMemberPath = "LastName";
+
+            cmbEmployee.ItemsSource = AppData.Context.Employee.ToList();
+            cmbEmployee.DisplayMemberPath = "LastName";
+
             txtDateExtradition.Text = Convert.ToString(editExtradition.DateExtradition);
             txtDateReturn.Text = Convert.ToString(editExtradition.DateReturn);
-            txtNameBook.Text = editExtradition.Book.NameBook;
-            txtLastNameClient.Text = editExtradition.Client.LastName;
+            cmbNameBook.SelectedIndex = editExtradition.IDBook - 1;
+            cmbClient.SelectedIndex = editExtradition.IDClient - 1;
             txtFirstNameClient.Text = editExtradition.Client.FirstName;
             txtPhoneClient.Text = editExtradition.Client.Phone;
             txtAddressClient.Text = editExtradition.Client.Address;
-            txtLastNameEmployee.Text = editExtradition.Employee.LastName;
+            cmbEmployee.SelectedIndex = editExtradition.IDEmployee - 1;
             txtCostDebt.Text = Convert.ToString(CalcDebt.Debt(Convert.ToDateTime(editExtradition.DateExtradition), Convert.ToDateTime(editExtradition.DateReturn),Convert.ToDouble(editExtradition.Book.Cost)));
 
             isEdit = true;
@@ -85,13 +103,13 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtNameBook.Text))
+            if (string.IsNullOrWhiteSpace(cmbNameBook.Text))
             {
                 MessageBox.Show("Поле Название книги не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtLastNameClient.Text))
+            if (string.IsNullOrWhiteSpace(cmbClient.Text))
             {
                 MessageBox.Show("Поле Фамилия Клиента не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -115,7 +133,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtLastNameEmployee.Text))
+            if (string.IsNullOrWhiteSpace(cmbEmployee.Text))
             {
                 MessageBox.Show("Поле Фамилия Сотрудника не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -132,18 +150,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             if (txtDateReturn.Text.Length > 50)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Дата возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            if (txtNameBook.Text.Length > 50)
-            {
-                MessageBox.Show("Недопустимое количество символов для поля Название книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            if (txtLastNameClient.Text.Length > 50)
-            {
-                MessageBox.Show("Недопустимое количество символов для поля Фамилия Клиента", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -165,50 +171,50 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (txtLastNameEmployee.Text.Length > 50)
-            {
-                MessageBox.Show("Недопустимое количество символов для поля Фамилия Сотрудника", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (txtLastNameEmployee.Text.Length > 50)
+            //{
+            //    MessageBox.Show("Недопустимое количество символов для поля Фамилия Сотрудника", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
             //Валидация Книги
-            if (AppData.Context.Book.Where(i => i.NameBook == txtNameBook.Text).FirstOrDefault() == null)
-            {
-                MessageBox.Show("Такой книги не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (AppData.Context.Book.Where(i => i.NameBook == txtNameBook.Text).FirstOrDefault() == null)
+            //{
+            //    MessageBox.Show("Такой книги не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
             //Валидация Клиента
-            if (AppData.Context.Client.Where(i => i.LastName == txtLastNameClient.Text).FirstOrDefault() == null)
-            {
-                MessageBox.Show("Такой Фамилии Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (AppData.Context.Client.Where(i => i.LastName == txtLastNameClient.Text).FirstOrDefault() == null)
+            //{
+            //    MessageBox.Show("Такой Фамилии Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
-            if (AppData.Context.Client.Where(i => i.FirstName == txtFirstNameClient.Text).FirstOrDefault() == null)
-            {
-                MessageBox.Show("Такого Имени Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (AppData.Context.Client.Where(i => i.FirstName == txtFirstNameClient.Text).FirstOrDefault() == null)
+            //{
+            //    MessageBox.Show("Такого Имени Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
-            if (AppData.Context.Client.Where(i => i.Phone == txtPhoneClient.Text).FirstOrDefault() == null)
-            {
-                MessageBox.Show("Такого Номера телефона Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (AppData.Context.Client.Where(i => i.Phone == txtPhoneClient.Text).FirstOrDefault() == null)
+            //{
+            //    MessageBox.Show("Такого Номера телефона Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
-            if (AppData.Context.Client.Where(i => i.Address == txtAddressClient.Text).FirstOrDefault() == null)
-            {
-                MessageBox.Show("Такого Адресса Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (AppData.Context.Client.Where(i => i.Address == txtAddressClient.Text).FirstOrDefault() == null)
+            //{
+            //    MessageBox.Show("Такого Адресса Клиента не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
             //Валидация Сотрудника
-            if (AppData.Context.Employee.Where(i => i.LastName == txtLastNameEmployee.Text).FirstOrDefault() == null)
-            {
-                MessageBox.Show("Такой Фамилии Сотрудника не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (AppData.Context.Employee.Where(i => i.LastName == txtLastNameEmployee.Text).FirstOrDefault() == null)
+            //{
+            //    MessageBox.Show("Такой Фамилии Сотрудника не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
             //Валидация Долга
             if (txtCostDebt.Text.Length > 8)
@@ -217,11 +223,11 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (Convert.ToDouble(txtCostDebt.Text) < 0.00)
-            {
-                MessageBox.Show("Недопустимое значение для поля Долг", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (Convert.ToDouble(txtCostDebt.Text) < 0.00)
+            //{
+            //    MessageBox.Show("Недопустимое значение для поля Долг", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
             string Cost = txtCostDebt.Text;
 
@@ -243,6 +249,13 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 MessageBox.Show("Дата выдачи не может быть больше даты возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            //Валидация телефона
+            string Phone = txtPhoneClient.Text;
+            if (Phone.Any(Char.IsUpper) || (Phone.Any(Char.IsLower) || (Phone.Any(Char.IsWhiteSpace))))
+            {
+                MessageBox.Show("Поле Телефон может содержать только цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             if (isEdit)
             {
@@ -251,12 +264,12 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     //Изменение данных Заказа
                     editExtradition.DateExtradition = Convert.ToDateTime(txtDateExtradition.Text);
                     editExtradition.DateReturn = Convert.ToDateTime(txtDateReturn.Text);
-                    editExtradition.Book.NameBook = txtNameBook.Text;
-                    editExtradition.Client.LastName = txtLastNameClient.Text;
+                    editExtradition.IDBook = cmbNameBook.SelectedIndex + 1;
+                    editExtradition.IDClient = cmbClient.SelectedIndex + 1;
                     editExtradition.Client.FirstName = txtFirstNameClient.Text;
                     editExtradition.Client.Phone = txtPhoneClient.Text;
                     editExtradition.Client.Address = txtAddressClient.Text;
-                    editExtradition.Employee.LastName = txtLastNameEmployee.Text;
+                    editExtradition.IDEmployee = cmbEmployee.SelectedIndex + 1;
                     editExtradition.ClientDebt = Convert.ToDecimal(CalcDebt.Debt(Convert.ToDateTime(txtDateExtradition.Text), Convert.ToDateTime(txtDateReturn.Text), Convert.ToDouble(editExtradition.Book.Cost)));
 
                     if (txtDateReturn.Text != null)
@@ -290,25 +303,13 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                         newExtradition.DateExtradition = Convert.ToDateTime(txtDateExtradition.Text);
                         newExtradition.DateReturn = Convert.ToDateTime(txtDateReturn.Text);
 
-                        var Book = AppData.Context.Book.ToList().
-                        Where(i => i.NameBook == txtNameBook.Text).
-                        FirstOrDefault();
-                        newExtradition.IDBook = Book.ID;
+                        newExtradition.IDBook = cmbNameBook.SelectedIndex + 1;
 
-                        var Client = AppData.Context.Client.ToList().
-                        Where(i => i.LastName == txtLastNameClient.Text
-                        && i.FirstName == txtFirstNameClient.Text
-                        && i.Phone == txtPhoneClient.Text
-                        && i.Address == txtAddressClient.Text).
-                        FirstOrDefault();
-                        newExtradition.IDClient = Client.ID;
+                        newExtradition.IDClient = cmbClient.SelectedIndex + 1;
 
-                        var Employee = AppData.Context.Employee.ToList().
-                        Where(i => i.LastName == txtLastNameEmployee.Text).
-                        FirstOrDefault();   
-                        
-                        newExtradition.IDEmployee = Employee.ID;
-                        newExtradition.ClientDebt = Convert.ToDecimal(CalcDebt.Debt(Convert.ToDateTime(txtDateExtradition.Text), Convert.ToDateTime(txtDateReturn.Text), Convert.ToDouble(Book.Cost)));
+                        newExtradition.IDEmployee = cmbEmployee.SelectedIndex + 1;
+
+                        newExtradition.ClientDebt = null;
 
                         if (txtDateReturn.Text != null)
                         {

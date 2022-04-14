@@ -202,7 +202,7 @@
             Width="250"
             Height="25"
             Grid.RowSpan="2" Background="{x:Null}"/>
-        <TextBox 
+        <!--<TextBox 
             x:Name="txtNameBook"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
@@ -218,8 +218,25 @@
             Width="250"
             Height="25"
             MaxLength="50" Grid.RowSpan="2">
-        </TextBox>
-        <TextBox 
+        </TextBox>-->
+        <ComboBox
+            x:Name="cmbNameBook"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            FontSize="17"
+            FontFamily="Times New Roman"
+            Background="{x:Null}"
+            BorderBrush="{x:Null}"
+            Foreground="Black"
+            Grid.Row="4"
+            Grid.Column="1"
+            Margin="12,12,0,9"
+            Width="250"
+            Height="25" 
+            Grid.RowSpan="2"
+            >
+        </ComboBox>
+        <!--<TextBox 
             x:Name="txtLastNameClient"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
@@ -234,8 +251,25 @@
             Margin="12,13,0,8"
             Width="250"
             Height="25"
-            MaxLength="12" Grid.RowSpan="2">
-        </TextBox>
+            MaxLength="12"
+            Grid.RowSpan="2">-->
+        <!--</TextBox>-->
+        <ComboBox
+            x:Name="cmbClient"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            FontSize="17"
+            FontFamily="Times New Roman"
+            Background="{x:Null}"
+            Foreground="Black"
+            Grid.Row="6"
+            Grid.Column="1"
+            Margin="12,13,0,8"
+            Width="250"
+            Height="25"
+            Grid.RowSpan="2"
+            >
+        </ComboBox>
         <TextBox 
             x:Name="txtFirstNameClient"
             VerticalAlignment="Center"
@@ -288,7 +322,7 @@
             Height="26"
             MaxLength="100" Grid.RowSpan="2">
         </TextBox>
-        <TextBox 
+        <!--<TextBox 
             x:Name="txtLastNameEmployee"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
@@ -304,7 +338,24 @@
             Width="250"
             Height="25"
             MaxLength="100" Grid.RowSpan="2">
-        </TextBox>
+        </TextBox>-->
+
+        <ComboBox
+            x:Name="cmbEmployee"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            FontSize="17"
+            FontFamily="Times New Roman"
+            Background="{x:Null}"
+            BorderBrush="White"
+            Foreground="Black"
+            Grid.Row="14"
+            Grid.Column="1"
+            Margin="12,1,0,18"
+            Width="250"
+            Height="25"
+            Grid.RowSpan="2">
+        </ComboBox>
 
         <TextBox 
             x:Name="txtCostDebt"

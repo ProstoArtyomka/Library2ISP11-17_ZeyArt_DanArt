@@ -47,6 +47,7 @@
             Stretch="Fill"/>
         <TextBlock
             x:Name="tbTitle"
+            Foreground="#FFAA4419"
         Text="Добавление читателя"
             TextAlignment="Center"
         Grid.Row="0"
@@ -62,6 +63,7 @@
         <TextBlock
         Text="Фамилия"
         Grid.Row="2"
+        Foreground="#FFAA4419"
         VerticalAlignment="Center"
         HorizontalAlignment="Right"
 		FontSize="20" 
@@ -73,6 +75,7 @@
         <TextBlock
         Text="Имя"
         Grid.Row="4"
+        Foreground="#FFAA4419"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
 		FontSize="20" 
@@ -84,6 +87,7 @@
         <TextBlock
         Text="Отчество"
         Grid.Row="6"
+        Foreground="#FFAA4419"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
 		FontSize="20" 
@@ -93,6 +97,7 @@
         Height="25" 
         />
         <TextBlock
+        Foreground="#FFAA4419"
         Text="Телефон"
         Grid.Row="8"
         VerticalAlignment="Center"
@@ -105,6 +110,7 @@
         />
         <TextBlock
         Text="Почта"
+        Foreground="#FFAA4419"
         Grid.Row="10"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
@@ -116,6 +122,7 @@
         />
         <TextBlock
         Text="Рейтинг"
+        Foreground="#FFAA4419"
         Grid.Row="12"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
@@ -127,6 +134,7 @@
         />
         <TextBlock
         Text="Пол"
+        Foreground="#FFAA4419"
         Grid.Row="14"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
@@ -138,6 +146,7 @@
         />
         <TextBlock
         Text="Адрес"
+        Foreground="#FFAA4419"
         Grid.Row="16"
         VerticalAlignment="Center"
         HorizontalAlignment="Right" 
@@ -163,7 +172,8 @@
             FontFamily="Times New Roman"
             TextAlignment="Left"
             Background="{x:Null}"
-            BorderBrush="Black"
+            BorderBrush="#FFAA4419"
+            Foreground="#FFAA4419"
             Grid.RowSpan="3"/>
         <TextBox 
             x:Name="txtFirstName"
@@ -179,7 +189,8 @@
             FontFamily="Times New Roman"
             TextAlignment="Left"
             Background="{x:Null}"
-            BorderBrush="Black"
+            BorderBrush="#FFAA4419"
+            Foreground="#FFAA4419"
             Grid.RowSpan="3">
         </TextBox>
         <TextBox 
@@ -190,7 +201,8 @@
             FontFamily="Times New Roman"
             TextAlignment="Left"
             Background="{x:Null}"
-            BorderBrush="Black"
+            BorderBrush="#FFAA4419"
+            Foreground="#FFAA4419"
             Grid.RowSpan="2"
             Grid.Row="6"
             Grid.Column="1"
@@ -207,7 +219,8 @@
             FontFamily="Times New Roman"
             TextAlignment="Left"
             Background="{x:Null}"
-            BorderBrush="Black"
+            BorderBrush="#FFAA4419"
+            Foreground="#FFAA4419"
             Grid.RowSpan="2"
             Grid.Row="8"
             Grid.Column="1"
@@ -224,7 +237,8 @@
             FontFamily="Times New Roman"
             TextAlignment="Left"
             Background="{x:Null}"
-            BorderBrush="Black"
+            BorderBrush="#FFAA4419"
+            Foreground="#FFAA4419"
             Grid.RowSpan="2"
             Grid.Row="9"
             Grid.Column="1"
@@ -241,7 +255,8 @@
             FontFamily="Times New Roman"
             TextAlignment="Left"
             Background="{x:Null}"
-            BorderBrush="Black"
+            BorderBrush="#FFAA4419"
+            Foreground="#FFAA4419"
             Grid.RowSpan="3"
             Grid.Row="11"
             Grid.Column="1"
@@ -254,9 +269,10 @@
             x:Name="cmbGender"
             VerticalAlignment="Center"
             HorizontalAlignment="Left"
-            FontSize="20"
+            FontSize="17"
             FontFamily="Times New Roman"
             Background="{x:Null}"
+            Foreground="#FFAA4419"
             BorderBrush="Black"
             Grid.RowSpan="2"
             Grid.Row="13"
@@ -273,7 +289,8 @@
             FontFamily="Times New Roman"
             TextAlignment="Left"
             Background="{x:Null}"
-            BorderBrush="Black"
+            BorderBrush="#FFAA4419"
+            Foreground="#FFAA4419"
             Grid.RowSpan="3"
             Grid.Row="15"
             Grid.Column="1"
@@ -293,7 +310,7 @@
                 Width="150"
                 Height="150"
                 BorderThickness="2"
-                BorderBrush="Black"
+                BorderBrush="#FFAA4419"
                 CornerRadius="10">
             <Image x:Name="imgUser" 
                    Source="/Images/userDef.png"/>
