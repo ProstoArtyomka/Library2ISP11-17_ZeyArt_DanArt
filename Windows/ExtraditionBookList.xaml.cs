@@ -107,8 +107,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     ExtraditionList = ExtraditionList.OrderBy(i => i.ID).ToList();
                     break;
             }
-
-            listExtradition.ItemsSource = ExtraditionList;
+           listExtradition.ItemsSource = ExtraditionList;
         }
 
 
@@ -126,6 +125,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             window.ShowDialog();
             listExtradition.ItemsSource = AppData.Context.Extradition.ToList();
             this.Opacity = 1;
+            Filter();
         }
 
         private void listExtradition_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -172,6 +172,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     }
                 }
             }
+            Filter();
         }
 
         private void listExtradition_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -188,6 +189,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             extradutionWindow.ShowDialog();
             listExtradition.ItemsSource = AppData.Context.Extradition.ToList();
             this.Opacity = 1;
+            Filter();
         }
     }
 }

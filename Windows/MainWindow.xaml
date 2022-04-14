@@ -26,7 +26,7 @@
             <RowDefinition Height = "*"/>
         </Grid.RowDefinitions>
         <Image 
-            Source="C:\Users\ARTEM\source\repos\Library2ISP11-17_ZeyArt_DanArt/DesignItems/Menu.jpg" 
+            Source="/DesignItems/Menu.jpg" 
             Grid.ColumnSpan="3" 
             Grid.RowSpan="3"
             Stretch="Fill"

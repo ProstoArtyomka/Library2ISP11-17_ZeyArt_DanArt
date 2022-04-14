@@ -159,6 +159,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                      }
                  }
             }
+            Filter();
         }
 
         private void listBook_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -174,6 +175,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             addReaderWindow.ShowDialog();
             listBook.ItemsSource = AppData.Context.ViewBook.ToList();
             this.Opacity = 1;
+            Filter();
         } 
     }
 }

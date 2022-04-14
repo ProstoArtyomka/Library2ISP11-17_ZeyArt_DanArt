@@ -50,7 +50,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>bookshelf.ico</ApplicationIcon>
+    <ApplicationIcon>Images\bookshelf.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DocumentFormat.OpenXml, Version=2.16.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
@@ -267,7 +267,7 @@
     <Resource Include="DesignItems\ExtraditionBook.gif" />
     <Resource Include="DesignItems\Vega.gif" />
     <Resource Include="DesignItems\Menu.jpg" />
-    <Resource Include="bookshelf.ico" />
+    <Resource Include="Images\bookshelf.ico" />
     <Resource Include="DesignItems\Books.gif" />
     <Resource Include="DesignItems\NewBook.gif" />
     <Resource Include="DesignItems\Reader.gif" />

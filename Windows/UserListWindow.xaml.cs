@@ -63,6 +63,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             window.ShowDialog();
             listReader.ItemsSource = AppData.Context.Client.ToList();
             this.Opacity = 1;
+            Filter();
         }
 
         private void Filter()
@@ -72,7 +73,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 Where(i => i.LastName.ToLower().Contains(txtSearch.Text.ToLower()) 
                 || i.FirstName.ToLower().Contains(txtSearch.Text.ToLower())
                 || i.Address.ToLower().Contains(txtSearch.Text.ToLower())
-                || i.FirstName.ToLower().Contains(txtSearch.Text.ToLower())
+                || i.Phone.ToLower().Contains(txtSearch.Text.ToLower())
                 || i.Rating.ToString().Contains(txtSearch.Text.ToLower())
                 || i.IsDeleted.ToString().Contains(txtSearch.Text.ToLower())).ToList();
 
@@ -153,6 +154,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     }
                 }
             }
+            Filter();
         }
 
         private void listReader_MouseDoubleClick(object sender, MouseButtonEventArgs e)
@@ -168,6 +170,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             addReaderWindow.ShowDialog();
             listReader.ItemsSource = AppData.Context.Client.ToList();
             this.Opacity = 1;
+            Filter();
         }
     }
 }

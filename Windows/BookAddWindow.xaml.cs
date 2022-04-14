@@ -111,128 +111,148 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
 
             private void btAdd_Click(object sender, RoutedEventArgs e)
             {
-                //проверка на пустоту
-                if (string.IsNullOrWhiteSpace(txtNameBook.Text))
-                {
-                    MessageBox.Show("Поле Название книги не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtCost.Text))
-                {
-                    MessageBox.Show("Поле Цена книги не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtPublishing.Text))
-                {
-                    MessageBox.Show("Поле Издатель не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtYearOfPublishing.Text))
-                {
-                    MessageBox.Show("Поле Год публикации не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-                if (string.IsNullOrWhiteSpace(txtGenre.Text))
-                {
-                    MessageBox.Show("Поле Жанр не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtAuthor.Text))
-                {
-                    MessageBox.Show("Поле Автор не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (string.IsNullOrWhiteSpace(txtNumberOfPages.Text))
-                {
-                    MessageBox.Show("Поле Кол-во страниц в книге не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                //проверка на кол-во символов
-                if (txtNameBook.Text.Length > 100)
-                {
-                    MessageBox.Show("Недопустимое количество символов для поля Название книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (txtPublishing.Text.Length > 100)
-                {
-                    MessageBox.Show("Недопустимое количество символов для поля Издатель", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (txtYearOfPublishing.Text.Length > 4)
-                {
-                    MessageBox.Show("Недопустимое количество символов для поля Год публикации", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (txtGenre.Text.Length > 50)
-                {
-                    MessageBox.Show("Недопустимое количество символов для поля Жанр", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (txtAuthor.Text.Length > 50)
-                {
-                    MessageBox.Show("Недопустимое количество символов для поля Автор", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if ((txtNumberOfPages.Text.Length > 4) || (txtNumberOfPages.Text.Length < 1))
-                {
-                    MessageBox.Show("Недопустимое количество символов для поля Кол-во страниц в книге", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (txtCost.Text.Length > 8)
-                {
-                    MessageBox.Show("Недопустимое количество символов для поля Цена книги ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
-
-                if (Convert.ToDouble(txtCost.Text.Length) < 0.00)
-                {
-                MessageBox.Show("Недопустимая цена для поля Цена книги ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //проверка на пустоту
+            if (string.IsNullOrWhiteSpace(txtNameBook.Text))
+            {
+                MessageBox.Show("Поле Название книги не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
-                }
+            }
 
-                //Валидация Издателя
-                if (AppData.Context.Publishing.Where(i => i.NamePublishing == txtPublishing.Text).FirstOrDefault() == null)
-                {
-                    MessageBox.Show("Такого Издателя не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
+            if (string.IsNullOrWhiteSpace(txtCost.Text))
+            {
+                MessageBox.Show("Поле Цена книги не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-                //Валидация Жанра
-                if (AppData.Context.Genre.Where(i => i.NameGenre == txtGenre.Text).FirstOrDefault() == null)
-                {
-                    MessageBox.Show("Такого Жанра не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
+            if (string.IsNullOrWhiteSpace(txtPublishing.Text))
+            {
+                MessageBox.Show("Поле Издатель не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-                //Валидация Автора
-                if (AppData.Context.Author.Where(i => i.Nickname == txtAuthor.Text).FirstOrDefault() == null)
-                {
-                    MessageBox.Show("Такого Автора не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
+            if (string.IsNullOrWhiteSpace(txtYearOfPublishing.Text))
+            {
+                MessageBox.Show("Поле Год публикации не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (string.IsNullOrWhiteSpace(txtGenre.Text))
+            {
+                MessageBox.Show("Поле Жанр не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-                //Валидация Страниц в книге
-                string NumberOfPages = txtNumberOfPages.Text;
-                if (NumberOfPages.Any(Char.IsUpper) || (NumberOfPages.Any(Char.IsLower) || (NumberOfPages.Any(Char.IsPunctuation) || (NumberOfPages.Any(Char.IsWhiteSpace)))))
-                {
-                    MessageBox.Show("Поле Кол-во страниц в книге может содержать только ПОЛОЖИТЕЛЬНЫЕ цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                    return;
-                }
+            if (string.IsNullOrWhiteSpace(txtAuthor.Text))
+            {
+                MessageBox.Show("Поле Автор не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
-                //Валидация Долга
-                if ((txtCost.Text.Length > 8) || (txtCost.Text.Length < 1))
+            if (string.IsNullOrWhiteSpace(txtNumberOfPages.Text))
+            {
+                MessageBox.Show("Поле Кол-во страниц в книге не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //проверка на кол-во символов
+            if (txtNameBook.Text.Length > 100)
+            {
+                MessageBox.Show("Недопустимое количество символов для поля Название книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (txtPublishing.Text.Length > 100)
+            {
+                MessageBox.Show("Недопустимое количество символов для поля Издатель", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (txtYearOfPublishing.Text.Length > 4)
+            {
+                MessageBox.Show("Недопустимое количество символов для поля Год публикации", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (txtGenre.Text.Length > 50)
+            {
+                MessageBox.Show("Недопустимое количество символов для поля Жанр", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (txtAuthor.Text.Length > 50)
+            {
+                MessageBox.Show("Недопустимое количество символов для поля Автор", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if ((txtNumberOfPages.Text.Length > 4) || (txtNumberOfPages.Text.Length < 1))
+            {
+                MessageBox.Show("Недопустимое количество символов для поля Кол-во страниц в книге", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (txtCost.Text.Length > 8)
+            {
+                MessageBox.Show("Недопустимое количество символов для поля Цена книги ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (Convert.ToDouble(txtCost.Text.Length) < 0.00)
+            {
+            MessageBox.Show("Недопустимая цена для поля Цена книги ", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            return;
+            }
+
+            //Валидация Издателя
+            if (AppData.Context.Publishing.Where(i => i.NamePublishing == txtPublishing.Text).FirstOrDefault() == null)
+            {
+                MessageBox.Show("Такого Издателя не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //Валидация Жанра
+            if (AppData.Context.Genre.Where(i => i.NameGenre == txtGenre.Text).FirstOrDefault() == null)
+            {
+                MessageBox.Show("Такого Жанра не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            //Валидация Автора
+            //if (AppData.Context.Author.Where(i => i.Nickname == txtAuthor.Text).FirstOrDefault() == null)
+            //{
+            //    MessageBox.Show("Такого Автора не существует в базе данных", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
+
+            //Валидация Страниц в книге
+            string NumberOfPages = txtNumberOfPages.Text;
+            if (NumberOfPages.Any(Char.IsUpper) || (NumberOfPages.Any(Char.IsLower) || (NumberOfPages.Any(Char.IsPunctuation) || (NumberOfPages.Any(Char.IsWhiteSpace)))))
+            {
+                MessageBox.Show("Поле Кол-во страниц в книге может содержать только ПОЛОЖИТЕЛЬНЫЕ цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            //Валидация года публикации
+            string YearOfPublishing = txtYearOfPublishing.Text;
+            if (YearOfPublishing.Any(Char.IsUpper) || (YearOfPublishing.Any(Char.IsLower) || (YearOfPublishing.Any(Char.IsPunctuation) || (YearOfPublishing.Any(Char.IsWhiteSpace)))))
+            {
+                MessageBox.Show("Поле Год публикации может содержать только ПОЛОЖИТЕЛЬНЫЕ цифры", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (Convert.ToInt32(YearOfPublishing) < 0)
+            {
+                MessageBox.Show("Поле Год публикации не может быть отрицательным значением", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+
+            if (true)
+            {
+
+            }
+
+
+            //Валидация Долга
+            if ((txtCost.Text.Length > 8) || (txtCost.Text.Length < 1))
                 {
                     MessageBox.Show("Недопустимое количество символов для поля Цена книги", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
