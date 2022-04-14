@@ -65,7 +65,7 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             txtPhoneClient.Text = editExtradition.Client.Phone;
             txtAddressClient.Text = editExtradition.Client.Address;
             txtLastNameEmployee.Text = editExtradition.Employee.LastName;
-            txtCostDebt.Text = Convert.ToString(editExtradition.ClientDebt);
+            txtCostDebt.Text = Convert.ToString(CalcDebt.Debt(Convert.ToDateTime(editExtradition.DateExtradition),Convert.ToDouble(editExtradition.Book.Cost)));
 
             isEdit = true;
         }
