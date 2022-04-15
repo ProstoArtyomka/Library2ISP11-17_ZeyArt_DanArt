@@ -185,6 +185,20 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
+            //Валидация почты
+            string Email = txtEmail.Text;
+            if (Email.Contains("@@"))
+            {
+                MessageBox.Show("Поле Почта должна содержать только одну собаку", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            if (!Email.Contains("@"))
+            {
+                MessageBox.Show("Поле почта не содержит собаку!", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
 
             if (isEdit)
             {

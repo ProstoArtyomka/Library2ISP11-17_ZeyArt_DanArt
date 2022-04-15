@@ -34,10 +34,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             cmbNameBook.DisplayMemberPath = "NameBook";
 
             cmbClient.ItemsSource = AppData.Context.Client.ToList();
-            cmbClient.DisplayMemberPath = "LastName";
+            cmbClient.DisplayMemberPath = "FIO";
 
             cmbEmployee.ItemsSource = AppData.Context.Employee.ToList();
-            cmbEmployee.DisplayMemberPath = "LastName";
+            cmbEmployee.DisplayMemberPath = "FIO";
 
             isEdit = false;
         }
@@ -69,16 +69,15 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             cmbNameBook.DisplayMemberPath = "NameBook";
 
             cmbClient.ItemsSource = AppData.Context.Client.ToList(); 
-            cmbClient.DisplayMemberPath = "LastName";
+            cmbClient.DisplayMemberPath = "FIO";
 
             cmbEmployee.ItemsSource = AppData.Context.Employee.ToList();
-            cmbEmployee.DisplayMemberPath = "LastName";
+            cmbEmployee.DisplayMemberPath = "FIO";
 
             txtDateExtradition.Text = Convert.ToString(editExtradition.DateExtradition);
             txtDateReturn.Text = Convert.ToString(editExtradition.DateReturn);
             cmbNameBook.SelectedIndex = editExtradition.IDBook - 1;
             cmbClient.SelectedIndex = editExtradition.IDClient - 1;
-            txtFirstNameClient.Text = editExtradition.Client.FirstName;
             txtPhoneClient.Text = editExtradition.Client.Phone;
             txtAddressClient.Text = editExtradition.Client.Address;
             cmbEmployee.SelectedIndex = editExtradition.IDEmployee - 1;
@@ -97,11 +96,11 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtDateReturn.Text))
-            {
-                MessageBox.Show("Поле Дата возврата не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (string.IsNullOrWhiteSpace(txtDateReturn.Text))
+            //{
+            //    MessageBox.Show("Поле Дата возврата не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //    return;
+            //}
 
             if (string.IsNullOrWhiteSpace(cmbNameBook.Text))
             {
@@ -112,12 +111,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             if (string.IsNullOrWhiteSpace(cmbClient.Text))
             {
                 MessageBox.Show("Поле Фамилия Клиента не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
-            if (string.IsNullOrWhiteSpace(txtFirstNameClient.Text))
-            {
-                MessageBox.Show("Поле Имя Клиента не должно быть пустым", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
@@ -152,13 +145,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                 MessageBox.Show("Недопустимое количество символов для поля Дата возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-
-            if (txtFirstNameClient.Text.Length > 50)
-            {
-                MessageBox.Show("Недопустимое количество символов для поля Имя Клиента", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-
             if (txtPhoneClient.Text.Length > 14)
             {
                 MessageBox.Show("Недопустимое количество символов для поля Телефон Клиента", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -238,18 +224,26 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
             }
 
             //Валидация Дат
-            if (txtDateReturn.Text.Length < txtDateExtradition.Text.Length)
-            {
-                MessageBox.Show("Дата возврата не может быть меньше даты выдачи", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
+            //if (txtDateReturn.Text != null)
+            //{
+            //    if (txtDateReturn.Text.Length < txtDateExtradition.Text.Length)
+            //    {
+            //        MessageBox.Show("Дата возврата не может быть меньше даты выдачи", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //        return;
+            //    }
 
-            if (txtDateExtradition.Text.Length > txtDateReturn.Text.Length)
-            {
-                MessageBox.Show("Дата выдачи не может быть больше даты возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
-                return;
-            }
-            //Валидация телефона
+            //    if (txtDateExtradition.Text.Length > txtDateReturn.Text.Length)
+            //    {
+            //        MessageBox.Show("Дата выдачи не может быть больше даты возврата", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+            //        return;
+            //    }
+            //    return;
+            //}
+            //else
+            //{
+            //    txtDateReturn.Text = Convert.ToString(DateTime.Now);
+            //}
+            ////Валидация телефона
             string Phone = txtPhoneClient.Text;
             if (Phone.Any(Char.IsUpper) || (Phone.Any(Char.IsLower) || (Phone.Any(Char.IsWhiteSpace))))
             {
@@ -266,7 +260,6 @@ namespace Library2ISP11_17_ZeyArt_DanArt.Windows
                     editExtradition.DateReturn = Convert.ToDateTime(txtDateReturn.Text);
                     editExtradition.IDBook = cmbNameBook.SelectedIndex + 1;
                     editExtradition.IDClient = cmbClient.SelectedIndex + 1;
-                    editExtradition.Client.FirstName = txtFirstNameClient.Text;
                     editExtradition.Client.Phone = txtPhoneClient.Text;
                     editExtradition.Client.Address = txtAddressClient.Text;
                     editExtradition.IDEmployee = cmbEmployee.SelectedIndex + 1;

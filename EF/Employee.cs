@@ -24,6 +24,9 @@ namespace Library2ISP11_17_ZeyArt_DanArt.EF
         public string LastName { get; set; }
         public string FirstName { get; set; }
         public string Patronymic { get; set; }
+
+        public string FIO { get => $"{ID} {LastName} {FirstName} {Patronymic}"; }
+
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Login { get; set; }

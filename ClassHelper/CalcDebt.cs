@@ -10,6 +10,10 @@ namespace Library2ISP11_17_ZeyArt_DanArt.ClassHelper
     {
         public static double Debt(DateTime dateStart, DateTime dateEnd, double price)
         {
+            if (dateEnd == null)
+            {
+                dateEnd = DateTime.Now;
+            }
             int dayCount = (dateEnd - dateStart).Days;
             double debt = (dayCount - 30) * 0.01 * price;
             if (debt > 0)
